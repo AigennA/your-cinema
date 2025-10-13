@@ -20,6 +20,7 @@ header {
   color: #fff;
   position: sticky;
   top: 0;
+   z-index: 100;
 }
 
 .logo img {
@@ -59,6 +60,7 @@ header {
   display: none;
   flex-direction: column;
   background: #ef3e42;
+  width: 100%;
 }
 
 #menu-toggle:checked ~ .mobile-nav {
@@ -194,6 +196,30 @@ footer {
   .social-icons {
     display: none;
   }
+.hero {
+  position: relative;
+  width: 100%;
+  height: auto; /* låter höjden anpassa sig efter bilden */
+}
+
+.hero img {
+  width: 100%;
+  height: auto; /* behåller proportionerna på mobilen */
+  object-fit: contain; /* ändrar från cover till contain, förhindrar att bilden kapas */
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 10px; /* från botten */
+  left: 10px;   /* från vänster */
+  right: 10px;  /* för att inte gå utanför bilden */
+  color: white;
+  background: rgba(0,0,0,0.5); /* semi-transparent bakgrund för text */
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.9rem; /* mobilvänlig textstorlek */
+}
 
   .mobile-menu {
     display: block;
@@ -251,13 +277,78 @@ footer {
   }
 }
 
-@media (min-width: 769px) {
+
+
+
+@media (max-width: 768px) {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 8px 12px;
+    background: #ef3e42;
+    z-index: 100;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    font-size: 1.7em;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    display: block;
+  }
+
+  .logo {
+    margin-left: auto;
+    margin-right: 12px;
+  }
+
+  .logo img {
+    height: 35px;
+    width: auto;
+  }
+
+  #menu-toggle {
+    display: none;
+  }
+
   .mobile-nav {
-    display: none !important;
+    display: none;
+    flex-direction: column;
+    background: #ef3e42;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+
+  #menu-toggle:checked ~ .mobile-nav {
+    display: flex;
+  }
+
+  .mobile-nav a {
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+  }
+
+  .desktop-nav,
+  .social-icons {
+    display: none;
   }
 }
+
 @media (max-width: 480px) {
   header {
+    
     flex-wrap: wrap;
     justify-content: space-between;
   }
@@ -266,6 +357,8 @@ footer {
     position: relative;
     top: 0;
     left: 0;
+    display: block;
+    order: 1;
   }
 
   .logo {
@@ -284,4 +377,17 @@ footer {
     width: 100%;
     margin-top: 5px;
   }
+  
+  .hero-text {
+    bottom: 3px;
+    left: 0;
+    right: 0;
+    font-size: 0.4rem;
+    padding: 2px;
+  }
+  .hero-button{
+    font-size: 0.8rem;
+  }
 }
+
+
