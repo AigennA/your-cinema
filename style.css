@@ -211,24 +211,42 @@ header {
   overflow: hidden;
 }
 
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.4) 40%,
+    rgba(0, 0, 0, 0.1) 70%,
+    transparent 100%
+  );
+  z-index: 1;
+}
+
 .hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
 }
 
 .hero-text {
   position: absolute;
   bottom: 60px;
   left: 60px;
-  max-width: 550px;
+  max-width: 480px;
   color: var(--color-white);
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.7));
-  padding: 28px 36px;
-  border-radius: var(--radius-xl);
-  backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-xl);
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  backdrop-filter: none;
+  box-shadow: none;
+  z-index: 2;
 }
 
 .hero-badge {
@@ -244,16 +262,18 @@ header {
 }
 
 .hero-text h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 700;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   line-height: 1.2;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-rating {
   color: var(--color-gold);
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-bottom: 12px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-rating i {
@@ -261,10 +281,11 @@ header {
 }
 
 .hero-description {
-  font-size: 0.95rem;
-  opacity: 0.9;
-  margin-bottom: 12px;
-  line-height: 1.5;
+  font-size: 1rem;
+  opacity: 0.95;
+  margin-bottom: 16px;
+  line-height: 1.6;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-meta {
@@ -1302,16 +1323,24 @@ footer {
     min-height: 400px;
   }
 
+  .hero::before {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0.4) 50%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+  }
+
   .hero-text {
     bottom: 24px;
     left: 16px;
     right: 16px;
     max-width: none;
-    padding: 20px 24px;
   }
 
   .hero-text h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   .hero-description {
@@ -1449,10 +1478,9 @@ footer {
   }
 
   .hero-text {
-    bottom: 16px;
+    bottom: 20px;
     left: 12px;
     right: 12px;
-    padding: 16px 20px;
   }
 
   .hero-badge {
@@ -1461,11 +1489,11 @@ footer {
   }
 
   .hero-text h1 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .hero-rating {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .hero-description {
@@ -1473,8 +1501,8 @@ footer {
   }
 
   .hero-meta {
-    font-size: 0.8rem;
-    gap: 10px;
+    font-size: 0.75rem;
+    gap: 8px;
   }
 
   .hero-button {
