@@ -23,18 +23,18 @@
     </label>
 
     <div class="logo">
-      <a href="index.html">
+      <a href="#hero">
         <img src="images/logo.png" alt="Your Cinema logotyp">
       </a>
     </div>
 
     <nav class="desktop-nav" aria-label="Huvudnavigering">
-      <a href="#">Nu på bio</a>
-      <a href="#">Kommer snart</a>
-      <a href="#">Nyhetsbrev</a>
-      <a href="#">Presentkort</a>
-      <a href="#">Om oss</a>
-      <a href="#">Mer</a>
+      <a href="#now-showing">Nu på bio</a>
+      <a href="#coming-soon">Kommer snart</a>
+      <a href="#newsletter">Nyhetsbrev</a>
+      <a href="#giftcards">Presentkort</a>
+      <a href="#about">Om oss</a>
+      <a href="#specials">Erbjudanden</a>
     </nav>
 
     <div class="social-icons" aria-label="Sociala medier">
@@ -50,115 +50,547 @@
     </div>
 
     <nav class="mobile-nav" aria-label="Mobilnavigering">
-      <a href="#">Nu på bio</a>
-      <a href="#">Kommer snart</a>
-      <a href="#">Nyhetsbrev</a>
-      <a href="#">Presentkort</a>
-      <a href="#">Om oss</a>
-      <a href="#">Mer</a>
+      <a href="#now-showing">Nu på bio</a>
+      <a href="#coming-soon">Kommer snart</a>
+      <a href="#newsletter">Nyhetsbrev</a>
+      <a href="#giftcards">Presentkort</a>
+      <a href="#about">Om oss</a>
+      <a href="#specials">Erbjudanden</a>
     </nav>
   </header>
 
   <!-- HERO SECTION -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <img src="images/once-upon-a-time.png" alt="Filmaffisch för Once Upon a Time in Hollywood">
     <div class="hero-text">
+      <span class="hero-badge">Biopremiär</span>
       <h1>Once Upon a Time in Hollywood</h1>
-      <p class="hero-rating">★★★★ "Thrillingly unrestrained, yet solidly crafted..."</p>
-      <button class="hero-button" type="button">Tider & Biljetter</button>
-    </div>
-  </section>
-
-  <!-- FILTER BAR -->
-  <section class="filter-bar">
-    <div class="buttons">
-      <button type="button"><i class="fa-regular fa-calendar-days"></i> Per dag</button>
-      <button type="button"><i class="fa-solid fa-film"></i> Per film</button>
-      <button type="button"><i class="fa-solid fa-print"></i> Skriv ut</button>
-      <select aria-label="Sortera filmer">
-        <option>Nyast först</option>
-        <option>Äldst först</option>
-        <option>A-Ö</option>
-      </select>
-    </div>
-    <div class="calendar-icon">
-      <button type="button" aria-label="Öppna kalender">
-        <i class="fa-regular fa-calendar"></i>
+      <p class="hero-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 8.5/10</p>
+      <p class="hero-description">Quentin Tarantinos hyllade film om Hollywood 1969. En avtackande TV-stjärna och hans stuntdubblare navigerar en föränderlig filmindustri.</p>
+      <div class="hero-meta">
+        <span><i class="fas fa-clock"></i> 2h 41min</span>
+        <span><i class="fas fa-film"></i> Drama, Komedi</span>
+        <span><i class="fas fa-user"></i> 15+</span>
+      </div>
+      <button class="hero-button" type="button" onclick="document.getElementById('now-showing').scrollIntoView({behavior: 'smooth'})">
+        <i class="fas fa-ticket-alt"></i> Boka biljetter
       </button>
     </div>
   </section>
 
-  <!-- MAIN CONTENT -->
-  <main class="content">
-    <p class="no-sessions">Inga visningstider tillgängliga</p>
+  <!-- CATEGORIES -->
+  <section class="categories" id="categories">
+    <div class="category-list">
+      <button class="category-btn active" data-category="all"><i class="fas fa-film"></i> Alla</button>
+      <button class="category-btn" data-category="action"><i class="fas fa-explosion"></i> Action</button>
+      <button class="category-btn" data-category="drama"><i class="fas fa-theater-masks"></i> Drama</button>
+      <button class="category-btn" data-category="comedy"><i class="fas fa-laugh"></i> Komedi</button>
+      <button class="category-btn" data-category="horror"><i class="fas fa-ghost"></i> Skräck</button>
+      <button class="category-btn" data-category="family"><i class="fas fa-child"></i> Familj</button>
+      <button class="category-btn" data-category="scifi"><i class="fas fa-rocket"></i> Sci-Fi</button>
+    </div>
+  </section>
 
-    <div class="cards">
-      <article class="card">
-        <img src="images/once-upon-a-time.png" alt="Once Upon a Time in Hollywood - Specialserie">
-        <div class="card-text">
-          <h2>Specialserie</h2>
-          <p>Utforska vår kuraterade samling av klassiska och moderna mästerverk.</p>
-          <button type="button">Se hela programmet</button>
+  <!-- NOW SHOWING -->
+  <section class="now-showing" id="now-showing">
+    <div class="section-header">
+      <h2><i class="fas fa-play-circle"></i> Nu på bio</h2>
+      <p>Boka dina biljetter till veckans filmer</p>
+    </div>
+
+    <div class="movies-grid">
+      <!-- Movie 1 -->
+      <article class="movie-card" data-category="drama">
+        <div class="movie-poster">
+          <img src="images/once-upon-a-time.png" alt="Once Upon a Time in Hollywood">
+          <div class="movie-overlay">
+            <span class="age-rating">15+</span>
+            <button class="play-trailer"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+        <div class="movie-info">
+          <h3>Once Upon a Time in Hollywood</h3>
+          <p class="movie-genre"><i class="fas fa-film"></i> Drama, Komedi</p>
+          <p class="movie-duration"><i class="fas fa-clock"></i> 2h 41min</p>
+          <div class="movie-rating">
+            <i class="fas fa-star"></i> 8.5/10
+          </div>
+          <div class="showtimes">
+            <p class="showtime-label">Idag:</p>
+            <div class="time-slots">
+              <button class="time-slot">14:30</button>
+              <button class="time-slot">17:45</button>
+              <button class="time-slot popular">20:00</button>
+              <button class="time-slot">22:30</button>
+            </div>
+          </div>
+          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
         </div>
       </article>
 
-      <article class="card">
-        <img src="images/pexels-photo-903454.jpeg" alt="Popcorn och biodryck - Specialerbjudande">
-        <div class="card-text">
-          <h2>Specialerbjudande</h2>
-          <p>Missa inte våra fantastiska erbjudanden på biljetter och snacks.</p>
-          <button type="button">Läs mer</button>
+      <!-- Movie 2 -->
+      <article class="movie-card" data-category="action">
+        <div class="movie-poster">
+          <img src="images/tenet.jpg" alt="Tenet">
+          <div class="movie-overlay">
+            <span class="age-rating">15+</span>
+            <button class="play-trailer"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+        <div class="movie-info">
+          <h3>Tenet</h3>
+          <p class="movie-genre"><i class="fas fa-film"></i> Action, Sci-Fi</p>
+          <p class="movie-duration"><i class="fas fa-clock"></i> 2h 30min</p>
+          <div class="movie-rating">
+            <i class="fas fa-star"></i> 7.8/10
+          </div>
+          <div class="showtimes">
+            <p class="showtime-label">Idag:</p>
+            <div class="time-slots">
+              <button class="time-slot">15:00</button>
+              <button class="time-slot popular">18:00</button>
+              <button class="time-slot">21:00</button>
+            </div>
+          </div>
+          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
         </div>
       </article>
 
-      <article class="card">
-        <img src="images/ladybird.png" alt="Lady Bird filmaffisch - Kultklassiker">
-        <div class="card-text">
-          <h2>Kultklassiker</h2>
-          <p>Återupplev tidlösa filmer på den stora duken.</p>
-          <button type="button">Se programmet</button>
+      <!-- Movie 3 -->
+      <article class="movie-card" data-category="action">
+        <div class="movie-poster">
+          <img src="images/wonderwoman.png" alt="Wonder Woman 1984">
+          <div class="movie-overlay">
+            <span class="age-rating">11+</span>
+            <button class="play-trailer"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+        <div class="movie-info">
+          <h3>Wonder Woman 1984</h3>
+          <p class="movie-genre"><i class="fas fa-film"></i> Action, Fantasy</p>
+          <p class="movie-duration"><i class="fas fa-clock"></i> 2h 31min</p>
+          <div class="movie-rating">
+            <i class="fas fa-star"></i> 5.4/10
+          </div>
+          <div class="showtimes">
+            <p class="showtime-label">Idag:</p>
+            <div class="time-slots">
+              <button class="time-slot">13:00</button>
+              <button class="time-slot">16:30</button>
+              <button class="time-slot popular">19:30</button>
+            </div>
+          </div>
+          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
+        </div>
+      </article>
+
+      <!-- Movie 4 -->
+      <article class="movie-card" data-category="drama">
+        <div class="movie-poster">
+          <img src="images/judy.png" alt="Judy">
+          <div class="movie-overlay">
+            <span class="age-rating">11+</span>
+            <button class="play-trailer"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+        <div class="movie-info">
+          <h3>Judy</h3>
+          <p class="movie-genre"><i class="fas fa-film"></i> Biografi, Drama</p>
+          <p class="movie-duration"><i class="fas fa-clock"></i> 1h 58min</p>
+          <div class="movie-rating">
+            <i class="fas fa-star"></i> 6.8/10
+          </div>
+          <div class="showtimes">
+            <p class="showtime-label">Idag:</p>
+            <div class="time-slots">
+              <button class="time-slot">14:00</button>
+              <button class="time-slot popular">17:00</button>
+              <button class="time-slot">20:30</button>
+            </div>
+          </div>
+          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
+        </div>
+      </article>
+
+      <!-- Movie 5 -->
+      <article class="movie-card" data-category="drama">
+        <div class="movie-poster">
+          <img src="images/ladybird.png" alt="Lady Bird">
+          <div class="movie-overlay">
+            <span class="age-rating">11+</span>
+            <button class="play-trailer"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+        <div class="movie-info">
+          <h3>Lady Bird</h3>
+          <p class="movie-genre"><i class="fas fa-film"></i> Drama, Komedi</p>
+          <p class="movie-duration"><i class="fas fa-clock"></i> 1h 34min</p>
+          <div class="movie-rating">
+            <i class="fas fa-star"></i> 7.4/10
+          </div>
+          <div class="showtimes">
+            <p class="showtime-label">Idag:</p>
+            <div class="time-slots">
+              <button class="time-slot">15:30</button>
+              <button class="time-slot popular">18:30</button>
+              <button class="time-slot">21:15</button>
+            </div>
+          </div>
+          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
+        </div>
+      </article>
+
+      <!-- Movie 6 -->
+      <article class="movie-card" data-category="comedy">
+        <div class="movie-poster">
+          <img src="images/pexels-photo-903454.jpeg" alt="The Grand Budapest Hotel">
+          <div class="movie-overlay">
+            <span class="age-rating">11+</span>
+            <button class="play-trailer"><i class="fas fa-play"></i></button>
+          </div>
+        </div>
+        <div class="movie-info">
+          <h3>The Grand Budapest Hotel</h3>
+          <p class="movie-genre"><i class="fas fa-film"></i> Komedi, Drama</p>
+          <p class="movie-duration"><i class="fas fa-clock"></i> 1h 39min</p>
+          <div class="movie-rating">
+            <i class="fas fa-star"></i> 8.1/10
+          </div>
+          <div class="showtimes">
+            <p class="showtime-label">Idag:</p>
+            <div class="time-slots">
+              <button class="time-slot">14:15</button>
+              <button class="time-slot">17:30</button>
+              <button class="time-slot popular">20:45</button>
+            </div>
+          </div>
+          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
         </div>
       </article>
     </div>
-  </main>
+  </section>
+
+  <!-- COMING SOON -->
+  <section class="coming-soon" id="coming-soon">
+    <div class="section-header">
+      <h2><i class="fas fa-calendar-alt"></i> Kommer snart</h2>
+      <p>Kommande biopremiärer - boka redan idag!</p>
+    </div>
+
+    <div class="coming-grid">
+      <article class="coming-card">
+        <div class="coming-poster">
+          <img src="images/once-upon-a-time.png" alt="Dune: Part Two">
+          <div class="coming-date">
+            <span class="day">15</span>
+            <span class="month">MAR</span>
+          </div>
+        </div>
+        <div class="coming-info">
+          <h3>Dune: Part Two</h3>
+          <p class="coming-genre">Sci-Fi, Äventyr</p>
+          <p class="coming-description">Paul Atreides förenar sig med Chani och Fremen medan han söker hämnd mot de som förstörde hans familj.</p>
+          <button class="notify-btn"><i class="fas fa-bell"></i> Påminn mig</button>
+        </div>
+      </article>
+
+      <article class="coming-card">
+        <div class="coming-poster">
+          <img src="images/tenet.jpg" alt="Oppenheimer">
+          <div class="coming-date">
+            <span class="day">22</span>
+            <span class="month">MAR</span>
+          </div>
+        </div>
+        <div class="coming-info">
+          <h3>Oppenheimer</h3>
+          <p class="coming-genre">Drama, Historisk</p>
+          <p class="coming-description">Berättelsen om J. Robert Oppenheimer och hans roll i utvecklingen av atombomben.</p>
+          <button class="notify-btn"><i class="fas fa-bell"></i> Påminn mig</button>
+        </div>
+      </article>
+
+      <article class="coming-card">
+        <div class="coming-poster">
+          <img src="images/wonderwoman.png" alt="Aquaman 2">
+          <div class="coming-date">
+            <span class="day">05</span>
+            <span class="month">APR</span>
+          </div>
+        </div>
+        <div class="coming-info">
+          <h3>Aquaman and the Lost Kingdom</h3>
+          <p class="coming-genre">Action, Fantasy</p>
+          <p class="coming-description">Arthur Curry måste smida en obekväm allians för att skydda Atlantis från en uråldrig kraft.</p>
+          <button class="notify-btn"><i class="fas fa-bell"></i> Påminn mig</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SPECIALS / OFFERS -->
+  <section class="specials" id="specials">
+    <div class="section-header">
+      <h2><i class="fas fa-tags"></i> Erbjudanden</h2>
+      <p>Spara pengar med våra specialerbjudanden</p>
+    </div>
+
+    <div class="specials-grid">
+      <article class="special-card">
+        <div class="special-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3>Familjesöndag</h3>
+        <p class="special-price">149 kr/person</p>
+        <p>Varje söndag - biljett + popcorn + läsk för hela familjen till reducerat pris.</p>
+        <button class="special-btn">Läs mer</button>
+      </article>
+
+      <article class="special-card featured">
+        <div class="special-badge">Populär</div>
+        <div class="special-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <h3>VIP-upplevelse</h3>
+        <p class="special-price">299 kr/person</p>
+        <p>Premiumbiljett med loungetillgång, gratis popcorn, läsk och de bästa platserna i salongen.</p>
+        <button class="special-btn">Boka VIP</button>
+      </article>
+
+      <article class="special-card">
+        <div class="special-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h3>Studentrabatt</h3>
+        <p class="special-price">99 kr/biljett</p>
+        <p>Visa ditt studentkort och få rabatterade biljetter alla vardagar före kl. 17:00.</p>
+        <button class="special-btn">Visa villkor</button>
+      </article>
+
+      <article class="special-card">
+        <div class="special-icon">
+          <i class="fas fa-heart"></i>
+        </div>
+        <h3>Date Night</h3>
+        <p class="special-price">349 kr/2 pers</p>
+        <p>Varje fredag - två biljetter, popcorn att dela och två drycker. Perfekt för en romantisk kväll.</p>
+        <button class="special-btn">Boka nu</button>
+      </article>
+    </div>
+  </section>
+
+  <!-- GIFT CARDS -->
+  <section class="giftcards" id="giftcards">
+    <div class="giftcard-content">
+      <div class="giftcard-text">
+        <h2><i class="fas fa-gift"></i> Presentkort</h2>
+        <p>Ge bort en bioupplevelse! Våra presentkort är den perfekta gåvan för filmälskare. Välj valfritt belopp från 200 kr till 1000 kr.</p>
+        <ul class="giftcard-features">
+          <li><i class="fas fa-check"></i> Giltigt i 2 år</li>
+          <li><i class="fas fa-check"></i> Kan användas för biljetter och snacks</li>
+          <li><i class="fas fa-check"></i> Digitalt eller fysiskt kort</li>
+          <li><i class="fas fa-check"></i> Personligt meddelande</li>
+        </ul>
+        <div class="giftcard-amounts">
+          <button class="amount-btn">200 kr</button>
+          <button class="amount-btn">300 kr</button>
+          <button class="amount-btn active">500 kr</button>
+          <button class="amount-btn">1000 kr</button>
+        </div>
+        <button class="giftcard-buy"><i class="fas fa-shopping-cart"></i> Köp presentkort</button>
+      </div>
+      <div class="giftcard-image">
+        <div class="giftcard-preview">
+          <div class="giftcard-front">
+            <img src="images/logo.png" alt="Your Cinema">
+            <p class="giftcard-value">500 kr</p>
+            <p class="giftcard-label">PRESENTKORT</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter" id="newsletter">
+    <div class="newsletter-content">
+      <h2><i class="fas fa-envelope"></i> Nyhetsbrev</h2>
+      <p>Prenumerera på vårt nyhetsbrev och få exklusiva erbjudanden, förhandsvisningar och filmtips direkt i din inkorg.</p>
+      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Tack för din prenumeration!');">
+        <div class="form-group">
+          <input type="email" placeholder="Din e-postadress" required aria-label="E-postadress">
+          <button type="submit"><i class="fas fa-paper-plane"></i> Prenumerera</button>
+        </div>
+        <label class="checkbox-label">
+          <input type="checkbox" required>
+          <span>Jag godkänner att ta emot nyhetsbrev och erbjudanden från Your Cinema</span>
+        </label>
+      </form>
+      <div class="newsletter-perks">
+        <div class="perk">
+          <i class="fas fa-percent"></i>
+          <span>Exklusiva rabatter</span>
+        </div>
+        <div class="perk">
+          <i class="fas fa-eye"></i>
+          <span>Förhandsvisningar</span>
+        </div>
+        <div class="perk">
+          <i class="fas fa-trophy"></i>
+          <span>Tävlingar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="section-header">
+      <h2><i class="fas fa-info-circle"></i> Om oss</h2>
+      <p>Din lokala biograf sedan 1985</p>
+    </div>
+
+    <div class="about-content">
+      <div class="about-text">
+        <p>Your Cinema har varit en del av Stockholms kulturliv i över 35 år. Vi brinner för film och strävar efter att ge dig den bästa bioupplevelsen möjligt.</p>
+        <p>Med sex moderna salonger, Dolby Atmos-ljud och bekväma fåtöljer erbjuder vi allt från de senaste blockbusters till klassiska kultfilmer och independentproduktioner.</p>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-number">6</span>
+            <span class="stat-label">Salonger</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">850</span>
+            <span class="stat-label">Platser</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">35+</span>
+            <span class="stat-label">År av film</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">4K</span>
+            <span class="stat-label">Laser projektion</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-features">
+        <div class="feature">
+          <i class="fas fa-couch"></i>
+          <h4>Lyxiga fåtöljer</h4>
+          <p>Ergonomiska fåtöljer med extra benutrymme</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-volume-up"></i>
+          <h4>Dolby Atmos</h4>
+          <p>Omslutande ljudupplevelse i alla salonger</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-utensils"></i>
+          <h4>Premium snacks</h4>
+          <p>Färskt popcorn, nachos och gourmetgodis</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-wheelchair"></i>
+          <h4>Tillgänglighet</h4>
+          <p>Anpassat för alla besökare</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-content">
-      <div class="footer-links">
-        <a href="#">Om oss</a>
-        <a href="#">Specialserier</a>
-        <a href="#">Villkor</a>
-        <a href="#">Nyhetsbrev</a>
-        <a href="#">Presentkort</a>
-        <a href="#">Cookies</a>
-        <a href="#">Godisbar</a>
+      <div class="footer-section">
+        <h4>Snabblänkar</h4>
+        <nav class="footer-nav">
+          <a href="#now-showing">Nu på bio</a>
+          <a href="#coming-soon">Kommer snart</a>
+          <a href="#specials">Erbjudanden</a>
+          <a href="#giftcards">Presentkort</a>
+        </nav>
       </div>
 
-      <div class="footer-contact">
-        <p><i class="fas fa-map-marker-alt"></i> Filmgatan 123, Stockholm, Sverige</p>
-        <p><i class="fas fa-phone"></i> 08-123 456 78</p>
-        <p><i class="fas fa-envelope"></i> info@yourcinema.se</p>
+      <div class="footer-section">
+        <h4>Information</h4>
+        <nav class="footer-nav">
+          <a href="#about">Om oss</a>
+          <a href="#">Jobba hos oss</a>
+          <a href="#">Villkor</a>
+          <a href="#">Integritetspolicy</a>
+        </nav>
       </div>
 
-      <div class="footer-social">
-        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
+      <div class="footer-section">
+        <h4>Kontakt</h4>
+        <div class="footer-contact">
+          <p><i class="fas fa-map-marker-alt"></i> Filmgatan 123, Stockholm</p>
+          <p><i class="fas fa-phone"></i> 08-123 456 78</p>
+          <p><i class="fas fa-envelope"></i> info@yourcinema.se</p>
+          <p><i class="fas fa-clock"></i> Öppet: 10:00 - 00:00</p>
+        </div>
       </div>
 
-      <p class="copyright">&copy; 2024 Your Cinema. Alla rättigheter förbehållna.</p>
+      <div class="footer-section">
+        <h4>Följ oss</h4>
+        <div class="footer-social">
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+        <div class="app-buttons">
+          <button class="app-btn"><i class="fab fa-apple"></i> App Store</button>
+          <button class="app-btn"><i class="fab fa-google-play"></i> Google Play</button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Your Cinema. Alla rättigheter förbehållna.</p>
+        <div class="payment-methods">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-amex"></i>
+          <i class="fab fa-cc-paypal"></i>
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+      </div>
     </div>
   </footer>
+
+  <script>
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('menu-toggle').checked = false;
+      });
+    });
+
+    // Category filter functionality
+    document.querySelectorAll('.category-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const category = btn.dataset.category;
+        document.querySelectorAll('.movie-card').forEach(card => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
