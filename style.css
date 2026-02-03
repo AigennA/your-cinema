@@ -220,9 +220,8 @@ header {
   bottom: 0;
   background: linear-gradient(
     to right,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.4) 40%,
-    rgba(0, 0, 0, 0.1) 70%,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
     transparent 100%
   );
   z-index: 1;
@@ -239,13 +238,13 @@ header {
   position: absolute;
   bottom: 60px;
   left: 60px;
-  max-width: 480px;
+  max-width: 500px;
   color: var(--color-white);
-  background: transparent;
-  padding: 0;
-  border-radius: 0;
-  backdrop-filter: none;
-  box-shadow: none;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 28px 32px;
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow-lg);
   z-index: 2;
 }
 
@@ -1337,6 +1336,7 @@ footer {
     left: 16px;
     right: 16px;
     max-width: none;
+    padding: 20px 24px;
   }
 
   .hero-text h1 {
@@ -1478,9 +1478,10 @@ footer {
   }
 
   .hero-text {
-    bottom: 20px;
+    bottom: 16px;
     left: 12px;
     right: 12px;
+    padding: 16px 20px;
   }
 
   .hero-badge {
@@ -1489,7 +1490,7 @@ footer {
   }
 
   .hero-text h1 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
 
   .hero-rating {
