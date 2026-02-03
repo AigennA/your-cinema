@@ -34,7 +34,7 @@
       <a href="#newsletter">Nyhetsbrev</a>
       <a href="#giftcards">Presentkort</a>
       <a href="#about">Om oss</a>
-      <a href="#specials">Erbjudanden</a>
+      <button class="recommend-btn" id="openRecommendBtn"><i class="fas fa-magic"></i> Vad ska jag se?</button>
     </nav>
 
     <div class="social-icons" aria-label="Sociala medier">
@@ -55,7 +55,7 @@
       <a href="#newsletter">Nyhetsbrev</a>
       <a href="#giftcards">Presentkort</a>
       <a href="#about">Om oss</a>
-      <a href="#specials">Erbjudanden</a>
+      <a href="#" id="openRecommendMobile" class="recommend-mobile-link"><i class="fas fa-magic"></i> Vad ska jag se?</a>
     </nav>
   </header>
 
@@ -865,6 +865,165 @@
     </div>
   </div>
 
+  <!-- RECOMMENDATION MODAL -->
+  <div class="modal-overlay" id="recommendModal">
+    <div class="modal recommend-modal">
+      <button class="modal-close" id="closeRecommendModal"><i class="fas fa-times"></i></button>
+
+      <!-- Step 1: Mood -->
+      <div class="recommend-step" id="recStep1">
+        <div class="recommend-header">
+          <div class="recommend-icon"><i class="fas fa-magic"></i></div>
+          <h2>Filmassistenten</h2>
+          <p>Låt oss hitta den perfekta filmen för dig!</p>
+        </div>
+        <div class="recommend-question">
+          <h3>Hur känner du dig just nu?</h3>
+          <div class="recommend-options mood-options">
+            <button class="recommend-option" data-value="happy">
+              <span class="option-emoji">😊</span>
+              <span class="option-text">Glad</span>
+            </button>
+            <button class="recommend-option" data-value="sad">
+              <span class="option-emoji">😢</span>
+              <span class="option-text">Känslosam</span>
+            </button>
+            <button class="recommend-option" data-value="excited">
+              <span class="option-emoji">🤩</span>
+              <span class="option-text">Spännande</span>
+            </button>
+            <button class="recommend-option" data-value="relaxed">
+              <span class="option-emoji">😌</span>
+              <span class="option-text">Avslappnad</span>
+            </button>
+            <button class="recommend-option" data-value="scared">
+              <span class="option-emoji">😱</span>
+              <span class="option-text">Vill bli rädd</span>
+            </button>
+            <button class="recommend-option" data-value="thoughtful">
+              <span class="option-emoji">🤔</span>
+              <span class="option-text">Eftertänksam</span>
+            </button>
+          </div>
+        </div>
+        <div class="recommend-progress">
+          <div class="progress-bar"><div class="progress-fill" style="width: 25%"></div></div>
+          <span>1 / 4</span>
+        </div>
+      </div>
+
+      <!-- Step 2: Company -->
+      <div class="recommend-step hidden" id="recStep2">
+        <div class="recommend-header">
+          <div class="recommend-icon"><i class="fas fa-users"></i></div>
+          <h2>Vem ska du titta med?</h2>
+        </div>
+        <div class="recommend-question">
+          <div class="recommend-options">
+            <button class="recommend-option" data-value="alone">
+              <span class="option-emoji">👤</span>
+              <span class="option-text">Ensam</span>
+            </button>
+            <button class="recommend-option" data-value="date">
+              <span class="option-emoji">💑</span>
+              <span class="option-text">Med dejt</span>
+            </button>
+            <button class="recommend-option" data-value="family">
+              <span class="option-emoji">👨‍👩‍👧</span>
+              <span class="option-text">Med familjen</span>
+            </button>
+            <button class="recommend-option" data-value="friends">
+              <span class="option-emoji">👥</span>
+              <span class="option-text">Med vänner</span>
+            </button>
+          </div>
+        </div>
+        <div class="recommend-nav">
+          <button class="rec-back-btn" data-step="1"><i class="fas fa-arrow-left"></i> Tillbaka</button>
+        </div>
+        <div class="recommend-progress">
+          <div class="progress-bar"><div class="progress-fill" style="width: 50%"></div></div>
+          <span>2 / 4</span>
+        </div>
+      </div>
+
+      <!-- Step 3: Age Group -->
+      <div class="recommend-step hidden" id="recStep3">
+        <div class="recommend-header">
+          <div class="recommend-icon"><i class="fas fa-birthday-cake"></i></div>
+          <h2>Vilken åldersgrupp?</h2>
+        </div>
+        <div class="recommend-question">
+          <div class="recommend-options">
+            <button class="recommend-option" data-value="child">
+              <span class="option-emoji">🧒</span>
+              <span class="option-text">Barn (7-12)</span>
+            </button>
+            <button class="recommend-option" data-value="teen">
+              <span class="option-emoji">🧑</span>
+              <span class="option-text">Tonåring (13-17)</span>
+            </button>
+            <button class="recommend-option" data-value="adult">
+              <span class="option-emoji">👨</span>
+              <span class="option-text">Vuxen (18+)</span>
+            </button>
+          </div>
+        </div>
+        <div class="recommend-nav">
+          <button class="rec-back-btn" data-step="2"><i class="fas fa-arrow-left"></i> Tillbaka</button>
+        </div>
+        <div class="recommend-progress">
+          <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+          <span>3 / 4</span>
+        </div>
+      </div>
+
+      <!-- Step 4: Duration -->
+      <div class="recommend-step hidden" id="recStep4">
+        <div class="recommend-header">
+          <div class="recommend-icon"><i class="fas fa-clock"></i></div>
+          <h2>Hur mycket tid har du?</h2>
+        </div>
+        <div class="recommend-question">
+          <div class="recommend-options">
+            <button class="recommend-option" data-value="short">
+              <span class="option-emoji">⚡</span>
+              <span class="option-text">Kort (&lt;1.5 tim)</span>
+            </button>
+            <button class="recommend-option" data-value="medium">
+              <span class="option-emoji">🎬</span>
+              <span class="option-text">Normal (1.5-2 tim)</span>
+            </button>
+            <button class="recommend-option" data-value="long">
+              <span class="option-emoji">🎭</span>
+              <span class="option-text">Lång (2+ tim)</span>
+            </button>
+          </div>
+        </div>
+        <div class="recommend-nav">
+          <button class="rec-back-btn" data-step="3"><i class="fas fa-arrow-left"></i> Tillbaka</button>
+        </div>
+        <div class="recommend-progress">
+          <div class="progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+          <span>4 / 4</span>
+        </div>
+      </div>
+
+      <!-- Step 5: Results -->
+      <div class="recommend-step hidden" id="recStep5">
+        <div class="recommend-header">
+          <div class="recommend-icon success"><i class="fas fa-film"></i></div>
+          <h2>Våra rekommendationer!</h2>
+          <p id="recommendationReason"></p>
+        </div>
+        <div class="recommend-results" id="recommendResults">
+          <!-- Results will be inserted here -->
+        </div>
+        <button class="rec-restart-btn" id="restartRecommend"><i class="fas fa-redo"></i> Börja om</button>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Close mobile menu when clicking a link
     document.querySelectorAll('.mobile-nav a').forEach(link => {
@@ -1115,6 +1274,301 @@
         value = value.slice(0, 2) + '/' + value.slice(2);
       }
       e.target.value = value;
+    });
+
+    // ==========================================
+    // MOVIE RECOMMENDATION SYSTEM
+    // ==========================================
+
+    const recommendModal = document.getElementById('recommendModal');
+    let userPreferences = {
+      mood: '',
+      company: '',
+      age: '',
+      duration: ''
+    };
+
+    // Movie database with attributes
+    const moviesDB = [
+      {
+        title: 'Once Upon a Time in Hollywood',
+        image: 'images/once-upon-a-time.png',
+        genre: 'Drama, Komedi',
+        duration: '2h 41min',
+        rating: '8.5',
+        moods: ['relaxed', 'thoughtful', 'happy'],
+        company: ['alone', 'date', 'friends'],
+        age: ['adult'],
+        length: 'long'
+      },
+      {
+        title: 'Tenet',
+        image: 'images/tenet.jpg',
+        genre: 'Action, Sci-Fi',
+        duration: '2h 30min',
+        rating: '7.8',
+        moods: ['excited', 'thoughtful'],
+        company: ['alone', 'friends'],
+        age: ['teen', 'adult'],
+        length: 'long'
+      },
+      {
+        title: 'Wonder Woman 1984',
+        image: 'images/wonderwoman.png',
+        genre: 'Action, Fantasy',
+        duration: '2h 31min',
+        rating: '5.4',
+        moods: ['excited', 'happy'],
+        company: ['family', 'date', 'friends'],
+        age: ['teen', 'adult'],
+        length: 'long'
+      },
+      {
+        title: 'Judy',
+        image: 'images/judy.png',
+        genre: 'Biografi, Drama',
+        duration: '1h 58min',
+        rating: '6.8',
+        moods: ['sad', 'thoughtful'],
+        company: ['alone', 'date'],
+        age: ['adult'],
+        length: 'medium'
+      },
+      {
+        title: 'Lady Bird',
+        image: 'images/ladybird.png',
+        genre: 'Drama, Komedi',
+        duration: '1h 34min',
+        rating: '7.4',
+        moods: ['happy', 'sad', 'thoughtful'],
+        company: ['alone', 'date', 'friends'],
+        age: ['teen', 'adult'],
+        length: 'short'
+      },
+      {
+        title: 'The Grand Budapest Hotel',
+        image: 'images/pexels-photo-903454.jpeg',
+        genre: 'Komedi, Drama',
+        duration: '1h 39min',
+        rating: '8.1',
+        moods: ['happy', 'relaxed'],
+        company: ['alone', 'date', 'friends'],
+        age: ['teen', 'adult'],
+        length: 'short'
+      },
+      {
+        title: 'The Haunting',
+        image: 'https://images.unsplash.com/photo-1509248961895-b886fdb83c3e?w=400&h=300&fit=crop',
+        genre: 'Skräck, Thriller',
+        duration: '1h 52min',
+        rating: '7.2',
+        moods: ['scared', 'excited'],
+        company: ['alone', 'date', 'friends'],
+        age: ['adult'],
+        length: 'medium'
+      },
+      {
+        title: 'Nightmare Realm',
+        image: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=300&fit=crop',
+        genre: 'Skräck, Mystery',
+        duration: '1h 45min',
+        rating: '6.9',
+        moods: ['scared', 'excited'],
+        company: ['alone', 'friends'],
+        age: ['adult'],
+        length: 'medium'
+      },
+      {
+        title: 'The Magic Adventure',
+        image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400&h=300&fit=crop',
+        genre: 'Familj, Animerad',
+        duration: '1h 35min',
+        rating: '7.8',
+        moods: ['happy', 'relaxed', 'excited'],
+        company: ['family'],
+        age: ['child', 'teen'],
+        length: 'short'
+      },
+      {
+        title: 'Paws & Friends',
+        image: 'https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=400&h=300&fit=crop',
+        genre: 'Familj, Komedi',
+        duration: '1h 28min',
+        rating: '7.1',
+        moods: ['happy', 'relaxed'],
+        company: ['family'],
+        age: ['child', 'teen'],
+        length: 'short'
+      },
+      {
+        title: 'Galaxy Frontier',
+        image: 'https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=400&h=300&fit=crop',
+        genre: 'Sci-Fi, Äventyr',
+        duration: '2h 15min',
+        rating: '8.0',
+        moods: ['excited', 'thoughtful'],
+        company: ['alone', 'friends', 'date'],
+        age: ['teen', 'adult'],
+        length: 'long'
+      },
+      {
+        title: 'Cyber World 2077',
+        image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop',
+        genre: 'Sci-Fi, Action',
+        duration: '2h 22min',
+        rating: '7.6',
+        moods: ['excited', 'thoughtful'],
+        company: ['alone', 'friends'],
+        age: ['teen', 'adult'],
+        length: 'long'
+      }
+    ];
+
+    // Open recommendation modal
+    function openRecommendModal() {
+      userPreferences = { mood: '', company: '', age: '', duration: '' };
+      showRecStep(1);
+      recommendModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close recommendation modal
+    function closeRecommendModal() {
+      recommendModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Show specific recommendation step
+    function showRecStep(step) {
+      document.querySelectorAll('.recommend-step').forEach(s => s.classList.add('hidden'));
+      document.getElementById(`recStep${step}`).classList.remove('hidden');
+    }
+
+    // Calculate movie score based on preferences
+    function calculateScore(movie) {
+      let score = 0;
+
+      if (movie.moods.includes(userPreferences.mood)) score += 3;
+      if (movie.company.includes(userPreferences.company)) score += 2;
+      if (movie.age.includes(userPreferences.age)) score += 2;
+      if (movie.length === userPreferences.duration) score += 1;
+
+      return score;
+    }
+
+    // Get recommendations
+    function getRecommendations() {
+      const scored = moviesDB.map(movie => ({
+        ...movie,
+        score: calculateScore(movie)
+      }));
+
+      scored.sort((a, b) => b.score - a.score);
+      return scored.slice(0, 3);
+    }
+
+    // Generate reason text
+    function getReasonText() {
+      const moodTexts = {
+        happy: 'du känner dig glad',
+        sad: 'du vill ha något känslosamt',
+        excited: 'du söker spänning',
+        relaxed: 'du vill koppla av',
+        scared: 'du vill bli rädd',
+        thoughtful: 'du vill ha något tankeväckande'
+      };
+
+      const companyTexts = {
+        alone: 'ensam',
+        date: 'med din dejt',
+        family: 'med familjen',
+        friends: 'med vänner'
+      };
+
+      return `Perfekt för dig eftersom ${moodTexts[userPreferences.mood]} och tittar ${companyTexts[userPreferences.company]}!`;
+    }
+
+    // Show results
+    function showResults() {
+      const recommendations = getRecommendations();
+      const resultsContainer = document.getElementById('recommendResults');
+      const reasonText = document.getElementById('recommendationReason');
+
+      reasonText.textContent = getReasonText();
+
+      resultsContainer.innerHTML = recommendations.map((movie, index) => `
+        <div class="recommend-movie ${index === 0 ? 'top-pick' : ''}">
+          ${index === 0 ? '<span class="top-pick-badge"><i class="fas fa-trophy"></i> Bästa valet</span>' : ''}
+          <img src="${movie.image}" alt="${movie.title}">
+          <div class="recommend-movie-info">
+            <h4>${movie.title}</h4>
+            <p class="rec-genre"><i class="fas fa-film"></i> ${movie.genre}</p>
+            <p class="rec-duration"><i class="fas fa-clock"></i> ${movie.duration}</p>
+            <p class="rec-rating"><i class="fas fa-star"></i> ${movie.rating}/10</p>
+            <button class="rec-book-btn" onclick="closeRecommendModal(); document.getElementById('now-showing').scrollIntoView({behavior: 'smooth'});">
+              <i class="fas fa-ticket-alt"></i> Boka biljett
+            </button>
+          </div>
+        </div>
+      `).join('');
+
+      showRecStep(5);
+    }
+
+    // Event listeners for recommendation modal
+    document.getElementById('openRecommendBtn').addEventListener('click', openRecommendModal);
+    document.getElementById('openRecommendMobile').addEventListener('click', (e) => {
+      e.preventDefault();
+      document.getElementById('menu-toggle').checked = false;
+      openRecommendModal();
+    });
+    document.getElementById('closeRecommendModal').addEventListener('click', closeRecommendModal);
+    document.getElementById('restartRecommend').addEventListener('click', () => {
+      userPreferences = { mood: '', company: '', age: '', duration: '' };
+      showRecStep(1);
+    });
+
+    // Close on overlay click
+    recommendModal.addEventListener('click', (e) => {
+      if (e.target === recommendModal) closeRecommendModal();
+    });
+
+    // Handle option clicks
+    document.querySelectorAll('.recommend-option').forEach(option => {
+      option.addEventListener('click', function() {
+        const step = this.closest('.recommend-step');
+        const stepId = step.id;
+        const value = this.dataset.value;
+
+        // Visual feedback
+        step.querySelectorAll('.recommend-option').forEach(opt => opt.classList.remove('selected'));
+        this.classList.add('selected');
+
+        // Save preference and go to next step
+        setTimeout(() => {
+          if (stepId === 'recStep1') {
+            userPreferences.mood = value;
+            showRecStep(2);
+          } else if (stepId === 'recStep2') {
+            userPreferences.company = value;
+            showRecStep(3);
+          } else if (stepId === 'recStep3') {
+            userPreferences.age = value;
+            showRecStep(4);
+          } else if (stepId === 'recStep4') {
+            userPreferences.duration = value;
+            showResults();
+          }
+        }, 300);
+      });
+    });
+
+    // Back buttons
+    document.querySelectorAll('.rec-back-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const step = parseInt(this.dataset.step);
+        showRecStep(step);
+      });
     });
   </script>
 

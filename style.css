@@ -2271,6 +2271,339 @@ footer {
 }
 
 /* ==========================================
+   RECOMMENDATION BUTTON (Header)
+   ========================================== */
+.recommend-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: var(--color-white);
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.recommend-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.recommend-btn i {
+  font-size: 0.85rem;
+}
+
+.recommend-mobile-link {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  font-weight: 600 !important;
+}
+
+/* ==========================================
+   RECOMMENDATION MODAL
+   ========================================== */
+.recommend-modal {
+  max-width: 500px;
+  overflow: hidden;
+}
+
+.recommend-step {
+  padding: 32px;
+  text-align: center;
+}
+
+.recommend-step.hidden {
+  display: none;
+}
+
+.recommend-header {
+  margin-bottom: 28px;
+}
+
+.recommend-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 2rem;
+  color: var(--color-white);
+}
+
+.recommend-icon.success {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.recommend-header h2 {
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.recommend-header p {
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+}
+
+.recommend-question h3 {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.recommend-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.mood-options {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.recommend-option {
+  background: var(--color-bg);
+  border: 2px solid transparent;
+  padding: 16px 12px;
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.recommend-option:hover {
+  border-color: #667eea;
+  transform: translateY(-2px);
+}
+
+.recommend-option.selected {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: var(--color-white);
+}
+
+.option-emoji {
+  font-size: 2rem;
+}
+
+.option-text {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.recommend-nav {
+  margin-top: 20px;
+}
+
+.rec-back-btn {
+  background: transparent;
+  border: 2px solid var(--color-text-light);
+  color: var(--color-text-light);
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.rec-back-btn:hover {
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+
+.recommend-progress {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.progress-bar {
+  width: 150px;
+  height: 6px;
+  background: var(--color-bg);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+.recommend-progress span {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  font-weight: 600;
+}
+
+/* Recommendation Results */
+.recommend-results {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.recommend-movie {
+  display: flex;
+  gap: 16px;
+  background: var(--color-bg);
+  padding: 16px;
+  border-radius: var(--radius-lg);
+  text-align: left;
+  position: relative;
+  transition: all var(--transition);
+}
+
+.recommend-movie:hover {
+  transform: translateX(4px);
+}
+
+.recommend-movie.top-pick {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border: 2px solid #667eea;
+}
+
+.top-pick-badge {
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: var(--color-white);
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+}
+
+.recommend-movie img {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.recommend-movie-info {
+  flex: 1;
+}
+
+.recommend-movie-info h4 {
+  font-size: 1rem;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.recommend-movie-info p {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  margin-bottom: 2px;
+}
+
+.recommend-movie-info p i {
+  margin-right: 4px;
+  color: var(--color-primary);
+}
+
+.rec-rating i {
+  color: var(--color-gold) !important;
+}
+
+.rec-book-btn {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all var(--transition);
+}
+
+.rec-book-btn:hover {
+  background: var(--color-primary-dark);
+}
+
+.rec-restart-btn {
+  background: transparent;
+  border: 2px solid #667eea;
+  color: #667eea;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.rec-restart-btn:hover {
+  background: #667eea;
+  color: var(--color-white);
+}
+
+/* Recommendation Modal Responsive */
+@media (max-width: 500px) {
+  .recommend-modal {
+    max-height: 90vh;
+  }
+
+  .recommend-step {
+    padding: 24px 16px;
+  }
+
+  .recommend-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .recommend-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .mood-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .option-emoji {
+    font-size: 1.5rem;
+  }
+
+  .option-text {
+    font-size: 0.8rem;
+  }
+
+  .recommend-movie {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .recommend-movie img {
+    width: 100px;
+    height: 130px;
+  }
+
+  .top-pick-badge {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================
    UTILITY - REDUCED MOTION
    ========================================== */
 @media (prefers-reduced-motion: reduce) {
