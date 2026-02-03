@@ -1,134 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Your Cinema - Din lokala biograf med de senaste filmerna, specialvisningar och erbjudanden.">
 
   <title>Your Cinema</title>
- <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-<link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.png" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
-  
 </head>
 <body>
 
- <!-- HEADER -->
-<header>
-  <!-- Mobilmeny-knapp -->
-  <input type="checkbox" id="menu-toggle" aria-label="Öppna menyn" />
-  <label for="menu-toggle" class="mobile-menu" title="Öppna menyn">
-    <i class="fas fa-bars"></i>
-  </label>
-<!-- Logotyp -->
-  <div class="logo">
-    <img src="images/logo.png" alt="Biografens logotyp">
-  </div>
- 
-  <!-- Navigering för dator -->
-  <nav class="desktop-nav">
-    <a href="#">Nu på bio</a>
-    <a href="#">Kommer snart</a>
-    <a href="#">Nyhetsbrev</a>
-    <a href="#">Presentkort</a>
-    <a href="#">Om oss</a>
-    <a href="#">Mer</a>
-  </nav>
- 
+  <!-- HEADER -->
+  <header>
+    <input type="checkbox" id="menu-toggle" aria-label="Öppna menyn" />
+    <label for="menu-toggle" class="mobile-menu" aria-label="Meny">
+      <i class="fas fa-bars"></i>
+    </label>
 
-  <!-- Sociala ikoner Youtube-FB -->
-  <div class="social-icons">
-    <i class="fab fa-youtube" title="YouTube"></i>
-    <i class="fab fa-twitter" title="Twitter"></i>
-    <i class="fab fa-facebook-f" title="Facebook"></i>
-  </div>
+    <div class="logo">
+      <a href="index.html">
+        <img src="images/logo.png" alt="Your Cinema logotyp">
+      </a>
+    </div>
 
-  <!-- Navigering för mobil -->
-  <div class="mobile-nav">
-    <a href="#">Nu på bio</a>
-    <a href="#">Kommer snart</a>
-    <a href="#">Nyhetsbrev</a>
-    <a href="#">Presentkort</a>
-    <a href="#">Om oss</a>
-    <a href="#">Mer</a>
-  </div>
-  
-</header>
+    <nav class="desktop-nav" aria-label="Huvudnavigering">
+      <a href="#">Nu på bio</a>
+      <a href="#">Kommer snart</a>
+      <a href="#">Nyhetsbrev</a>
+      <a href="#">Presentkort</a>
+      <a href="#">Om oss</a>
+      <a href="#">Mer</a>
+    </nav>
 
+    <div class="social-icons" aria-label="Sociala medier">
+      <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+    </div>
 
+    <nav class="mobile-nav" aria-label="Mobilnavigering">
+      <a href="#">Nu på bio</a>
+      <a href="#">Kommer snart</a>
+      <a href="#">Nyhetsbrev</a>
+      <a href="#">Presentkort</a>
+      <a href="#">Om oss</a>
+      <a href="#">Mer</a>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
   <section class="hero">
-  <img src="images/once-upon-a-time.png" alt="Once Upon a Time in Hollywood">
-  <div class="hero-text">
-    <h2>Once Upon a Time in Hollywood</h2>
-    <p>★★★★ “Thrillingly unrestrained, yet solidly crafted...”</p>
-    <button class="hero-button">Times & Tickets</button>
-  </div>
-</section>
+    <img src="images/once-upon-a-time.png" alt="Filmaffisch för Once Upon a Time in Hollywood">
+    <div class="hero-text">
+      <h1>Once Upon a Time in Hollywood</h1>
+      <p class="hero-rating">★★★★ "Thrillingly unrestrained, yet solidly crafted..."</p>
+      <button class="hero-button" type="button">Tider & Biljetter</button>
+    </div>
+  </section>
 
   <!-- FILTER BAR -->
   <section class="filter-bar">
     <div class="buttons">
-      <button><i class="fa-regular fa-calendar-days"></i> By Day</button>
-      <button><i class="fa-solid fa-film"></i> By Movie</button>
-      <button><i class="fa-solid fa-print"></i> Print</button>
-      <select aria-label="Sort movies">
-        <option>Newest first</option>
+      <button type="button"><i class="fa-regular fa-calendar-days"></i> Per dag</button>
+      <button type="button"><i class="fa-solid fa-film"></i> Per film</button>
+      <button type="button"><i class="fa-solid fa-print"></i> Skriv ut</button>
+      <select aria-label="Sortera filmer">
+        <option>Nyast först</option>
+        <option>Äldst först</option>
+        <option>A-Ö</option>
       </select>
     </div>
-
     <div class="calendar-icon">
-      <i class="fa-regular fa-calendar"></i>
+      <button type="button" aria-label="Öppna kalender">
+        <i class="fa-regular fa-calendar"></i>
+      </button>
     </div>
   </section>
 
-  <!-- CONTENT -->
-  <section class="content">
-    <p class="no-sessions">No Session Times Available</p>
+  <!-- MAIN CONTENT -->
+  <main class="content">
+    <p class="no-sessions">Inga visningstider tillgängliga</p>
 
     <div class="cards">
-      <div class="card">
-        <img src="images/once-upon-a-time.png" alt="">
+      <article class="card">
+        <img src="images/once-upon-a-time.png" alt="Once Upon a Time in Hollywood - Specialserie">
         <div class="card-text">
-          <h4>Special Series</h4>
-          <button>Full Line-Up</button>
+          <h2>Specialserie</h2>
+          <p>Utforska vår kuraterade samling av klassiska och moderna mästerverk.</p>
+          <button type="button">Se hela programmet</button>
         </div>
-      </div>
+      </article>
 
-      <div class="card">
-        <img src="images/pexels-photo-903454.jpeg" alt="">
+      <article class="card">
+        <img src="images/pexels-photo-903454.jpeg" alt="Popcorn och biodryck - Specialerbjudande">
         <div class="card-text">
-          <h4>Special Deal</h4>
-          <button>Find Out More</button>
+          <h2>Specialerbjudande</h2>
+          <p>Missa inte våra fantastiska erbjudanden på biljetter och snacks.</p>
+          <button type="button">Läs mer</button>
         </div>
-      </div>
+      </article>
 
-      <div class="card">
-        <img src="images/ladybird.png" alt="">
+      <article class="card">
+        <img src="images/ladybird.png" alt="Lady Bird filmaffisch - Kultklassiker">
         <div class="card-text">
-          <h4>Cult Classic</h4>
-          <button>See the Line-Up</button>
+          <h2>Kultklassiker</h2>
+          <p>Återupplev tidlösa filmer på den stora duken.</p>
+          <button type="button">Se programmet</button>
         </div>
-      </div>
+      </article>
     </div>
-  </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-links">
-      <a href="#">About</a>
-      <a href="#">Special Series</a>
-      <a href="#">Terms & Conditions</a>
-      <a href="#">Email Sign-Up</a>
-      <a href="#">Gift Cards</a>
-      <a href="#">Cookie Policy</a>
-      <a href="#">Candy Bar</a>
-    </div>
-    <p>Your Cinema | 123 Street Road, NY, USA | Phone: 123 456 789</p>
-    <div class="social-icons">
-      <i class="fab fa-youtube"></i>
-      <i class="fab fa-twitter"></i>
-      <i class="fab fa-facebook-f"></i>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#">Om oss</a>
+        <a href="#">Specialserier</a>
+        <a href="#">Villkor</a>
+        <a href="#">Nyhetsbrev</a>
+        <a href="#">Presentkort</a>
+        <a href="#">Cookies</a>
+        <a href="#">Godisbar</a>
+      </div>
+
+      <div class="footer-contact">
+        <p><i class="fas fa-map-marker-alt"></i> Filmgatan 123, Stockholm, Sverige</p>
+        <p><i class="fas fa-phone"></i> 08-123 456 78</p>
+        <p><i class="fas fa-envelope"></i> info@yourcinema.se</p>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+
+      <p class="copyright">&copy; 2024 Your Cinema. Alla rättigheter förbehållna.</p>
     </div>
   </footer>
+
 </body>
 </html>
