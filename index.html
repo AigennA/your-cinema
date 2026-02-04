@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Your Cinema - Din lokala biograf med de senaste filmerna, specialvisningar och erbjudanden.">
+  <meta name="description" content="Din Bio - Din lokala biograf med de senaste filmerna, specialvisningar och erbjudanden.">
 
-  <title>Your Cinema</title>
+  <title>Din Bio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,34 +24,33 @@
 
     <div class="logo">
       <a href="#hero">
-        <img src="images/logo.png" alt="Your Cinema logotyp">
+        <img src="images/logobio.png" alt="Din Bio logotyp">
       </a>
     </div>
 
     <nav class="desktop-nav" aria-label="Huvudnavigering">
-      <a href="#now-showing">Nu på bio</a>
       <a href="#coming-soon">Kommer snart</a>
+      <a href="#now-showing">Nu på bio</a>
       <a href="#newsletter">Nyhetsbrev</a>
       <a href="#giftcards">Presentkort</a>
       <a href="#about">Om oss</a>
       <button class="recommend-btn" id="openRecommendBtn"><i class="fas fa-magic"></i> Vad ska jag se?</button>
     </nav>
 
-    <div class="social-icons" aria-label="Sociala medier">
-      <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-        <i class="fab fa-youtube"></i>
-      </a>
-      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-        <i class="fab fa-facebook-f"></i>
-      </a>
+    <div class="search-box">
+      <input type="text" id="movieSearchInput" placeholder="Sök film..." aria-label="Sök film">
+      <button type="button" id="movieSearchBtn" aria-label="Sök"><i class="fas fa-search"></i></button>
+      <div class="search-results" id="searchResults"></div>
     </div>
 
     <nav class="mobile-nav" aria-label="Mobilnavigering">
-      <a href="#now-showing">Nu på bio</a>
+      <div class="mobile-search-box">
+        <input type="text" id="movieSearchInputMobile" placeholder="Sök film..." aria-label="Sök film">
+        <button type="button" id="movieSearchBtnMobile" aria-label="Sök"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="mobile-search-results" id="searchResultsMobile"></div>
       <a href="#coming-soon">Kommer snart</a>
+      <a href="#now-showing">Nu på bio</a>
       <a href="#newsletter">Nyhetsbrev</a>
       <a href="#giftcards">Presentkort</a>
       <a href="#about">Om oss</a>
@@ -100,12 +99,12 @@
 
     <div class="movies-grid">
       <!-- Movie 1 -->
-      <article class="movie-card" data-category="drama">
+      <article class="movie-card" data-category="drama" id="movie-once-upon-a-time">
         <div class="movie-poster">
           <img src="images/once-upon-a-time.png" alt="Once Upon a Time in Hollywood">
           <div class="movie-overlay">
             <span class="age-rating">15+</span>
-            <button class="play-trailer"><i class="fas fa-play"></i></button>
+            <button class="play-trailer" aria-label="Spela trailer"><i class="fas fa-play"></i></button>
           </div>
         </div>
         <div class="movie-info">
@@ -129,12 +128,12 @@
       </article>
 
       <!-- Movie 2 -->
-      <article class="movie-card" data-category="action">
+      <article class="movie-card" data-category="action" id="movie-tenet">
         <div class="movie-poster">
           <img src="images/tenet.jpg" alt="Tenet">
           <div class="movie-overlay">
             <span class="age-rating">15+</span>
-            <button class="play-trailer"><i class="fas fa-play"></i></button>
+            <button class="play-trailer" type="button" aria-label="Spela trailer"><i class="fas fa-play"></i></button>
           </div>
         </div>
         <div class="movie-info">
@@ -157,12 +156,12 @@
       </article>
 
       <!-- Movie 3 -->
-      <article class="movie-card" data-category="action">
+      <article class="movie-card" data-category="action" id="movie-wonder-woman">
         <div class="movie-poster">
           <img src="images/wonderwoman.png" alt="Wonder Woman 1984">
           <div class="movie-overlay">
             <span class="age-rating">11+</span>
-            <button class="play-trailer"><i class="fas fa-play"></i></button>
+            <button class="play-trailer" type="button" aria-label="Spela trailer"><i class="fas fa-play"></i></button>
           </div>
         </div>
         <div class="movie-info">
@@ -185,12 +184,12 @@
       </article>
 
       <!-- Movie 4 -->
-      <article class="movie-card" data-category="drama">
+      <article class="movie-card" data-category="drama" id="movie-judy">
         <div class="movie-poster">
           <img src="images/judy.png" alt="Judy">
           <div class="movie-overlay">
             <span class="age-rating">11+</span>
-            <button class="play-trailer"><i class="fas fa-play"></i></button>
+              <button class="play-trailer" aria-label="Spela trailer"><i class="fas fa-play"></i></button>
           </div>
         </div>
         <div class="movie-info">
@@ -213,12 +212,12 @@
       </article>
 
       <!-- Movie 5 -->
-      <article class="movie-card" data-category="drama">
+      <article class="movie-card" data-category="drama" id="movie-lady-bird">
         <div class="movie-poster">
           <img src="images/ladybird.png" alt="Lady Bird">
           <div class="movie-overlay">
             <span class="age-rating">11+</span>
-            <button class="play-trailer"><i class="fas fa-play"></i></button>
+            <button class="play-trailer" aria-label="Spela trailer"><i class="fas fa-play"></i></button>
           </div>
         </div>
         <div class="movie-info">
@@ -241,12 +240,12 @@
       </article>
 
       <!-- Movie 6 -->
-      <article class="movie-card" data-category="comedy">
+      <article class="movie-card" data-category="comedy" id="movie-grand-budapest">
         <div class="movie-poster">
           <img src="images/pexels-photo-903454.jpeg" alt="The Grand Budapest Hotel">
           <div class="movie-overlay">
             <span class="age-rating">11+</span>
-            <button class="play-trailer"><i class="fas fa-play"></i></button>
+            <button class="play-trailer" aria-label="Spela trailer"><i class="fas fa-play"></i></button>
           </div>
         </div>
         <div class="movie-info">
@@ -269,12 +268,12 @@
       </article>
 
       <!-- Movie 7 - Horror -->
-      <article class="movie-card" data-category="horror">
+      <article class="movie-card" data-category="horror" id="movie-the-haunting">
         <div class="movie-poster">
-          <img src="https://images.unsplash.com/photo-1509248961895-b886fdb83c3e?w=400&h=300&fit=crop" alt="The Haunting">
+          <img src="https://images.pexels.com/photos/5435446/pexels-photo-5435446.jpeg?auto=compress&cs=tinysrgb&w=600" alt="The Haunting">
           <div class="movie-overlay">
             <span class="age-rating">15+</span>
-            <button class="play-trailer"><i class="fas fa-play"></i></button>
+            <button class="play-trailer" aria-label="Spela trailer"><i class="fas fa-play"></i></button>
           </div>
         </div>
         <div class="movie-info">
@@ -297,12 +296,12 @@
       </article>
 
       <!-- Movie 8 - Horror -->
-      <article class="movie-card" data-category="horror">
+      <article class="movie-card" data-category="horror" id="movie-nightmare-realm">
         <div class="movie-poster">
-          <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=300&fit=crop" alt="Nightmare Realm">
+          <img src="https://image.tmdb.org/t/p/w500/9E2y5Q7WlCVNEhP5GiVTjhEhx1o.jpg" alt="Nightmare Realm">
           <div class="movie-overlay">
             <span class="age-rating">15+</span>
-            <button class="play-trailer"><i class="fas fa-play"></i></button>
+            <button class="play-trailer" type="button" aria-label="Spela trailer"><i class="fas fa-play"></i></button>
           </div>
         </div>
         <div class="movie-info">
@@ -325,12 +324,12 @@
       </article>
 
       <!-- Movie 9 - Family -->
-      <article class="movie-card" data-category="family">
+      <article class="movie-card" data-category="family" id="movie-magic-adventure">
         <div class="movie-poster">
-          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400&h=300&fit=crop" alt="The Magic Adventure">
+          <img src="https://image.tmdb.org/t/p/w500/kuf6dutpsT0vSVehic3EZIqkOBt.jpg" alt="The Magic Adventure">
           <div class="movie-overlay">
             <span class="age-rating">Alla</span>
-            <button class="play-trailer"><i class="fas fa-play"></i></button>
+            <button class="play-trailer" type="button" aria-label="Spela trailer"><i class="fas fa-play"></i></button>
           </div>
         </div>
         <div class="movie-info">
@@ -353,12 +352,12 @@
       </article>
 
       <!-- Movie 10 - Family -->
-      <article class="movie-card" data-category="family">
+      <article class="movie-card" data-category="family" id="movie-paws-friends">
         <div class="movie-poster">
-          <img src="https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=400&h=300&fit=crop" alt="Paws & Friends">
+          <img src="https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg" alt="Paws & Friends">
           <div class="movie-overlay">
             <span class="age-rating">Alla</span>
-            <button class="play-trailer"><i class="fas fa-play"></i></button>
+            <button class="play-trailer" type="button" aria-label="Spela trailer"><i class="fas fa-play"></i></button>
           </div>
         </div>
         <div class="movie-info">
@@ -381,12 +380,12 @@
       </article>
 
       <!-- Movie 11 - Sci-Fi -->
-      <article class="movie-card" data-category="scifi">
+      <article class="movie-card" data-category="scifi" id="movie-galaxy-frontier">
         <div class="movie-poster">
-          <img src="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=400&h=300&fit=crop" alt="Galaxy Frontier">
+          <img src="https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg" alt="Galaxy Frontier">
           <div class="movie-overlay">
             <span class="age-rating">11+</span>
-            <button class="play-trailer"><i class="fas fa-play"></i></button>
+            <button class="play-trailer" type="button" aria-label="Spela trailer"><i class="fas fa-play"></i></button>
           </div>
         </div>
         <div class="movie-info">
@@ -409,12 +408,12 @@
       </article>
 
       <!-- Movie 12 - Sci-Fi -->
-      <article class="movie-card" data-category="scifi">
+      <article class="movie-card" data-category="scifi" id="movie-cyber-world">
         <div class="movie-poster">
-          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop" alt="Cyber World">
+          <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Cyber World">
           <div class="movie-overlay">
             <span class="age-rating">15+</span>
-            <button class="play-trailer"><i class="fas fa-play"></i></button>
+            <button class="play-trailer" type="button" aria-label="Spela trailer"><i class="fas fa-play"></i></button>
           </div>
         </div>
         <div class="movie-info">
@@ -570,7 +569,7 @@
       <div class="giftcard-image">
         <div class="giftcard-preview">
           <div class="giftcard-front">
-            <img src="images/logo.png" alt="Your Cinema">
+            <img src="images/logobio.png" alt="Din Bio">
             <p class="giftcard-value">500 kr</p>
             <p class="giftcard-label">PRESENTKORT</p>
           </div>
@@ -591,7 +590,7 @@
         </div>
         <label class="checkbox-label">
           <input type="checkbox" required>
-          <span>Jag godkänner att ta emot nyhetsbrev och erbjudanden från Your Cinema</span>
+          <span>Jag godkänner att ta emot nyhetsbrev och erbjudanden från Din Bio</span>
         </label>
       </form>
       <div class="newsletter-perks">
@@ -620,7 +619,7 @@
 
     <div class="about-content">
       <div class="about-text">
-        <p>Your Cinema har varit en del av Stockholms kulturliv i över 35 år. Vi brinner för film och strävar efter att ge dig den bästa bioupplevelsen möjligt.</p>
+        <p>Din Bio har varit en del av Stockholms kulturliv i över 35 år. Vi brinner för film och strävar efter att ge dig den bästa bioupplevelsen möjligt.</p>
         <p>Med sex moderna salonger, Dolby Atmos-ljud och bekväma fåtöljer erbjuder vi allt från de senaste blockbusters till klassiska kultfilmer och independentproduktioner.</p>
         <div class="about-stats">
           <div class="stat">
@@ -722,7 +721,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2024 Your Cinema. Alla rättigheter förbehållna.</p>
+        <p>&copy; 2024 Din Bio. Alla rättigheter förbehållna.</p>
         <div class="payment-methods">
           <i class="fab fa-cc-visa"></i>
           <i class="fab fa-cc-mastercard"></i>
@@ -737,9 +736,9 @@
   <!-- BOOKING MODAL -->
   <div class="modal-overlay" id="bookingModal">
     <div class="modal">
-      <button class="modal-close" id="closeModal"><i class="fas fa-times"></i></button>
+      <button class="modal-close" id="closeModal" type="button" aria-label="Stäng"><i class="fas fa-times"></i></button>
 
-      <!-- Step 1: Movie Info -->
+      <!-- Step 1: Movie Info & Date/Time Selection -->
       <div class="modal-step" id="step1">
         <div class="modal-header">
           <h2><i class="fas fa-ticket-alt"></i> Boka biljetter</h2>
@@ -750,10 +749,31 @@
             <h3 id="bookingMovieTitle"></h3>
             <p id="bookingMovieGenre"></p>
             <p id="bookingMovieDuration"></p>
-            <p class="booking-time"><i class="fas fa-clock"></i> Visningstid: <span id="bookingTime"></span></p>
           </div>
         </div>
-        <button class="modal-next-btn" id="toStep2">Välj platser <i class="fas fa-arrow-right"></i></button>
+        
+        <!-- Date Selection -->
+        <div class="date-selection-section">
+          <h4><i class="fas fa-calendar-alt"></i> Välj datum</h4>
+          <div class="date-selection-grid" id="dateSelectionGrid">
+            <!-- Dates will be inserted here -->
+          </div>
+        </div>
+        
+        <!-- Time Selection -->
+        <div class="time-selection-section">
+          <h4><i class="fas fa-clock"></i> Välj visningstid</h4>
+          <div class="time-selection-grid" id="timeSelectionGrid">
+            <!-- Time slots will be inserted here -->
+          </div>
+        </div>
+        
+        <div class="selected-datetime-display">
+          <p><i class="fas fa-calendar-check"></i> <span id="selectedDateDisplay">-</span></p>
+          <p><i class="fas fa-clock"></i> <span id="selectedTimeDisplay">-</span></p>
+        </div>
+        
+        <button class="modal-next-btn" id="toStep2" disabled>Välj platser <i class="fas fa-arrow-right"></i></button>
       </div>
 
       <!-- Step 2: Seat Selection -->
@@ -823,6 +843,7 @@
           <div class="order-summary">
             <h4>Ordersammanfattning</h4>
             <p><strong id="summaryMovie"></strong></p>
+            <p>Datum: <span id="summaryDate"></span></p>
             <p>Tid: <span id="summaryTime"></span></p>
             <p>Platser: <span id="summarySeats"></span></p>
             <p class="summary-total">Totalt: <span id="summaryTotal"></span> kr</p>
@@ -845,7 +866,7 @@
           <div class="ticket-preview">
             <div class="ticket">
               <div class="ticket-header">
-                <img src="images/logo.png" alt="Your Cinema">
+                <img src="images/logobio.png" alt="Din Bio">
               </div>
               <div class="ticket-body">
                 <h3 id="ticketMovie"></h3>
@@ -868,7 +889,7 @@
   <!-- RECOMMENDATION MODAL -->
   <div class="modal-overlay" id="recommendModal">
     <div class="modal recommend-modal">
-      <button class="modal-close" id="closeRecommendModal"><i class="fas fa-times"></i></button>
+      <button class="modal-close" id="closeRecommendModal" type="button" aria-label="Stäng rekommendationsmodal"><i class="fas fa-times"></i></button>
 
       <!-- Step 1: Mood -->
       <div class="recommend-step" id="recStep1">
@@ -907,7 +928,7 @@
           </div>
         </div>
         <div class="recommend-progress">
-          <div class="progress-bar"><div class="progress-fill" style="width: 25%"></div></div>
+          <div class="progress-bar"><div class="progress-fill progress-25"></div></div>
           <span>1 / 4</span>
         </div>
       </div>
@@ -942,7 +963,7 @@
           <button class="rec-back-btn" data-step="1"><i class="fas fa-arrow-left"></i> Tillbaka</button>
         </div>
         <div class="recommend-progress">
-          <div class="progress-bar"><div class="progress-fill" style="width: 50%"></div></div>
+          <div class="progress-bar"><div class="progress-fill progress-50"></div></div>
           <span>2 / 4</span>
         </div>
       </div>
@@ -973,7 +994,7 @@
           <button class="rec-back-btn" data-step="2"><i class="fas fa-arrow-left"></i> Tillbaka</button>
         </div>
         <div class="recommend-progress">
-          <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+          <div class="progress-bar"><div class="progress-fill progress-75"></div></div>
           <span>3 / 4</span>
         </div>
       </div>
@@ -1004,7 +1025,7 @@
           <button class="rec-back-btn" data-step="3"><i class="fas fa-arrow-left"></i> Tillbaka</button>
         </div>
         <div class="recommend-progress">
-          <div class="progress-bar"><div class="progress-fill" style="width: 100%"></div></div>
+          <div class="progress-bar"><div class="progress-fill progress-100"></div></div>
           <span>4 / 4</span>
         </div>
       </div>
@@ -1031,6 +1052,251 @@
         document.getElementById('menu-toggle').checked = false;
       });
     });
+
+    // ==========================================
+    // MOVIE SEARCH FUNCTIONALITY
+    // ==========================================
+    
+    const SEARCH_HISTORY_KEY = 'yourcinema_search_history';
+    const MAX_HISTORY_ITEMS = 5;
+    
+    function initSearch() {
+      const searchInput = document.getElementById('movieSearchInput');
+      const searchResults = document.getElementById('searchResults');
+      const searchInputMobile = document.getElementById('movieSearchInputMobile');
+      const searchResultsMobile = document.getElementById('searchResultsMobile');
+      
+      // Get search history from localStorage
+      function getSearchHistory() {
+        try {
+          return JSON.parse(localStorage.getItem(SEARCH_HISTORY_KEY)) || [];
+        } catch {
+          return [];
+        }
+      }
+      
+      // Save search to history
+      function saveToHistory(query) {
+        if (!query || query.length < 2) return;
+        let history = getSearchHistory();
+        history = history.filter(item => item.toLowerCase() !== query.toLowerCase());
+        history.unshift(query);
+        history = history.slice(0, MAX_HISTORY_ITEMS);
+        localStorage.setItem(SEARCH_HISTORY_KEY, JSON.stringify(history));
+      }
+      
+      // Get all movie cards
+      function getMovies() {
+        const movieCards = document.querySelectorAll('.movie-card');
+        const movies = [];
+        
+        movieCards.forEach(card => {
+          const title = card.querySelector('h3')?.textContent || '';
+          const genre = card.querySelector('.movie-genre')?.textContent || '';
+          const image = card.querySelector('.movie-poster img')?.src || '';
+          const id = card.id;
+          
+          movies.push({ title, genre, image, id, card });
+        });
+        
+        return movies;
+      }
+      
+      // Search movies
+      function searchMovies(query) {
+        const movies = getMovies();
+        const lowerQuery = query.toLowerCase().trim();
+        
+        if (!lowerQuery) return [];
+        
+        return movies.filter(movie => 
+          movie.title.toLowerCase().includes(lowerQuery) ||
+          movie.genre.toLowerCase().includes(lowerQuery)
+        );
+      }
+      
+      // Render history suggestions
+      function renderHistoryAndSuggestions(container, inputElement) {
+        const history = getSearchHistory();
+        const movies = getMovies();
+        
+        let html = '';
+        
+        // Recent searches
+        if (history.length > 0) {
+          html += '<div class="search-section-title"><i class="fas fa-history"></i> Senaste sökningar</div>';
+          html += history.map(term => `
+            <div class="search-history-item" data-term="${term}">
+              <i class="fas fa-clock"></i>
+              <span>${term}</span>
+              <button class="remove-history" data-term="${term}" aria-label="Ta bort"><i class="fas fa-times"></i></button>
+            </div>
+          `).join('');
+        }
+        
+        // Popular movies suggestions
+        html += '<div class="search-section-title"><i class="fas fa-fire"></i> Populära filmer</div>';
+        const popularMovies = movies.slice(0, 4);
+        html += popularMovies.map(movie => `
+          <div class="search-result-item" data-movie-id="${movie.id}">
+            <img src="${movie.image}" alt="${movie.title}">
+            <div class="search-result-info">
+              <h4>${movie.title}</h4>
+              <p>${movie.genre}</p>
+            </div>
+          </div>
+        `).join('');
+        
+        container.innerHTML = html;
+        container.classList.add('active');
+        
+        // Add click handlers for history items
+        container.querySelectorAll('.search-history-item').forEach(item => {
+          item.addEventListener('click', (e) => {
+            if (!e.target.closest('.remove-history')) {
+              const term = item.dataset.term;
+              inputElement.value = term;
+              const results = searchMovies(term);
+              renderResults(results, container, inputElement);
+            }
+          });
+        });
+        
+        // Add remove history handlers
+        container.querySelectorAll('.remove-history').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const term = btn.dataset.term;
+            let history = getSearchHistory();
+            history = history.filter(item => item !== term);
+            localStorage.setItem(SEARCH_HISTORY_KEY, JSON.stringify(history));
+            renderHistoryAndSuggestions(container, inputElement);
+          });
+        });
+        
+        // Add click handlers for movie items
+        addMovieClickHandlers(container, inputElement);
+      }
+      
+      // Add click handlers for movie results
+      function addMovieClickHandlers(container, inputElement) {
+        container.querySelectorAll('.search-result-item').forEach(item => {
+          item.addEventListener('click', () => {
+            const movieId = item.dataset.movieId;
+            const movieElement = document.getElementById(movieId);
+            const movieTitle = item.querySelector('h4')?.textContent || '';
+            
+            if (movieTitle) {
+              saveToHistory(movieTitle);
+            }
+            
+            if (movieElement) {
+              movieElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              movieElement.style.animation = 'pulse 0.5s ease 2';
+              setTimeout(() => {
+                movieElement.style.animation = '';
+              }, 1000);
+            }
+            container.classList.remove('active');
+            if (searchInput) searchInput.value = '';
+            if (searchInputMobile) searchInputMobile.value = '';
+            document.getElementById('menu-toggle').checked = false;
+          });
+        });
+      }
+      
+      // Render results
+      function renderResults(results, container, inputElement) {
+        const query = inputElement.value;
+        
+        if (results.length === 0) {
+          container.innerHTML = `
+            <div class="search-no-results">
+              <i class="fas fa-search"></i> Inga filmer hittades för "${query}"
+            </div>
+            <div class="search-section-title"><i class="fas fa-lightbulb"></i> Prova dessa</div>
+          `;
+          const movies = getMovies().slice(0, 3);
+          container.innerHTML += movies.map(movie => `
+            <div class="search-result-item" data-movie-id="${movie.id}">
+              <img src="${movie.image}" alt="${movie.title}">
+              <div class="search-result-info">
+                <h4>${movie.title}</h4>
+                <p>${movie.genre}</p>
+              </div>
+            </div>
+          `).join('');
+        } else {
+          container.innerHTML = `<div class="search-section-title"><i class="fas fa-film"></i> Resultat (${results.length})</div>`;
+          container.innerHTML += results.map(movie => `
+            <div class="search-result-item" data-movie-id="${movie.id}">
+              <img src="${movie.image}" alt="${movie.title}">
+              <div class="search-result-info">
+                <h4>${movie.title}</h4>
+                <p>${movie.genre}</p>
+              </div>
+            </div>
+          `).join('');
+        }
+        
+        container.classList.add('active');
+        addMovieClickHandlers(container, inputElement);
+      }
+      
+      // Desktop search
+      if (searchInput && searchResults) {
+        searchInput.addEventListener('input', (e) => {
+          const query = e.target.value;
+          if (query.length >= 1) {
+            const results = searchMovies(query);
+            renderResults(results, searchResults, searchInput);
+          } else {
+            renderHistoryAndSuggestions(searchResults, searchInput);
+          }
+        });
+        
+        searchInput.addEventListener('focus', () => {
+          if (searchInput.value.length >= 1) {
+            const results = searchMovies(searchInput.value);
+            renderResults(results, searchResults, searchInput);
+          } else {
+            renderHistoryAndSuggestions(searchResults, searchInput);
+          }
+        });
+        
+        // Close on click outside
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.search-box')) {
+            searchResults.classList.remove('active');
+          }
+        });
+      }
+      
+      // Mobile search
+      if (searchInputMobile && searchResultsMobile) {
+        searchInputMobile.addEventListener('input', (e) => {
+          const query = e.target.value;
+          if (query.length >= 1) {
+            const results = searchMovies(query);
+            renderResults(results, searchResultsMobile, searchInputMobile);
+          } else {
+            renderHistoryAndSuggestions(searchResultsMobile, searchInputMobile);
+          }
+        });
+        
+        searchInputMobile.addEventListener('focus', () => {
+          if (searchInputMobile.value.length >= 1) {
+            const results = searchMovies(searchInputMobile.value);
+            renderResults(results, searchResultsMobile, searchInputMobile);
+          } else {
+            renderHistoryAndSuggestions(searchResultsMobile, searchInputMobile);
+          }
+        });
+      }
+    }
+    
+    // Initialize search
+    initSearch();
 
     // Category filter functionality
     document.querySelectorAll('.category-btn').forEach(btn => {
@@ -1062,10 +1328,79 @@
       movieImage: '',
       genre: '',
       duration: '',
+      date: '',
       time: '',
       seats: [],
       totalPrice: 0
     };
+
+    // Generate date options (next 7 days)
+    function generateDateSelection() {
+      const container = document.getElementById('dateSelectionGrid');
+      container.innerHTML = '';
+      
+      const today = new Date();
+      const dayNames = ['Sön', 'Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör'];
+      const monthNames = ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
+      
+      for (let i = 0; i < 7; i++) {
+        const date = new Date(today);
+        date.setDate(today.getDate() + i);
+        
+        const dayName = dayNames[date.getDay()];
+        const dayNum = date.getDate();
+        const monthName = monthNames[date.getMonth()];
+        const dateStr = date.toISOString().split('T')[0];
+        
+        const dateBtn = document.createElement('button');
+        dateBtn.type = 'button';
+        dateBtn.className = 'date-option';
+        if (i === 0) {
+          dateBtn.classList.add('today');
+        }
+        dateBtn.dataset.date = dateStr;
+        dateBtn.innerHTML = `
+          <span class="date-day">${i === 0 ? 'Idag' : dayName}</span>
+          <span class="date-num">${dayNum}</span>
+          <span class="date-month">${monthName}</span>
+        `;
+        
+        dateBtn.addEventListener('click', () => selectDate(dateBtn));
+        container.appendChild(dateBtn);
+      }
+      
+      // Auto-select today
+      const todayBtn = container.querySelector('.date-option');
+      if (todayBtn) {
+        selectDate(todayBtn);
+      }
+    }
+
+    // Select date
+    function selectDate(dateBtn) {
+      document.querySelectorAll('.date-option').forEach(btn => btn.classList.remove('selected'));
+      dateBtn.classList.add('selected');
+      
+      const dateStr = dateBtn.dataset.date;
+      const date = new Date(dateStr);
+      const options = { weekday: 'long', day: 'numeric', month: 'long' };
+      const formattedDate = date.toLocaleDateString('sv-SE', options);
+      
+      currentBooking.date = dateStr;
+      document.getElementById('selectedDateDisplay').textContent = formattedDate;
+      
+      checkDateTimeSelection();
+    }
+
+    // Check if both date and time are selected
+    function checkDateTimeSelection() {
+      const toStep2Btn = document.getElementById('toStep2');
+      if (currentBooking.date && currentBooking.time) {
+        toStep2Btn.disabled = false;
+      } else {
+        toStep2Btn.disabled = true;
+      }
+    }
 
     // Generate seats
     function generateSeats() {
@@ -1157,20 +1492,57 @@
       document.getElementById('toStep3').disabled = seats.length === 0;
     }
 
+    // Generate time selection grid
+    function generateTimeSelection(movieCard) {
+      const timeSlotsContainer = document.getElementById('timeSelectionGrid');
+      const timeSlots = movieCard.querySelectorAll('.time-slot');
+      
+      timeSlotsContainer.innerHTML = '';
+      
+      timeSlots.forEach(slot => {
+        const timeBtn = document.createElement('button');
+        timeBtn.className = 'time-option';
+        timeBtn.textContent = slot.textContent;
+        timeBtn.type = 'button';
+        
+        if (slot.classList.contains('popular')) {
+          timeBtn.classList.add('popular');
+        }
+        
+        timeBtn.addEventListener('click', () => selectTime(timeBtn));
+        timeSlotsContainer.appendChild(timeBtn);
+      });
+      
+      // Reset selected time display
+      document.getElementById('selectedTimeDisplay').textContent = '-';
+      currentBooking.time = '';
+      checkDateTimeSelection();
+    }
+
+    // Select time
+    function selectTime(timeBtn) {
+      document.querySelectorAll('.time-option').forEach(btn => btn.classList.remove('selected'));
+      timeBtn.classList.add('selected');
+      
+      currentBooking.time = timeBtn.textContent;
+      document.getElementById('selectedTimeDisplay').textContent = timeBtn.textContent;
+      checkDateTimeSelection();
+    }
+
     // Open booking modal
     function openBooking(movieCard, timeSlot) {
       const title = movieCard.querySelector('h3').textContent;
       const image = movieCard.querySelector('.movie-poster img').src;
       const genre = movieCard.querySelector('.movie-genre').textContent;
       const duration = movieCard.querySelector('.movie-duration').textContent;
-      const time = timeSlot.textContent;
 
       currentBooking = {
         movie: title,
         movieImage: image,
         genre: genre,
         duration: duration,
-        time: time,
+        date: '',
+        time: '',
         seats: [],
         totalPrice: 0
       };
@@ -1179,7 +1551,25 @@
       document.getElementById('bookingMovieTitle').textContent = title;
       document.getElementById('bookingMovieGenre').textContent = genre;
       document.getElementById('bookingMovieDuration').textContent = duration;
-      document.getElementById('bookingTime').textContent = time;
+
+      // Generate date and time selection
+      generateDateSelection();
+      generateTimeSelection(movieCard);
+      
+      // Reset displays
+      document.getElementById('selectedDateDisplay').textContent = '-';
+      document.getElementById('selectedTimeDisplay').textContent = '-';
+      
+      // Pre-select the clicked time slot if any
+      if (timeSlot) {
+        const timeText = timeSlot.textContent;
+        const timeOptions = document.querySelectorAll('.time-option');
+        timeOptions.forEach(opt => {
+          if (opt.textContent === timeText) {
+            selectTime(opt);
+          }
+        });
+      }
 
       showStep(1);
       modal.classList.add('active');
@@ -1198,6 +1588,7 @@
 
       if (step === 3) {
         document.getElementById('summaryMovie').textContent = currentBooking.movie;
+        document.getElementById('summaryDate').textContent = currentBooking.date;
         document.getElementById('summaryTime').textContent = currentBooking.time;
         document.getElementById('summarySeats').textContent = currentBooking.seats.join(', ');
         document.getElementById('summaryTotal').textContent = currentBooking.totalPrice;
@@ -1248,11 +1639,14 @@
 
       // Generate booking code
       const code = 'YC' + Date.now().toString().slice(-8);
-      const today = new Date();
-      const dateStr = today.toLocaleDateString('sv-SE');
+      
+      // Format selected date
+      const bookingDate = new Date(currentBooking.date);
+      const dateOptions = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+      const formattedDate = bookingDate.toLocaleDateString('sv-SE', dateOptions);
 
       document.getElementById('ticketMovie').textContent = currentBooking.movie;
-      document.getElementById('ticketDate').textContent = dateStr;
+      document.getElementById('ticketDate').textContent = formattedDate;
       document.getElementById('ticketTime').textContent = currentBooking.time;
       document.getElementById('ticketSeats').textContent = currentBooking.seats.join(', ');
       document.getElementById('ticketCode').textContent = code;
@@ -1291,6 +1685,7 @@
     // Movie database with attributes
     const moviesDB = [
       {
+        id: 'movie-once-upon-a-time',
         title: 'Once Upon a Time in Hollywood',
         image: 'images/once-upon-a-time.png',
         genre: 'Drama, Komedi',
@@ -1302,6 +1697,7 @@
         length: 'long'
       },
       {
+        id: 'movie-tenet',
         title: 'Tenet',
         image: 'images/tenet.jpg',
         genre: 'Action, Sci-Fi',
@@ -1313,6 +1709,7 @@
         length: 'long'
       },
       {
+        id: 'movie-wonder-woman',
         title: 'Wonder Woman 1984',
         image: 'images/wonderwoman.png',
         genre: 'Action, Fantasy',
@@ -1324,6 +1721,7 @@
         length: 'long'
       },
       {
+        id: 'movie-judy',
         title: 'Judy',
         image: 'images/judy.png',
         genre: 'Biografi, Drama',
@@ -1335,6 +1733,7 @@
         length: 'medium'
       },
       {
+        id: 'movie-lady-bird',
         title: 'Lady Bird',
         image: 'images/ladybird.png',
         genre: 'Drama, Komedi',
@@ -1346,6 +1745,7 @@
         length: 'short'
       },
       {
+        id: 'movie-grand-budapest',
         title: 'The Grand Budapest Hotel',
         image: 'images/pexels-photo-903454.jpeg',
         genre: 'Komedi, Drama',
@@ -1357,8 +1757,9 @@
         length: 'short'
       },
       {
+        id: 'movie-the-haunting',
         title: 'The Haunting',
-        image: 'https://images.unsplash.com/photo-1509248961895-b886fdb83c3e?w=400&h=300&fit=crop',
+        image: 'https://images.pexels.com/photos/5435446/pexels-photo-5435446.jpeg?auto=compress&cs=tinysrgb&w=600',
         genre: 'Skräck, Thriller',
         duration: '1h 52min',
         rating: '7.2',
@@ -1368,8 +1769,9 @@
         length: 'medium'
       },
       {
+        id: 'movie-nightmare-realm',
         title: 'Nightmare Realm',
-        image: 'https://images.unsplash.com/photo-1635805737707-575885ab0820?w=400&h=300&fit=crop',
+        image: 'https://image.tmdb.org/t/p/w500/9E2y5Q7WlCVNEhP5GiVTjhEhx1o.jpg',
         genre: 'Skräck, Mystery',
         duration: '1h 45min',
         rating: '6.9',
@@ -1379,8 +1781,9 @@
         length: 'medium'
       },
       {
+        id: 'movie-magic-adventure',
         title: 'The Magic Adventure',
-        image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400&h=300&fit=crop',
+        image: 'https://image.tmdb.org/t/p/w500/kuf6dutpsT0vSVehic3EZIqkOBt.jpg',
         genre: 'Familj, Animerad',
         duration: '1h 35min',
         rating: '7.8',
@@ -1390,8 +1793,9 @@
         length: 'short'
       },
       {
+        id: 'movie-paws-friends',
         title: 'Paws & Friends',
-        image: 'https://images.unsplash.com/photo-1616530940355-351fabd9524b?w=400&h=300&fit=crop',
+        image: 'https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg',
         genre: 'Familj, Komedi',
         duration: '1h 28min',
         rating: '7.1',
@@ -1401,8 +1805,9 @@
         length: 'short'
       },
       {
+        id: 'movie-galaxy-frontier',
         title: 'Galaxy Frontier',
-        image: 'https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=400&h=300&fit=crop',
+        image: 'https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg',
         genre: 'Sci-Fi, Äventyr',
         duration: '2h 15min',
         rating: '8.0',
@@ -1412,8 +1817,9 @@
         length: 'long'
       },
       {
+        id: 'movie-cyber-world',
         title: 'Cyber World 2077',
-        image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop',
+        image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600',
         genre: 'Sci-Fi, Action',
         duration: '2h 22min',
         rating: '7.6',
