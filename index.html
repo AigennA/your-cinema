@@ -31,7 +31,6 @@
     <nav class="desktop-nav" aria-label="Huvudnavigering">
       <a href="#coming-soon">Kommer snart</a>
       <a href="#now-showing">Nu på bio</a>
-      <a href="#newsletter">Nyhetsbrev</a>
       <a href="#giftcards">Presentkort</a>
       <a href="#about">Om oss</a>
       <button class="recommend-btn" id="openRecommendBtn"><i class="fas fa-magic"></i> Vad ska jag se?</button>
@@ -56,7 +55,6 @@
       <div class="mobile-search-results" id="searchResultsMobile"></div>
       <a href="#coming-soon">Kommer snart</a>
       <a href="#now-showing">Nu på bio</a>
-      <a href="#newsletter">Nyhetsbrev</a>
       <a href="#giftcards">Presentkort</a>
       <a href="#about">Om oss</a>
       <a href="#" id="openRecommendMobile" class="recommend-mobile-link"><i class="fas fa-magic"></i> Vad ska jag se?</a>
@@ -1734,18 +1732,6 @@
     });
 
     // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-      const menuToggle = document.getElementById('menu-toggle');
-      const mobileMenu = document.querySelector('.mobile-menu');
-      const mobileNav = document.querySelector('.mobile-nav');
-      if (menuToggle.checked && !mobileMenu.contains(e.target) && !mobileNav.contains(e.target) && e.target !== menuToggle) {
-        menuToggle.checked = false;
-      }
-    });
-
-    // ==========================================
-    // FIX: Close mobile menu on outside click
-    // ==========================================
     document.addEventListener('click', function(e) {
       const menuToggle = document.getElementById('menu-toggle');
       if (menuToggle.checked &&
