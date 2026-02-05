@@ -525,8 +525,9 @@ header {
    ========================================== */
 .categories {
   background: var(--color-dark);
-  padding: 16px 24px;
+  padding: 12px 24px;
   overflow-x: auto;
+  margin-top: -2px;
 }
 
 .category-list {
@@ -3214,6 +3215,7 @@ footer {
 }
 
 /* ==========================================
+
    SWISH PAYMENT ICON
    ========================================== */
 .swish-icon {
@@ -3250,12 +3252,35 @@ footer {
   background: rgba(255, 255, 255, 0.2);
   border-color: var(--color-white);
   transform: scale(1.1);
+
+   PROFILE NAV BUTTON
+   ========================================== */
+.profile-nav-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--color-white);
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.profile-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+
 }
 
 .profile-mobile-link {
   background: rgba(255, 255, 255, 0.1) !important;
   font-weight: 600 !important;
 }
+
 
 @media (max-width: 768px) {
   .profile-btn {
@@ -3880,22 +3905,818 @@ footer {
 }
 
 /* Profile Responsive */
+=======
+/* ==========================================
+   SWISH PAYMENT ICON
+   ========================================== */
+.swish-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #57b348;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================
+   TOAST NOTIFICATION
+   ========================================== */
+.toast-notification {
+  position: fixed;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3000;
+  transition: bottom 0.4s ease;
+}
+
+.toast-notification.active {
+  bottom: 30px;
+}
+
+.toast-content {
+  background: var(--color-dark);
+  color: var(--color-white);
+  padding: 16px 28px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.toast-content i {
+  color: var(--color-gold);
+  font-size: 1.2rem;
+}
+
+/* ==========================================
+   PROFILE MODAL
+   ========================================== */
+.profile-modal {
+  max-width: 650px;
+}
+
+.profile-header {
+  text-align: center;
+  padding: 32px 32px 16px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: var(--color-white);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.profile-avatar {
+  font-size: 4rem;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.profile-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.profile-member {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.profile-qr-section {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background: var(--color-bg);
+}
+
+.profile-qr {
+  text-align: center;
+}
+
+.profile-qr canvas {
+  border: 3px solid var(--color-dark);
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.profile-qr p {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  margin-bottom: 4px;
+}
+
+.profile-member-id {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 1px;
+}
+
+.profile-tabs {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 2px solid #eee;
+  background: var(--color-white);
+}
+
+.profile-tab {
+  flex: 1;
+  padding: 12px 8px;
+  border: none;
+  background: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-light);
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.profile-tab i {
+  font-size: 1.1rem;
+}
+
+.profile-tab:hover {
+  color: var(--color-primary);
+}
+
+.profile-tab.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.profile-tab-content {
+  display: none;
+  padding: 24px;
+}
+
+.profile-tab-content.active {
+  display: block;
+}
+
+.profile-tab-content h3 {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-tab-content h3 i {
+  color: var(--color-primary);
+}
+
+/* Profile Bookings */
+.profile-booking-card {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  margin-bottom: 12px;
+  transition: all var(--transition);
+}
+
+.profile-booking-card:hover {
+  transform: translateX(4px);
+}
+
+.profile-booking-card.past {
+  opacity: 0.7;
+}
+
+.profile-booking-poster img {
+  width: 60px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.profile-booking-info h4 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.profile-booking-info p {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin-bottom: 2px;
+}
+
+.profile-booking-info p i {
+  margin-right: 6px;
+  color: var(--color-primary);
+  width: 16px;
+}
+
+.booking-status {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.booking-status.upcoming {
+  background: rgba(40, 167, 69, 0.15);
+  color: var(--color-success);
+}
+
+.booking-status.past {
+  background: rgba(102, 102, 102, 0.15);
+  color: var(--color-text-light);
+}
+
+/* Profile Form */
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profile-save-btn {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  margin-top: 16px;
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.profile-save-btn:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+}
+
+.profile-save-btn i {
+  margin-right: 8px;
+}
+
+/* Watched Movies */
+.watched-movies-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.watched-movie-card {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition);
+}
+
+.watched-movie-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.watched-movie-card img {
+  width: 50px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+}
+
+.watched-movie-info h4 {
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+}
+
+.watched-movie-info p {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  margin-bottom: 4px;
+}
+
+.watched-rating {
+  color: var(--color-gold);
+  font-size: 0.7rem;
+}
+
+.watched-date {
+  font-size: 0.7rem;
+  color: var(--color-text-light);
+}
+
+.watched-total {
+  text-align: center;
+  margin-top: 16px;
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+}
+
+.watched-total i {
+  color: var(--color-primary);
+  margin-right: 6px;
+}
+
+/* Profile Gift Cards */
+.profile-giftcard {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  margin-bottom: 12px;
+  align-items: center;
+}
+
+.profile-giftcard-visual {
+  background: linear-gradient(145deg, #222 0%, #111 100%);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  text-align: center;
+  min-width: 120px;
+}
+
+.giftcard-amount-display {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  margin-bottom: 4px;
+}
+
+.giftcard-code-display {
+  font-size: 0.7rem;
+  color: var(--color-footer-text);
+  letter-spacing: 1px;
+}
+
+.profile-giftcard-details {
+  flex: 1;
+}
+
+.profile-giftcard-details p {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  margin-bottom: 6px;
+}
+
+.profile-giftcard-details p i {
+  margin-right: 6px;
+  color: var(--color-primary);
+}
+
+.giftcard-balance-bar {
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.giftcard-balance-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-gold));
+  border-radius: 4px;
+}
+
+.profile-buy-giftcard-btn {
+  width: 100%;
+  padding: 12px;
+  border: 2px dashed var(--color-primary);
+  background: transparent;
+  color: var(--color-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition);
+  margin-top: 8px;
+}
+
+.profile-buy-giftcard-btn:hover {
+  background: rgba(239, 62, 66, 0.1);
+}
+
+.profile-buy-giftcard-btn i {
+  margin-right: 8px;
+}
+
+/* Family Tab */
+.family-info-text {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  margin-bottom: 16px;
+  padding: 12px;
+  background: rgba(239, 62, 66, 0.08);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-primary);
+}
+
+.family-member-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: var(--color-bg);
+  border-radius: var(--radius-lg);
+  margin-bottom: 8px;
+}
+
+.family-member-avatar {
+  width: 44px;
+  height: 44px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: 1.1rem;
+}
+
+.family-member-avatar.child {
+  background: var(--color-gold);
+  color: var(--color-dark);
+}
+
+.family-member-info {
+  flex: 1;
+}
+
+.family-member-info h4 {
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.family-member-info p {
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+}
+
+.family-role-badge {
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: var(--color-primary);
+  color: var(--color-white);
+  text-transform: uppercase;
+}
+
+.family-role-badge.member {
+  background: #667eea;
+}
+
+.family-role-badge.child {
+  background: var(--color-gold);
+  color: var(--color-dark);
+}
+
+.add-family-btn {
+  width: 100%;
+  padding: 12px;
+  border: 2px dashed var(--color-text-light);
+  background: transparent;
+  color: var(--color-text-light);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition);
+  margin: 12px 0;
+}
+
+.add-family-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.add-family-btn i {
+  margin-right: 8px;
+}
+
+.family-discount-info {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: linear-gradient(135deg, rgba(40, 167, 69, 0.1), rgba(40, 167, 69, 0.05));
+  border: 2px solid var(--color-success);
+  border-radius: var(--radius-lg);
+  margin-top: 8px;
+}
+
+.discount-badge {
+  width: 50px;
+  height: 50px;
+  background: var(--color-success);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.family-discount-info h4 {
+  font-size: 1rem;
+  color: var(--color-success);
+  margin-bottom: 4px;
+}
+
+.family-discount-info p {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+.discount-saved {
+  margin-top: 4px;
+}
+
+/* ==========================================
+   GIFT CARD PURCHASE MODAL
+   ========================================== */
+.giftcard-amount-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.gc-amount-option {
+  padding: 14px 8px;
+  border: 2px solid #ddd;
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.gc-amount-option:hover {
+  border-color: var(--color-primary);
+}
+
+.gc-amount-option.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.giftcard-purchase-preview {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.giftcard-front.small {
+  width: 200px;
+  height: 125px;
+  padding: 20px;
+}
+
+.giftcard-front.small img {
+  height: 25px;
+  margin-bottom: 12px;
+}
+
+.giftcard-front.small .giftcard-value {
+  font-size: 1.8rem;
+}
+
+.giftcard-confirmation-code {
+  background: var(--color-bg);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  margin: 20px 0;
+  text-align: center;
+}
+
+.giftcard-confirmation-code p {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  margin-bottom: 8px;
+}
+
+.giftcard-confirmation-code strong {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+}
+
+/* ==========================================
+   OFFER DETAIL MODAL
+   ========================================== */
+.offer-detail-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.offer-detail-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.offer-detail-icon i {
+  font-size: 1.8rem;
+  color: var(--color-white);
+}
+
+.offer-detail-body {
+  text-align: left;
+}
+
+.offer-detail-body .offer-detail-price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.offer-detail-body p {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.offer-detail-body h4 {
+  font-size: 1.05rem;
+  color: var(--color-text);
+  margin-bottom: 10px;
+  margin-top: 8px;
+}
+
+.offer-detail-body ul {
+  list-style: none;
+  margin-bottom: 16px;
+}
+
+.offer-detail-body ul li {
+  padding: 6px 0;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.offer-detail-body ul li i.fa-check {
+  color: var(--color-success);
+}
+
+.offer-detail-body ul li i.fa-info-circle {
+  color: var(--color-primary);
+}
+
+/* ==========================================
+   SPECIAL FEATURES IN CARDS
+   ========================================== */
+.special-features {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.special-features li {
+  padding: 4px 0;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.special-features li i {
+  color: var(--color-success);
+  font-size: 0.75rem;
+}
+
+.special-card {
+  cursor: pointer;
+}
+
+/* ==========================================
+   PÅMINN MIG (REMIND) BUTTON STATE
+   ========================================== */
+.notify-btn.reminded {
+  background: var(--color-success);
+  color: var(--color-white);
+  border-color: var(--color-success);
+}
+
+/* ==========================================
+   SEAT SELECTION IMPROVEMENTS
+   ========================================== */
+.seat-aisle {
+  display: inline-block;
+  width: 16px;
+}
+
+.seat-select-info {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  background: rgba(239, 62, 66, 0.08);
+  border-radius: var(--radius-md);
+}
+
+.seat-select-info i {
+  color: var(--color-primary);
+  margin-right: 6px;
+}
+
+.seat {
+  position: relative;
+}
+
+.seat:hover:not(.occupied):not(.selected)::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-dark);
+  color: var(--color-white);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  white-space: nowrap;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* ==========================================
+   PROFILE MODAL RESPONSIVE
+   ========================================== */
+
 @media (max-width: 600px) {
   .profile-modal {
     max-height: 95vh;
   }
 
+
   .profile-header-section {
     padding: 24px 20px 16px;
+
+  .profile-header {
+    padding: 24px 16px 12px;
+
   }
 
   .profile-avatar {
     font-size: 3rem;
   }
 
+
+
+  .profile-header h2 {
+    font-size: 1.2rem;
+  }
+
+  .profile-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .profile-tab {
+    padding: 10px 6px;
+    font-size: 0.7rem;
+  }
+
+  .profile-tab i {
+    font-size: 0.95rem;
+  }
+
+
   .profile-tab-content {
     padding: 16px;
   }
+
 
   .profile-info-grid {
     grid-template-columns: 1fr;
@@ -3906,9 +4727,22 @@ footer {
   }
 
   .profile-card-item {
+
+  .watched-movies-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-giftcard {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .family-discount-info {
+
     flex-direction: column;
     text-align: center;
   }
+
 
   .profile-card-visual {
     width: 160px;
@@ -4002,5 +4836,31 @@ footer {
     height: 24px;
     font-size: 0.6rem;
     border-radius: 4px 4px 8px 8px;
+
+  .discount-badge {
+    margin: 0 auto;
+  }
+
+  .giftcard-amount-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .seat-aisle {
+    width: 8px;
+  }
+}
+
+/* ==========================================
+   SEAT AISLE MOBILE
+   ========================================== */
+@media (max-width: 480px) {
+  .seat-aisle {
+    width: 6px;
+  }
+
+  .seat-select-info {
+    font-size: 0.75rem;
+    padding: 6px 8px;
+
   }
 }
