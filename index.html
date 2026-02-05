@@ -44,6 +44,10 @@
       <div class="search-results" id="searchResults"></div>
     </div>
 
+    <button class="profile-btn" id="openProfileBtn" aria-label="Min profil">
+      <i class="fas fa-user-circle"></i>
+    </button>
+
     <nav class="mobile-nav" aria-label="Mobilnavigering">
       <div class="mobile-search-box">
         <input type="text" id="movieSearchInputMobile" placeholder="Sök film..." aria-label="Sök film">
@@ -449,7 +453,11 @@
     <div class="coming-grid">
       <article class="coming-card">
         <div class="coming-poster">
+
+          <img src="https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nez7Y.jpg" alt="Dune: Part Two">
+
           <img src="https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nez7.jpg" alt="Dune: Part Two">
+
           <div class="coming-date">
             <span class="day">15</span>
             <span class="month">MAR</span>
@@ -740,9 +748,15 @@
       <div class="footer-bottom">
         <p>&copy; 2024 Din Bio. Alla rättigheter förbehållna.</p>
         <div class="payment-methods">
+
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <span class="swish-icon" title="Swish">Swish</span>
+
           <i class="fab fa-cc-visa" title="Visa"></i>
           <span class="swish-icon" title="Swish">Swish</span>
           <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+
         </div>
       </div>
     </div>
@@ -1421,12 +1435,312 @@
     </div>
   </div>
 
+  <!-- PÅMINN MIG MODAL -->
+  <div class="modal-overlay" id="remindModal">
+    <div class="modal remind-modal">
+      <button class="modal-close" id="closeRemindModal" type="button" aria-label="Stäng"><i class="fas fa-times"></i></button>
+      <div class="remind-content">
+        <div class="remind-icon"><i class="fas fa-bell"></i></div>
+        <h2 id="remindMovieTitle">Påminnelse</h2>
+        <p>Ange din e-postadress så meddelar vi dig när filmen har premiär!</p>
+        <form class="remind-form" id="remindForm">
+          <input type="email" id="remindEmail" placeholder="Din e-postadress" required aria-label="E-postadress">
+          <button type="submit"><i class="fas fa-bell"></i> Påminn mig</button>
+        </form>
+        <div class="remind-success hidden" id="remindSuccess">
+          <i class="fas fa-check-circle"></i>
+          <p>Tack! Vi skickar en påminnelse till dig när filmen har premiär.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRESENT KORT PURCHASE MODAL -->
+  <div class="modal-overlay" id="giftcardModal">
+    <div class="modal giftcard-purchase-modal">
+      <button class="modal-close" id="closeGiftcardModal" type="button" aria-label="Stäng"><i class="fas fa-times"></i></button>
+      <div class="modal-header">
+        <h2><i class="fas fa-gift"></i> Köp Presentkort</h2>
+      </div>
+      <div class="giftcard-purchase-content">
+        <div class="giftcard-purchase-preview">
+          <div class="giftcard-front">
+            <img src="images/logobio.png" alt="Din Bio">
+            <p class="giftcard-value" id="modalGiftcardValue">500 kr</p>
+            <p class="giftcard-label">PRESENTKORT</p>
+          </div>
+        </div>
+        <form class="giftcard-purchase-form" id="giftcardPurchaseForm">
+          <div class="form-field">
+            <label>Mottagarens namn</label>
+            <input type="text" id="giftRecipient" required placeholder="Namn">
+          </div>
+          <div class="form-field">
+            <label>Din e-post</label>
+            <input type="email" id="giftSenderEmail" required placeholder="din@email.se">
+          </div>
+          <div class="form-field">
+            <label>Personligt meddelande (valfritt)</label>
+            <textarea id="giftMessage" placeholder="Grattis på födelsedagen!" rows="3"></textarea>
+          </div>
+          <div class="form-field">
+            <label>Leverans</label>
+            <div class="delivery-options">
+              <label class="delivery-option">
+                <input type="radio" name="delivery" value="digital" checked>
+                <span><i class="fas fa-envelope"></i> Digitalt (e-post)</span>
+              </label>
+              <label class="delivery-option">
+                <input type="radio" name="delivery" value="physical">
+                <span><i class="fas fa-box"></i> Fysiskt kort (+29 kr)</span>
+              </label>
+            </div>
+          </div>
+          <div class="giftcard-purchase-total">
+            <p>Totalt: <span id="giftcardTotal">500</span> kr</p>
+          </div>
+          <button type="submit" class="modal-pay-btn"><i class="fas fa-lock"></i> Betala med Swish</button>
+        </form>
+        <div class="giftcard-success hidden" id="giftcardSuccess">
+          <div class="confirmation-icon"><i class="fas fa-check-circle"></i></div>
+          <h3>Presentkort köpt!</h3>
+          <p>Presentkortet har skickats. Kod: <strong id="giftcardCode"></strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROFILE MODAL -->
+  <div class="modal-overlay" id="profileModal">
+    <div class="modal profile-modal">
+      <button class="modal-close" id="closeProfileModal" type="button" aria-label="Stäng"><i class="fas fa-times"></i></button>
+
+      <div class="profile-header-section">
+        <div class="profile-avatar">
+          <i class="fas fa-user-circle"></i>
+        </div>
+        <h2>Min profil</h2>
+        <p class="profile-member-since">Medlem sedan 2024</p>
+      </div>
+
+      <div class="profile-tabs">
+        <button class="profile-tab active" data-tab="info"><i class="fas fa-user"></i> Info</button>
+        <button class="profile-tab" data-tab="bookings"><i class="fas fa-ticket-alt"></i> Bokningar</button>
+        <button class="profile-tab" data-tab="watched"><i class="fas fa-film"></i> Sedda</button>
+        <button class="profile-tab" data-tab="cards"><i class="fas fa-gift"></i> Kort</button>
+      </div>
+
+      <!-- Tab: Info -->
+      <div class="profile-tab-content active" id="tabInfo">
+        <div class="profile-info-grid">
+          <div class="profile-info-card">
+            <h4><i class="fas fa-user"></i> Personuppgifter</h4>
+            <div class="profile-field">
+              <label>Namn</label>
+              <input type="text" id="profileName" value="Anna Andersson" placeholder="Ditt namn">
+            </div>
+            <div class="profile-field">
+              <label>E-post</label>
+              <input type="email" id="profileEmail" value="anna@exempel.se" placeholder="Din e-post">
+            </div>
+            <div class="profile-field">
+              <label>Telefon</label>
+              <input type="tel" id="profilePhone" value="070-123 45 67" placeholder="Ditt telefonnummer">
+            </div>
+            <button class="profile-save-btn" id="saveProfileInfo"><i class="fas fa-save"></i> Spara</button>
+          </div>
+
+          <div class="profile-info-card">
+            <h4><i class="fas fa-map-marker-alt"></i> Adress</h4>
+            <div class="profile-field">
+              <label>Gatuadress</label>
+              <input type="text" id="profileAddress" value="Filmgatan 45" placeholder="Gatuadress">
+            </div>
+            <div class="profile-field">
+              <label>Postnummer & Ort</label>
+              <input type="text" id="profileCity" value="111 22 Stockholm" placeholder="Postnummer & Ort">
+            </div>
+            <button class="profile-save-btn" id="saveProfileAddress"><i class="fas fa-save"></i> Spara</button>
+          </div>
+
+          <div class="profile-info-card profile-qr-card">
+            <h4><i class="fas fa-qrcode"></i> Min QR-kod</h4>
+            <p>Visa denna QR-kod i kassan för snabbare incheckning</p>
+            <div class="profile-qr" id="profileQR"></div>
+            <p class="profile-member-id" id="profileMemberId">Medlemsnr: DB-2024-0042</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Bookings -->
+      <div class="profile-tab-content" id="tabBookings">
+        <div class="profile-bookings-list">
+          <div class="profile-booking-card">
+            <div class="profile-booking-poster">
+              <img src="images/once-upon-a-time.png" alt="Once Upon a Time in Hollywood">
+            </div>
+            <div class="profile-booking-info">
+              <h4>Once Upon a Time in Hollywood</h4>
+              <p><i class="fas fa-calendar"></i> 2024-03-15</p>
+              <p><i class="fas fa-clock"></i> 20:00</p>
+              <p><i class="fas fa-chair"></i> Rad D, Plats 5-6</p>
+              <span class="booking-status completed">Genomförd</span>
+            </div>
+          </div>
+          <div class="profile-booking-card">
+            <div class="profile-booking-poster">
+              <img src="images/tenet.jpg" alt="Tenet">
+            </div>
+            <div class="profile-booking-info">
+              <h4>Tenet</h4>
+              <p><i class="fas fa-calendar"></i> 2024-04-02</p>
+              <p><i class="fas fa-clock"></i> 18:00</p>
+              <p><i class="fas fa-chair"></i> Rad F, Plats 8-9</p>
+              <span class="booking-status upcoming">Kommande</span>
+            </div>
+          </div>
+          <div class="profile-booking-card">
+            <div class="profile-booking-poster">
+              <img src="https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg" alt="Galaxy Frontier">
+            </div>
+            <div class="profile-booking-info">
+              <h4>Galaxy Frontier</h4>
+              <p><i class="fas fa-calendar"></i> 2024-04-10</p>
+              <p><i class="fas fa-clock"></i> 17:45</p>
+              <p><i class="fas fa-chair"></i> Rad G (VIP), Plats 6-7</p>
+              <span class="booking-status upcoming">Kommande</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Watched Movies -->
+      <div class="profile-tab-content" id="tabWatched">
+        <div class="profile-watched-grid">
+          <div class="profile-watched-card">
+            <img src="images/once-upon-a-time.png" alt="Once Upon a Time in Hollywood">
+            <div class="watched-info">
+              <h4>Once Upon a Time in Hollywood</h4>
+              <p class="watched-date"><i class="fas fa-calendar"></i> 2024-03-15</p>
+              <div class="watched-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span>4.5/5</span>
+              </div>
+            </div>
+          </div>
+          <div class="profile-watched-card">
+            <img src="images/judy.png" alt="Judy">
+            <div class="watched-info">
+              <h4>Judy</h4>
+              <p class="watched-date"><i class="fas fa-calendar"></i> 2024-02-20</p>
+              <div class="watched-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                <span>4/5</span>
+              </div>
+            </div>
+          </div>
+          <div class="profile-watched-card">
+            <img src="images/ladybird.png" alt="Lady Bird">
+            <div class="watched-info">
+              <h4>Lady Bird</h4>
+              <p class="watched-date"><i class="fas fa-calendar"></i> 2024-01-10</p>
+              <div class="watched-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <span>5/5</span>
+              </div>
+            </div>
+          </div>
+          <div class="profile-watched-card">
+            <img src="images/pexels-photo-903454.jpeg" alt="The Grand Budapest Hotel">
+            <div class="watched-info">
+              <h4>The Grand Budapest Hotel</h4>
+              <p class="watched-date"><i class="fas fa-calendar"></i> 2023-12-05</p>
+              <div class="watched-rating">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                <span>4.5/5</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="watched-stats">
+          <div class="watched-stat">
+            <span class="watched-stat-num">12</span>
+            <span class="watched-stat-label">Filmer sedda</span>
+          </div>
+          <div class="watched-stat">
+            <span class="watched-stat-num">4.3</span>
+            <span class="watched-stat-label">Snittbetyg</span>
+          </div>
+          <div class="watched-stat">
+            <span class="watched-stat-num">Drama</span>
+            <span class="watched-stat-label">Favoritgenre</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Cards & Discounts -->
+      <div class="profile-tab-content" id="tabCards">
+        <div class="profile-cards-list">
+          <div class="profile-card-item">
+            <div class="profile-card-visual presentkort-visual">
+              <img src="images/logobio.png" alt="Din Bio">
+              <p class="card-amount">300 kr</p>
+              <p class="card-type">PRESENTKORT</p>
+            </div>
+            <div class="profile-card-details">
+              <h4>Presentkort</h4>
+              <p>Saldo: <strong>300 kr</strong></p>
+              <p>Giltigt till: 2026-03-15</p>
+              <p class="card-code">Kod: GC-2024-8742</p>
+            </div>
+          </div>
+
+          <div class="profile-card-item">
+            <div class="profile-card-visual family-visual">
+              <i class="fas fa-users"></i>
+              <p class="card-type">FAMILJERABATT</p>
+            </div>
+            <div class="profile-card-details">
+              <h4>Familjerabatt</h4>
+              <p>Typ: <strong>Familj (4 personer)</strong></p>
+              <p>Rabatt: <strong>20% på alla biljetter</strong></p>
+              <p>Status: <span class="card-active">Aktiv</span></p>
+            </div>
+          </div>
+
+          <div class="profile-card-item">
+            <div class="profile-card-visual member-visual">
+              <i class="fas fa-crown"></i>
+              <p class="card-type">MEDLEMSKORT</p>
+            </div>
+            <div class="profile-card-details">
+              <h4>Bio-medlemskap</h4>
+              <p>Nivå: <strong>Guld</strong></p>
+              <p>Poäng: <strong>1 250 p</strong></p>
+              <p>Nästa nivå: 1 500 p (Platinum)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Close mobile menu when clicking a link
     document.querySelectorAll('.mobile-nav a').forEach(link => {
       link.addEventListener('click', () => {
         document.getElementById('menu-toggle').checked = false;
       });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const mobileNav = document.querySelector('.mobile-nav');
+      if (menuToggle.checked && !mobileMenu.contains(e.target) && !mobileNav.contains(e.target) && e.target !== menuToggle) {
+        menuToggle.checked = false;
+      }
     });
 
     // ==========================================
@@ -2361,6 +2675,8 @@
     document.getElementById('closeRecommendModal').addEventListener('click', closeRecommendModal);
     document.getElementById('restartRecommend').addEventListener('click', () => {
       userPreferences = { mood: '', company: '', age: '', duration: '' };
+      // Clear all selected states from all steps
+      document.querySelectorAll('.recommend-option').forEach(opt => opt.classList.remove('selected'));
       showRecStep(1);
     });
 
@@ -2408,6 +2724,106 @@
     });
 
     // ==========================================
+
+    // PÅMINN MIG (REMIND ME) FUNCTIONALITY
+    // ==========================================
+    const remindModal = document.getElementById('remindModal');
+    let currentRemindMovie = '';
+
+    document.querySelectorAll('.notify-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = this.closest('.coming-card');
+        currentRemindMovie = card.querySelector('h3').textContent;
+        document.getElementById('remindMovieTitle').textContent = currentRemindMovie;
+        document.getElementById('remindSuccess').classList.add('hidden');
+        document.getElementById('remindForm').classList.remove('hidden');
+        document.getElementById('remindForm').reset();
+        remindModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    document.getElementById('closeRemindModal').addEventListener('click', () => {
+      remindModal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    remindModal.addEventListener('click', (e) => {
+      if (e.target === remindModal) {
+        remindModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.getElementById('remindForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('remindForm').classList.add('hidden');
+      document.getElementById('remindSuccess').classList.remove('hidden');
+      setTimeout(() => {
+        remindModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }, 2500);
+    });
+
+    // ==========================================
+    // PRESENT KORT (GIFT CARD) FUNCTIONALITY
+    // ==========================================
+    let selectedGiftAmount = 500;
+    const giftcardModal = document.getElementById('giftcardModal');
+
+    // Amount selection updates card preview
+    document.querySelectorAll('.amount-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.amount-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        const amount = parseInt(this.textContent);
+        selectedGiftAmount = amount;
+        document.querySelector('.giftcard-value').textContent = amount + ' kr';
+      });
+    });
+
+    // Open gift card purchase modal
+    document.querySelector('.giftcard-buy').addEventListener('click', () => {
+      document.getElementById('modalGiftcardValue').textContent = selectedGiftAmount + ' kr';
+      document.getElementById('giftcardTotal').textContent = selectedGiftAmount;
+      document.getElementById('giftcardSuccess').classList.add('hidden');
+      document.getElementById('giftcardPurchaseForm').classList.remove('hidden');
+      document.getElementById('giftcardPurchaseForm').reset();
+      giftcardModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    document.getElementById('closeGiftcardModal').addEventListener('click', () => {
+      giftcardModal.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+
+    giftcardModal.addEventListener('click', (e) => {
+      if (e.target === giftcardModal) {
+        giftcardModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Delivery option changes total
+    document.querySelectorAll('input[name="delivery"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        const extra = this.value === 'physical' ? 29 : 0;
+        document.getElementById('giftcardTotal').textContent = selectedGiftAmount + extra;
+      });
+    });
+
+    document.getElementById('giftcardPurchaseForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const code = 'GC-' + Date.now().toString().slice(-6);
+      document.getElementById('giftcardCode').textContent = code;
+      document.getElementById('giftcardPurchaseForm').classList.add('hidden');
+      document.getElementById('giftcardSuccess').classList.remove('hidden');
+    });
+
+    // ==========================================
+
+
     // PROFILE MODAL
     // ==========================================
     const profileModal = document.getElementById('profileModal');
@@ -2440,6 +2856,44 @@
         document.querySelectorAll('.profile-tab').forEach(t => t.classList.remove('active'));
         document.querySelectorAll('.profile-tab-content').forEach(c => c.classList.remove('active'));
         this.classList.add('active');
+
+        const tabId = 'tab' + this.dataset.tab.charAt(0).toUpperCase() + this.dataset.tab.slice(1);
+        document.getElementById(tabId).classList.add('active');
+      });
+    });
+
+    // Save profile handlers
+    document.getElementById('saveProfileInfo').addEventListener('click', () => {
+      alert('Profil sparad!');
+    });
+    document.getElementById('saveProfileAddress').addEventListener('click', () => {
+      alert('Adress sparad!');
+    });
+
+    // QR Code generation using canvas
+    function generateQRCode() {
+      const container = document.getElementById('profileQR');
+      if (container.querySelector('canvas')) return;
+
+      const memberId = 'DB-2024-0042';
+      const data = memberId;
+      const canvas = document.createElement('canvas');
+      const size = 160;
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+
+      // Simple QR-code-like pattern based on data hash
+      const cellSize = 8;
+      const gridSize = size / cellSize;
+
+      // Generate deterministic pattern from data
+      let hash = 0;
+      for (let i = 0; i < data.length; i++) {
+        hash = ((hash << 5) - hash) + data.charCodeAt(i);
+        hash = hash & hash;
+      }
+
         document.getElementById('tab-' + this.dataset.tab).classList.add('active');
       });
     });
@@ -2453,9 +2907,13 @@
       const cellSize = 4;
       const cells = Math.floor(size / cellSize);
 
+
       ctx.fillStyle = '#ffffff';
       ctx.fillRect(0, 0, size, size);
       ctx.fillStyle = '#111111';
+
+
+      // Draw finder patterns (top-left, top-right, bottom-left)
 
       // Generate deterministic QR-like pattern
       const seed = 2024847;
@@ -2465,6 +2923,7 @@
       }
 
       // Draw finder patterns (corners)
+
       function drawFinder(x, y) {
         ctx.fillRect(x, y, 7 * cellSize, cellSize);
         ctx.fillRect(x, y + 6 * cellSize, 7 * cellSize, cellSize);
@@ -2474,6 +2933,47 @@
       }
 
       drawFinder(0, 0);
+
+      drawFinder((gridSize - 7) * cellSize, 0);
+      drawFinder(0, (gridSize - 7) * cellSize);
+
+      // Fill data area with deterministic pattern
+      let seed = Math.abs(hash);
+      for (let y = 0; y < gridSize; y++) {
+        for (let x = 0; x < gridSize; x++) {
+          // Skip finder pattern areas
+          if ((x < 8 && y < 8) || (x >= gridSize - 8 && y < 8) || (x < 8 && y >= gridSize - 8)) continue;
+          seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+          if (seed % 3 !== 0) {
+            ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+          }
+        }
+      }
+
+      container.appendChild(canvas);
+    }
+
+    // ==========================================
+    // ERBJUDANDEN DETAIL MODALS
+    // ==========================================
+    document.querySelectorAll('.special-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const card = this.closest('.special-card');
+        const title = card.querySelector('h3').textContent;
+        const price = card.querySelector('.special-price').textContent;
+        const desc = card.querySelector('p:not(.special-price)').textContent;
+
+        const details = {
+          'Familjesöndag': 'Varje söndag bjuder Din Bio på en fantastisk familjeupplevelse! Paketet inkluderar:\n\n• Biobiljett för hela familjen\n• Medium popcorn per person\n• Valfri läsk (33cl)\n• Tillgång till barnhörnan före filmen\n\nErbjudandet gäller alla söndagens visningar. Max 6 personer per familj. Kan inte kombineras med andra erbjudanden.',
+          'VIP-upplevelse': 'Upplev bio som aldrig förr med vår VIP-upplevelse!\n\n• Exklusiv lounge med gratis drycker före filmen\n• Premium-platser i mitten av salongen\n• Stort popcorn & valfri dryck ingår\n• Mjuka läderrecliner-fåtöljer\n• Servering till din plats\n\nPerfekt för en lyxig kväll ut. Boka senast 24 timmar i förväg.',
+          'Studentrabatt': 'Som student får du rabatterade biljetter hos Din Bio!\n\n• Giltigt med studentkort (CSN, Mecenat, studentlegitimation)\n• Gäller vardagar före kl. 17:00\n• Alla filmer och salonger inkluderade\n• Kan kombineras med storlek-uppgradering av popcorn\n\nOBS: Gäller ej premiärvisningar eller specialevenemang.',
+          'Date Night': 'Perfekt paket för en romantisk kväll på bio!\n\n• 2 biobiljetter sida vid sida\n• Stort popcorn att dela\n• 2 valfria drycker\n• Reserverade platser i de bästa raderna\n\nGäller varje fredag. Boka via appen eller hemsidan senast samma dag kl. 15:00.'
+        };
+
+        alert(title + ' - ' + price + '\n\n' + (details[title] || desc));
+      });
+    });
+
       drawFinder(size - 7 * cellSize, 0);
       drawFinder(0, size - 7 * cellSize);
 
@@ -2730,6 +3230,7 @@
     offerDetailModal.addEventListener('click', (e) => {
       if (e.target === offerDetailModal) closeOfferDetail();
     });
+
   </script>
 
 </body>
