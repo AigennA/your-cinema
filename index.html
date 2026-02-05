@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Din Bio - Din lokala biograf med de senaste filmerna, specialvisningar och erbjudanden.">
+  <meta name="description" content="Din Bio - Streama de senaste filmerna, serier och exklusivt innehåll. Välj ditt abonnemang idag.">
 
   <title>Din Bio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +30,11 @@
 
     <nav class="desktop-nav" aria-label="Huvudnavigering">
       <a href="#coming-soon">Kommer snart</a>
+
+      <a href="#now-showing">Populärt just nu</a>
+
       <a href="#now-showing">Nu på bio</a>
+
       <a href="#giftcards">Presentkort</a>
       <a href="#about">Om oss</a>
       <button class="recommend-btn" id="openRecommendBtn"><i class="fas fa-magic"></i> Vad ska jag se?</button>
@@ -54,7 +58,11 @@
       </div>
       <div class="mobile-search-results" id="searchResultsMobile"></div>
       <a href="#coming-soon">Kommer snart</a>
+
+      <a href="#now-showing">Populärt just nu</a>
+
       <a href="#now-showing">Nu på bio</a>
+
       <a href="#giftcards">Presentkort</a>
       <a href="#about">Om oss</a>
       <a href="#" id="openRecommendMobile" class="recommend-mobile-link"><i class="fas fa-magic"></i> Vad ska jag se?</a>
@@ -66,7 +74,7 @@
   <section class="hero" id="hero">
     <img src="images/once-upon-a-time.png" alt="Filmaffisch för Once Upon a Time in Hollywood">
     <div class="hero-text">
-      <span class="hero-badge">Biopremiär</span>
+      <span class="hero-badge">Ny på Din Bio</span>
       <h1>Once Upon a Time in Hollywood</h1>
       <p class="hero-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 8.5/10</p>
       <p class="hero-description">Quentin Tarantinos hyllade film om Hollywood 1969. En avtackande TV-stjärna och hans stuntdubblare navigerar en föränderlig filmindustri.</p>
@@ -75,8 +83,8 @@
         <span><i class="fas fa-film"></i> Drama, Komedi</span>
         <span><i class="fas fa-user"></i> 15+</span>
       </div>
-      <button class="hero-button" type="button" onclick="document.getElementById('now-showing').scrollIntoView({behavior: 'smooth'})">
-        <i class="fas fa-ticket-alt"></i> Boka biljetter
+      <button class="hero-button" type="button" onclick="alert('Filmen spelas nu!')">
+        <i class="fas fa-play"></i> Titta nu
       </button>
     </div>
   </section>
@@ -97,8 +105,8 @@
   <!-- NOW SHOWING -->
   <section class="now-showing" id="now-showing">
     <div class="section-header">
-      <h2><i class="fas fa-play-circle"></i> Nu på bio</h2>
-      <p>Boka dina biljetter till veckans filmer</p>
+      <h2><i class="fas fa-play-circle"></i> Populärt just nu</h2>
+      <p>Streama de bästa filmerna direkt</p>
     </div>
 
     <div class="movies-grid">
@@ -118,16 +126,10 @@
           <div class="movie-rating">
             <i class="fas fa-star"></i> 8.5/10
           </div>
-          <div class="showtimes">
-            <p class="showtime-label">Idag:</p>
-            <div class="time-slots">
-              <button class="time-slot">14:30</button>
-              <button class="time-slot">17:45</button>
-              <button class="time-slot popular">20:00</button>
-              <button class="time-slot">22:30</button>
-            </div>
+          <div class="stream-actions">
+            <button class="watch-btn" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
+            <button class="watchlist-btn" onclick="toggleWatchlist(this)"><i class="far fa-bookmark"></i> Min lista</button>
           </div>
-          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
         </div>
       </article>
 
@@ -147,15 +149,10 @@
           <div class="movie-rating">
             <i class="fas fa-star"></i> 7.8/10
           </div>
-          <div class="showtimes">
-            <p class="showtime-label">Idag:</p>
-            <div class="time-slots">
-              <button class="time-slot">15:00</button>
-              <button class="time-slot popular">18:00</button>
-              <button class="time-slot">21:00</button>
-            </div>
+          <div class="stream-actions">
+            <button class="watch-btn" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
+            <button class="watchlist-btn" onclick="toggleWatchlist(this)"><i class="far fa-bookmark"></i> Min lista</button>
           </div>
-          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
         </div>
       </article>
 
@@ -175,15 +172,10 @@
           <div class="movie-rating">
             <i class="fas fa-star"></i> 5.4/10
           </div>
-          <div class="showtimes">
-            <p class="showtime-label">Idag:</p>
-            <div class="time-slots">
-              <button class="time-slot">13:00</button>
-              <button class="time-slot">16:30</button>
-              <button class="time-slot popular">19:30</button>
-            </div>
+          <div class="stream-actions">
+            <button class="watch-btn" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
+            <button class="watchlist-btn" onclick="toggleWatchlist(this)"><i class="far fa-bookmark"></i> Min lista</button>
           </div>
-          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
         </div>
       </article>
 
@@ -203,15 +195,10 @@
           <div class="movie-rating">
             <i class="fas fa-star"></i> 6.8/10
           </div>
-          <div class="showtimes">
-            <p class="showtime-label">Idag:</p>
-            <div class="time-slots">
-              <button class="time-slot">14:00</button>
-              <button class="time-slot popular">17:00</button>
-              <button class="time-slot">20:30</button>
-            </div>
+          <div class="stream-actions">
+            <button class="watch-btn" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
+            <button class="watchlist-btn" onclick="toggleWatchlist(this)"><i class="far fa-bookmark"></i> Min lista</button>
           </div>
-          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
         </div>
       </article>
 
@@ -231,15 +218,10 @@
           <div class="movie-rating">
             <i class="fas fa-star"></i> 7.4/10
           </div>
-          <div class="showtimes">
-            <p class="showtime-label">Idag:</p>
-            <div class="time-slots">
-              <button class="time-slot">15:30</button>
-              <button class="time-slot popular">18:30</button>
-              <button class="time-slot">21:15</button>
-            </div>
+          <div class="stream-actions">
+            <button class="watch-btn" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
+            <button class="watchlist-btn" onclick="toggleWatchlist(this)"><i class="far fa-bookmark"></i> Min lista</button>
           </div>
-          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
         </div>
       </article>
 
@@ -259,15 +241,10 @@
           <div class="movie-rating">
             <i class="fas fa-star"></i> 8.1/10
           </div>
-          <div class="showtimes">
-            <p class="showtime-label">Idag:</p>
-            <div class="time-slots">
-              <button class="time-slot">14:15</button>
-              <button class="time-slot">17:30</button>
-              <button class="time-slot popular">20:45</button>
-            </div>
+          <div class="stream-actions">
+            <button class="watch-btn" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
+            <button class="watchlist-btn" onclick="toggleWatchlist(this)"><i class="far fa-bookmark"></i> Min lista</button>
           </div>
-          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
         </div>
       </article>
 
@@ -287,15 +264,10 @@
           <div class="movie-rating">
             <i class="fas fa-star"></i> 7.2/10
           </div>
-          <div class="showtimes">
-            <p class="showtime-label">Idag:</p>
-            <div class="time-slots">
-              <button class="time-slot">19:00</button>
-              <button class="time-slot popular">21:30</button>
-              <button class="time-slot">23:45</button>
-            </div>
+          <div class="stream-actions">
+            <button class="watch-btn" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
+            <button class="watchlist-btn" onclick="toggleWatchlist(this)"><i class="far fa-bookmark"></i> Min lista</button>
           </div>
-          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
         </div>
       </article>
 
@@ -315,15 +287,10 @@
           <div class="movie-rating">
             <i class="fas fa-star"></i> 6.9/10
           </div>
-          <div class="showtimes">
-            <p class="showtime-label">Idag:</p>
-            <div class="time-slots">
-              <button class="time-slot">20:00</button>
-              <button class="time-slot popular">22:15</button>
-              <button class="time-slot">00:30</button>
-            </div>
+          <div class="stream-actions">
+            <button class="watch-btn" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
+            <button class="watchlist-btn" onclick="toggleWatchlist(this)"><i class="far fa-bookmark"></i> Min lista</button>
           </div>
-          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
         </div>
       </article>
 
@@ -343,15 +310,10 @@
           <div class="movie-rating">
             <i class="fas fa-star"></i> 7.8/10
           </div>
-          <div class="showtimes">
-            <p class="showtime-label">Idag:</p>
-            <div class="time-slots">
-              <button class="time-slot">11:00</button>
-              <button class="time-slot popular">14:00</button>
-              <button class="time-slot">16:30</button>
-            </div>
+          <div class="stream-actions">
+            <button class="watch-btn" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
+            <button class="watchlist-btn" onclick="toggleWatchlist(this)"><i class="far fa-bookmark"></i> Min lista</button>
           </div>
-          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
         </div>
       </article>
 
@@ -371,15 +333,10 @@
           <div class="movie-rating">
             <i class="fas fa-star"></i> 7.1/10
           </div>
-          <div class="showtimes">
-            <p class="showtime-label">Idag:</p>
-            <div class="time-slots">
-              <button class="time-slot">10:30</button>
-              <button class="time-slot popular">13:00</button>
-              <button class="time-slot">15:30</button>
-            </div>
+          <div class="stream-actions">
+            <button class="watch-btn" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
+            <button class="watchlist-btn" onclick="toggleWatchlist(this)"><i class="far fa-bookmark"></i> Min lista</button>
           </div>
-          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
         </div>
       </article>
 
@@ -399,15 +356,10 @@
           <div class="movie-rating">
             <i class="fas fa-star"></i> 8.0/10
           </div>
-          <div class="showtimes">
-            <p class="showtime-label">Idag:</p>
-            <div class="time-slots">
-              <button class="time-slot">14:30</button>
-              <button class="time-slot popular">17:45</button>
-              <button class="time-slot">20:30</button>
-            </div>
+          <div class="stream-actions">
+            <button class="watch-btn" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
+            <button class="watchlist-btn" onclick="toggleWatchlist(this)"><i class="far fa-bookmark"></i> Min lista</button>
           </div>
-          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
         </div>
       </article>
 
@@ -427,15 +379,10 @@
           <div class="movie-rating">
             <i class="fas fa-star"></i> 7.6/10
           </div>
-          <div class="showtimes">
-            <p class="showtime-label">Idag:</p>
-            <div class="time-slots">
-              <button class="time-slot">15:00</button>
-              <button class="time-slot popular">18:30</button>
-              <button class="time-slot">21:45</button>
-            </div>
+          <div class="stream-actions">
+            <button class="watch-btn" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
+            <button class="watchlist-btn" onclick="toggleWatchlist(this)"><i class="far fa-bookmark"></i> Min lista</button>
           </div>
-          <button class="book-btn"><i class="fas fa-ticket-alt"></i> Boka nu</button>
         </div>
       </article>
     </div>
@@ -445,12 +392,15 @@
   <section class="coming-soon" id="coming-soon">
     <div class="section-header">
       <h2><i class="fas fa-calendar-alt"></i> Kommer snart</h2>
-      <p>Kommande biopremiärer - boka redan idag!</p>
+      <p>Nya titlar som snart finns att streama</p>
     </div>
 
     <div class="coming-grid">
       <article class="coming-card">
         <div class="coming-poster">
+
+          <img src="https://images.pexels.com/photos/5489194/pexels-photo-5489194.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Dune: Part Two">
+
 
           <img src="https://image.tmdb.org/t/p/w500/8b8R8l88Qje9dn9OE8PY05Nez7Y.jpg" alt="Dune: Part Two">
 
@@ -503,74 +453,64 @@
     </div>
   </section>
 
-  <!-- SPECIALS / OFFERS -->
+  <!-- SUBSCRIPTION PLANS -->
   <section class="specials" id="specials">
     <div class="section-header">
-      <h2><i class="fas fa-tags"></i> Erbjudanden</h2>
-      <p>Spara pengar med våra specialerbjudanden</p>
+      <h2><i class="fas fa-crown"></i> Abonnemang</h2>
+      <p>Välj det abonnemang som passar dig bäst</p>
     </div>
 
     <div class="specials-grid">
-      <article class="special-card" onclick="showOfferDetail('familj')">
+      <article class="special-card" onclick="showOfferDetail('basic')">
         <div class="special-icon">
-          <i class="fas fa-users"></i>
+          <i class="fas fa-play"></i>
         </div>
-        <h3>Familjesöndag</h3>
-        <p class="special-price">149 kr/person</p>
-        <p>Varje söndag - biljett + popcorn + läsk för hela familjen till reducerat pris.</p>
+        <h3>Basic</h3>
+        <p class="special-price">89 kr/mån</p>
+        <p>Perfekt för att komma igång. Streama filmer i HD-kvalitet på en enhet.</p>
         <ul class="special-features">
-          <li><i class="fas fa-check"></i> Biljett + stort popcorn</li>
-          <li><i class="fas fa-check"></i> Valfri läsk (0.5L)</li>
-          <li><i class="fas fa-check"></i> Barn under 5 gratis</li>
+          <li><i class="fas fa-check"></i> Obegränsat antal filmer</li>
+          <li><i class="fas fa-check"></i> HD-kvalitet (720p)</li>
+          <li><i class="fas fa-check"></i> 1 enhet samtidigt</li>
+          <li><i class="fas fa-check"></i> Avbryt när som helst</li>
         </ul>
-        <button class="special-btn">Läs mer <i class="fas fa-arrow-right"></i></button>
+        <button class="special-btn">Välj Basic <i class="fas fa-arrow-right"></i></button>
       </article>
 
-      <article class="special-card featured" onclick="showOfferDetail('vip')">
+      <article class="special-card featured" onclick="showOfferDetail('standard')">
         <div class="special-badge">Populär</div>
         <div class="special-icon">
           <i class="fas fa-star"></i>
         </div>
-        <h3>VIP-upplevelse</h3>
-        <p class="special-price">299 kr/person</p>
-        <p>Premiumbiljett med loungetillgång, gratis popcorn, läsk och de bästa platserna i salongen.</p>
+        <h3>Standard</h3>
+        <p class="special-price">139 kr/mån</p>
+        <p>Vår mest populära plan. Full HD och streama på två enheter samtidigt.</p>
         <ul class="special-features">
-          <li><i class="fas fa-check"></i> VIP-lounge innan visning</li>
-          <li><i class="fas fa-check"></i> Premium popcorn & dryck</li>
-          <li><i class="fas fa-check"></i> Bästa platserna (rad G-H)</li>
-          <li><i class="fas fa-check"></i> Extra benutrymme</li>
+          <li><i class="fas fa-check"></i> Obegränsat antal filmer</li>
+          <li><i class="fas fa-check"></i> Full HD-kvalitet (1080p)</li>
+          <li><i class="fas fa-check"></i> 2 enheter samtidigt</li>
+          <li><i class="fas fa-check"></i> Ladda ner för offline</li>
+          <li><i class="fas fa-check"></i> Avbryt när som helst</li>
         </ul>
-        <button class="special-btn">Boka VIP <i class="fas fa-arrow-right"></i></button>
+        <button class="special-btn">Välj Standard <i class="fas fa-arrow-right"></i></button>
       </article>
 
-      <article class="special-card" onclick="showOfferDetail('student')">
+      <article class="special-card" onclick="showOfferDetail('premium')">
         <div class="special-icon">
-          <i class="fas fa-graduation-cap"></i>
+          <i class="fas fa-gem"></i>
         </div>
-        <h3>Studentrabatt</h3>
-        <p class="special-price">99 kr/biljett</p>
-        <p>Visa ditt studentkort och få rabatterade biljetter alla vardagar före kl. 17:00.</p>
+        <h3>Premium</h3>
+        <p class="special-price">189 kr/mån</p>
+        <p>Den ultimata upplevelsen. 4K Ultra HD, Dolby Atmos och upp till 4 enheter.</p>
         <ul class="special-features">
-          <li><i class="fas fa-check"></i> Giltigt med studentkort</li>
-          <li><i class="fas fa-check"></i> Mån-Fre före 17:00</li>
-          <li><i class="fas fa-check"></i> Alla filmer inkluderade</li>
+          <li><i class="fas fa-check"></i> Obegränsat antal filmer</li>
+          <li><i class="fas fa-check"></i> 4K Ultra HD + HDR</li>
+          <li><i class="fas fa-check"></i> Dolby Atmos-ljud</li>
+          <li><i class="fas fa-check"></i> 4 enheter samtidigt</li>
+          <li><i class="fas fa-check"></i> Ladda ner för offline</li>
+          <li><i class="fas fa-check"></i> Exklusivt innehåll</li>
         </ul>
-        <button class="special-btn">Visa villkor <i class="fas fa-arrow-right"></i></button>
-      </article>
-
-      <article class="special-card" onclick="showOfferDetail('date')">
-        <div class="special-icon">
-          <i class="fas fa-heart"></i>
-        </div>
-        <h3>Date Night</h3>
-        <p class="special-price">349 kr/2 pers</p>
-        <p>Varje fredag - två biljetter, popcorn att dela och två drycker. Perfekt för en romantisk kväll.</p>
-        <ul class="special-features">
-          <li><i class="fas fa-check"></i> 2 biljetter valfri film</li>
-          <li><i class="fas fa-check"></i> Stort popcorn att dela</li>
-          <li><i class="fas fa-check"></i> 2 valfria drycker</li>
-        </ul>
-        <button class="special-btn">Boka nu <i class="fas fa-arrow-right"></i></button>
+        <button class="special-btn">Välj Premium <i class="fas fa-arrow-right"></i></button>
       </article>
     </div>
   </section>
@@ -580,11 +520,11 @@
     <div class="giftcard-content">
       <div class="giftcard-text">
         <h2><i class="fas fa-gift"></i> Presentkort</h2>
-        <p>Ge bort en bioupplevelse! Våra presentkort är den perfekta gåvan för filmälskare. Välj valfritt belopp från 200 kr till 1000 kr.</p>
+        <p>Ge bort en streamingupplevelse! Våra presentkort är den perfekta gåvan för filmälskare. Välj valfritt belopp från 200 kr till 1000 kr.</p>
         <ul class="giftcard-features">
           <li><i class="fas fa-check"></i> Giltigt i 2 år</li>
-          <li><i class="fas fa-check"></i> Kan användas för biljetter och snacks</li>
-          <li><i class="fas fa-check"></i> Digitalt eller fysiskt kort</li>
+          <li><i class="fas fa-check"></i> Kan användas för abonnemang</li>
+          <li><i class="fas fa-check"></i> Digitalt presentkort via e-post</li>
           <li><i class="fas fa-check"></i> Personligt meddelande</li>
         </ul>
         <div class="giftcard-amounts">
@@ -643,52 +583,52 @@
   <section class="about" id="about">
     <div class="section-header">
       <h2><i class="fas fa-info-circle"></i> Om oss</h2>
-      <p>Din lokala biograf sedan 1985</p>
+      <p>Din streamingplattform för de bästa filmerna</p>
     </div>
 
     <div class="about-content">
       <div class="about-text">
-        <p>Din Bio har varit en del av Stockholms kulturliv i över 35 år. Vi brinner för film och strävar efter att ge dig den bästa bioupplevelsen möjligt.</p>
-        <p>Med sex moderna salonger, Dolby Atmos-ljud och bekväma fåtöljer erbjuder vi allt från de senaste blockbusters till klassiska kultfilmer och independentproduktioner.</p>
+        <p>Din Bio är din svenska streamingplattform för filmer. Vi brinner för film och strävar efter att ge dig den bästa streamingupplevelsen möjligt.</p>
+        <p>Med tusentals filmer i HD, Full HD och 4K Ultra HD erbjuder vi allt från de senaste blockbusters till klassiska kultfilmer och independentproduktioner.</p>
         <div class="about-stats">
           <div class="stat">
-            <span class="stat-number">6</span>
-            <span class="stat-label">Salonger</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">850</span>
-            <span class="stat-label">Platser</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number">35+</span>
-            <span class="stat-label">År av film</span>
+            <span class="stat-number">5000+</span>
+            <span class="stat-label">Filmer</span>
           </div>
           <div class="stat">
             <span class="stat-number">4K</span>
-            <span class="stat-label">Laser projektion</span>
+            <span class="stat-label">Ultra HD</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">3</span>
+            <span class="stat-label">Abonnemang</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Tillgänglig</span>
           </div>
         </div>
       </div>
       <div class="about-features">
         <div class="feature">
-          <i class="fas fa-couch"></i>
-          <h4>Lyxiga fåtöljer</h4>
-          <p>Ergonomiska fåtöljer med extra benutrymme</p>
+          <i class="fas fa-tv"></i>
+          <h4>Alla enheter</h4>
+          <p>Streama på TV, dator, mobil och surfplatta</p>
         </div>
         <div class="feature">
           <i class="fas fa-volume-up"></i>
           <h4>Dolby Atmos</h4>
-          <p>Omslutande ljudupplevelse i alla salonger</p>
+          <p>Omslutande ljudupplevelse med Premium</p>
         </div>
         <div class="feature">
-          <i class="fas fa-utensils"></i>
-          <h4>Premium snacks</h4>
-          <p>Färskt popcorn, nachos och gourmetgodis</p>
+          <i class="fas fa-download"></i>
+          <h4>Ladda ner</h4>
+          <p>Se filmer offline med Standard och Premium</p>
         </div>
         <div class="feature">
-          <i class="fas fa-wheelchair"></i>
-          <h4>Tillgänglighet</h4>
-          <p>Anpassat för alla besökare</p>
+          <i class="fas fa-users"></i>
+          <h4>Familjekonton</h4>
+          <p>Skapa profiler för hela familjen</p>
         </div>
       </div>
     </div>
@@ -700,9 +640,9 @@
       <div class="footer-section">
         <h4>Snabblänkar</h4>
         <nav class="footer-nav">
-          <a href="#now-showing">Nu på bio</a>
+          <a href="#now-showing">Populärt just nu</a>
           <a href="#coming-soon">Kommer snart</a>
-          <a href="#specials">Erbjudanden</a>
+          <a href="#specials">Abonnemang</a>
           <a href="#giftcards">Presentkort</a>
         </nav>
       </div>
@@ -720,10 +660,9 @@
       <div class="footer-section">
         <h4>Kontakt</h4>
         <div class="footer-contact">
-          <p><i class="fas fa-map-marker-alt"></i> Filmgatan 123, Stockholm</p>
-          <p><i class="fas fa-phone"></i> 08-123 456 78</p>
-          <p><i class="fas fa-envelope"></i> info@yourcinema.se</p>
-          <p><i class="fas fa-clock"></i> Öppet: 10:00 - 00:00</p>
+          <p><i class="fas fa-envelope"></i> info@dinbio.se</p>
+          <p><i class="fas fa-headset"></i> Kundtjänst: 08-123 456 78</p>
+          <p><i class="fas fa-clock"></i> Support: Dygnet runt</p>
         </div>
       </div>
 
@@ -790,26 +729,26 @@
       </div>
 
       <div class="profile-tabs">
-        <button class="profile-tab active" data-tab="bookings"><i class="fas fa-ticket-alt"></i> Bokningar</button>
+        <button class="profile-tab active" data-tab="bookings"><i class="fas fa-bookmark"></i> Min lista</button>
         <button class="profile-tab" data-tab="info"><i class="fas fa-id-card"></i> Min info</button>
         <button class="profile-tab" data-tab="watched"><i class="fas fa-film"></i> Sedda filmer</button>
         <button class="profile-tab" data-tab="giftcards"><i class="fas fa-gift"></i> Presentkort</button>
         <button class="profile-tab" data-tab="family"><i class="fas fa-users"></i> Familj</button>
       </div>
 
-      <!-- Bookings Tab -->
+      <!-- Watchlist Tab -->
       <div class="profile-tab-content active" id="tab-bookings">
-        <h3><i class="fas fa-calendar-check"></i> Kommande bokningar</h3>
+        <h3><i class="fas fa-bookmark"></i> Min lista</h3>
+        <p style="color: var(--color-text-light); margin-bottom: 16px;">Filmer du har sparat att se senare</p>
         <div class="profile-booking-card">
           <div class="profile-booking-poster">
             <img src="images/tenet.jpg" alt="Tenet">
           </div>
           <div class="profile-booking-info">
             <h4>Tenet</h4>
-            <p><i class="fas fa-calendar"></i> Lördag 15 februari 2025</p>
-            <p><i class="fas fa-clock"></i> 18:00</p>
-            <p><i class="fas fa-chair"></i> Rad D, Plats 5-6</p>
-            <span class="booking-status upcoming">Kommande</span>
+            <p><i class="fas fa-film"></i> Action, Sci-Fi</p>
+            <p><i class="fas fa-clock"></i> 2h 30min</p>
+            <button class="watch-btn" style="margin-top:8px; padding:6px 16px; font-size:0.85rem;" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
           </div>
         </div>
         <div class="profile-booking-card">
@@ -818,23 +757,20 @@
           </div>
           <div class="profile-booking-info">
             <h4>Once Upon a Time in Hollywood</h4>
-            <p><i class="fas fa-calendar"></i> Söndag 16 februari 2025</p>
-            <p><i class="fas fa-clock"></i> 20:00</p>
-            <p><i class="fas fa-chair"></i> Rad F, Plats 8</p>
-            <span class="booking-status upcoming">Kommande</span>
+            <p><i class="fas fa-film"></i> Drama, Komedi</p>
+            <p><i class="fas fa-clock"></i> 2h 41min</p>
+            <button class="watch-btn" style="margin-top:8px; padding:6px 16px; font-size:0.85rem;" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
           </div>
         </div>
-        <h3 style="margin-top:24px;"><i class="fas fa-history"></i> Tidigare bokningar</h3>
-        <div class="profile-booking-card past">
+        <div class="profile-booking-card">
           <div class="profile-booking-poster">
             <img src="images/judy.png" alt="Judy">
           </div>
           <div class="profile-booking-info">
             <h4>Judy</h4>
-            <p><i class="fas fa-calendar"></i> Fredag 10 januari 2025</p>
-            <p><i class="fas fa-clock"></i> 17:00</p>
-            <p><i class="fas fa-chair"></i> Rad C, Plats 3-4</p>
-            <span class="booking-status past">Avslutad</span>
+            <p><i class="fas fa-film"></i> Biografi, Drama</p>
+            <p><i class="fas fa-clock"></i> 1h 58min</p>
+            <button class="watch-btn" style="margin-top:8px; padding:6px 16px; font-size:0.85rem;" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
           </div>
         </div>
       </div>
@@ -883,7 +819,7 @@
           </label>
           <label class="checkbox-label" style="justify-content:flex-start; color:var(--color-text);">
             <input type="checkbox" checked>
-            <span>SMS-påminnelser om bokningar</span>
+            <span>SMS-påminnelser om nya filmer</span>
           </label>
           <label class="checkbox-label" style="justify-content:flex-start; color:var(--color-text);">
             <input type="checkbox">
@@ -982,7 +918,7 @@
       <!-- Family Tab -->
       <div class="profile-tab-content" id="tab-family">
         <h3><i class="fas fa-users"></i> Familjemedlemmar</h3>
-        <p class="family-info-text">Lägg till familjemedlemmar och få <strong>15% rabatt</strong> på alla familjebokningar!</p>
+        <p class="family-info-text">Lägg till familjemedlemmar och dela ditt abonnemang med <strong>upp till 4 profiler</strong>!</p>
         <div class="family-member-card">
           <div class="family-member-avatar"><i class="fas fa-user"></i></div>
           <div class="family-member-info">
@@ -1011,9 +947,9 @@
         <div class="family-discount-info">
           <div class="discount-badge"><i class="fas fa-percent"></i></div>
           <div>
-            <h4>Familjerabatt aktiv!</h4>
-            <p>15% rabatt på alla bokningar med 3+ familjemedlemmar</p>
-            <p class="discount-saved">Du har sparat <strong>223 kr</strong> hittills</p>
+            <h4>Familjeplan aktiv!</h4>
+            <p>Dela ditt abonnemang med hela familjen</p>
+            <p class="discount-saved"><strong>3 profiler</strong> aktiva av 4 möjliga</p>
           </div>
         </div>
       </div>
@@ -1121,40 +1057,33 @@
     </div>
   </div>
 
-  <!-- BOOKING MODAL -->
-  <div class="modal-overlay" id="bookingModal">
-    <div class="modal">
-      <button class="modal-close" id="closeModal" type="button" aria-label="Stäng"><i class="fas fa-times"></i></button>
+  <!-- MOVIE PLAYER MODAL -->
+  <div class="modal-overlay" id="playerModal">
+    <div class="modal player-modal">
+      <button class="modal-close" id="closePlayerModal" type="button" aria-label="Stäng"><i class="fas fa-times"></i></button>
+      <div class="player-container">
+        <div class="player-screen">
+          <img id="playerMovieImage" src="" alt="">
+          <div class="player-overlay">
+            <button class="player-play-btn" onclick="alert('Filmen spelas nu!')" aria-label="Spela film">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+        </div>
+        <div class="player-info">
+          <h2 id="playerMovieTitle"></h2>
+          <div class="player-meta">
+            <span id="playerMovieGenre"></span>
+            <span id="playerMovieDuration"></span>
+            <span id="playerMovieRating"></span>
+          </div>
+          <p id="playerMovieDescription" class="player-description"></p>
+          <div class="player-actions">
+            <button class="watch-btn" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
+            <button class="watchlist-btn" onclick="toggleWatchlist(this)"><i class="far fa-bookmark"></i> Min lista</button>
+          </div>
+        </div>
 
-      <!-- Step 1: Movie Info & Date/Time Selection -->
-      <div class="modal-step" id="step1">
-        <div class="modal-header">
-          <h2><i class="fas fa-ticket-alt"></i> Boka biljetter</h2>
-        </div>
-        <div class="booking-movie-info">
-          <img id="bookingMovieImage" src="" alt="">
-          <div class="booking-movie-details">
-            <h3 id="bookingMovieTitle"></h3>
-            <p id="bookingMovieGenre"></p>
-            <p id="bookingMovieDuration"></p>
-          </div>
-        </div>
-        
-        <!-- Date Selection -->
-        <div class="date-selection-section">
-          <h4><i class="fas fa-calendar-alt"></i> Välj datum</h4>
-          <div class="date-selection-grid" id="dateSelectionGrid">
-            <!-- Dates will be inserted here -->
-          </div>
-        </div>
-        
-        <!-- Time Selection -->
-        <div class="time-selection-section">
-          <h4><i class="fas fa-clock"></i> Välj visningstid</h4>
-          <div class="time-selection-grid" id="timeSelectionGrid">
-            <!-- Time slots will be inserted here -->
-          </div>
-        </div>
         
         <div class="selected-datetime-display">
           <p><i class="fas fa-calendar-check"></i> <span id="selectedDateDisplay">-</span></p>
@@ -1270,6 +1199,7 @@
           </div>
           <button class="modal-close-btn" id="closeConfirmation">Stäng</button>
         </div>
+
       </div>
     </div>
   </div>
@@ -1734,10 +1664,12 @@
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
       const menuToggle = document.getElementById('menu-toggle');
-      if (menuToggle.checked &&
-          !e.target.closest('.mobile-nav') &&
-          !e.target.closest('.mobile-menu') &&
-          !e.target.closest('label[for="menu-toggle"]')) {
+      // Don't interfere when clicking the toggle label/button itself
+      if (e.target.closest('label[for="menu-toggle"]') || e.target.closest('.mobile-menu') || e.target.id === 'menu-toggle') {
+        return;
+      }
+      // If menu is open and click is outside the nav, close it
+      if (menuToggle.checked && !e.target.closest('.mobile-nav')) {
         menuToggle.checked = false;
       }
     });
@@ -2005,373 +1937,58 @@
     });
 
     // ==========================================
-    // BOOKING SYSTEM
+    // STREAMING / PLAYER SYSTEM
     // ==========================================
 
-    const modal = document.getElementById('bookingModal');
-    const TICKET_PRICE = 149;
-    const VIP_EXTRA = 50;
+    const playerModal = document.getElementById('playerModal');
 
-    let currentBooking = {
-      movie: '',
-      movieImage: '',
-      genre: '',
-      duration: '',
-      date: '',
-      time: '',
-      seats: [],
-      totalPrice: 0
-    };
-
-    // Generate date options (next 7 days)
-    function generateDateSelection() {
-      const container = document.getElementById('dateSelectionGrid');
-      container.innerHTML = '';
-      
-      const today = new Date();
-      const dayNames = ['Sön', 'Mån', 'Tis', 'Ons', 'Tor', 'Fre', 'Lör'];
-      const monthNames = ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
-      
-      for (let i = 0; i < 7; i++) {
-        const date = new Date(today);
-        date.setDate(today.getDate() + i);
-        
-        const dayName = dayNames[date.getDay()];
-        const dayNum = date.getDate();
-        const monthName = monthNames[date.getMonth()];
-        const dateStr = date.toISOString().split('T')[0];
-        
-        const dateBtn = document.createElement('button');
-        dateBtn.type = 'button';
-        dateBtn.className = 'date-option';
-        if (i === 0) {
-          dateBtn.classList.add('today');
-        }
-        dateBtn.dataset.date = dateStr;
-        dateBtn.innerHTML = `
-          <span class="date-day">${i === 0 ? 'Idag' : dayName}</span>
-          <span class="date-num">${dayNum}</span>
-          <span class="date-month">${monthName}</span>
-        `;
-        
-        dateBtn.addEventListener('click', () => selectDate(dateBtn));
-        container.appendChild(dateBtn);
-      }
-      
-      // Auto-select today
-      const todayBtn = container.querySelector('.date-option');
-      if (todayBtn) {
-        selectDate(todayBtn);
-      }
-    }
-
-    // Select date
-    function selectDate(dateBtn) {
-      document.querySelectorAll('.date-option').forEach(btn => btn.classList.remove('selected'));
-      dateBtn.classList.add('selected');
-      
-      const dateStr = dateBtn.dataset.date;
-      const date = new Date(dateStr);
-      const options = { weekday: 'long', day: 'numeric', month: 'long' };
-      const formattedDate = date.toLocaleDateString('sv-SE', options);
-      
-      currentBooking.date = dateStr;
-      document.getElementById('selectedDateDisplay').textContent = formattedDate;
-      
-      checkDateTimeSelection();
-    }
-
-    // Check if both date and time are selected
-    function checkDateTimeSelection() {
-      const toStep2Btn = document.getElementById('toStep2');
-      if (currentBooking.date && currentBooking.time) {
-        toStep2Btn.disabled = false;
+    // Toggle watchlist (add/remove from list)
+    function toggleWatchlist(btn) {
+      const isAdded = btn.classList.toggle('added');
+      if (isAdded) {
+        btn.innerHTML = '<i class="fas fa-bookmark"></i> I min lista';
+        showToast('Tillagd i din lista!');
       } else {
-        toStep2Btn.disabled = true;
+        btn.innerHTML = '<i class="far fa-bookmark"></i> Min lista';
+        showToast('Borttagen från din lista');
       }
     }
 
-    // Generate seats
-    function generateSeats() {
-      const container = document.getElementById('seatsContainer');
-      container.innerHTML = '';
-
-      const rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-      const seatsPerRow = 12;
-      const occupiedSeats = generateRandomOccupied();
-      const vipRows = ['G', 'H'];
-      const aisleAfter = 4; // Aisle gap after seat 4 and 8
-
-      // Add seat count info
-      const seatInfo = document.createElement('p');
-      seatInfo.className = 'seat-select-info';
-      seatInfo.innerHTML = '<i class="fas fa-info-circle"></i> Klicka på en plats för att välja. VIP-platser (rad G-H) kostar extra.';
-      container.appendChild(seatInfo);
-
-      rows.forEach(row => {
-        const rowDiv = document.createElement('div');
-        rowDiv.className = 'seat-row';
-
-        const rowLabel = document.createElement('span');
-        rowLabel.className = 'row-label';
-        rowLabel.textContent = row;
-        rowDiv.appendChild(rowLabel);
-
-        for (let i = 1; i <= seatsPerRow; i++) {
-          // Add aisle gap
-          if (i === aisleAfter + 1 || i === aisleAfter * 2 + 1) {
-            const aisle = document.createElement('span');
-            aisle.className = 'seat-aisle';
-            rowDiv.appendChild(aisle);
-          }
-
-          const seat = document.createElement('button');
-          seat.className = 'seat';
-          seat.dataset.seat = `${row}${i}`;
-          seat.title = `Rad ${row}, Plats ${i}${vipRows.includes(row) ? ' (VIP)' : ''}`;
-          seat.textContent = i;
-
-          if (vipRows.includes(row)) {
-            seat.classList.add('vip');
-          }
-
-          if (occupiedSeats.includes(`${row}${i}`)) {
-            seat.classList.add('occupied');
-            seat.disabled = true;
-          }
-
-          seat.addEventListener('click', () => toggleSeat(seat));
-          rowDiv.appendChild(seat);
-        }
-
-        const rowLabelEnd = document.createElement('span');
-        rowLabelEnd.className = 'row-label';
-        rowLabelEnd.textContent = row;
-        rowDiv.appendChild(rowLabelEnd);
-
-        container.appendChild(rowDiv);
-      });
-    }
-
-    function generateRandomOccupied() {
-      const occupied = [];
-      const rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-
-      for (let i = 0; i < 25; i++) {
-        const row = rows[Math.floor(Math.random() * rows.length)];
-        const seat = Math.floor(Math.random() * 12) + 1;
-        occupied.push(`${row}${seat}`);
-      }
-
-      return [...new Set(occupied)];
-    }
-
-    function toggleSeat(seat) {
-      if (seat.classList.contains('occupied')) return;
-
-      seat.classList.toggle('selected');
-      updateSelectedSeats();
-    }
-
-    function updateSelectedSeats() {
-      const selected = document.querySelectorAll('.seat.selected');
-      const seats = Array.from(selected).map(s => s.dataset.seat);
-
-      currentBooking.seats = seats;
-
-      let price = 0;
-      selected.forEach(seat => {
-        price += TICKET_PRICE;
-        if (seat.classList.contains('vip')) {
-          price += VIP_EXTRA;
-        }
-      });
-
-      currentBooking.totalPrice = price;
-
-      document.getElementById('selectedSeatsText').textContent = seats.length > 0 ? seats.join(', ') : 'Inga';
-      document.getElementById('ticketCount').textContent = seats.length;
-      document.getElementById('totalPrice').textContent = price;
-
-      document.getElementById('toStep3').disabled = seats.length === 0;
-    }
-
-    // Generate time selection grid
-    function generateTimeSelection(movieCard) {
-      const timeSlotsContainer = document.getElementById('timeSelectionGrid');
-      const timeSlots = movieCard.querySelectorAll('.time-slot');
-      
-      timeSlotsContainer.innerHTML = '';
-      
-      timeSlots.forEach(slot => {
-        const timeBtn = document.createElement('button');
-        timeBtn.className = 'time-option';
-        timeBtn.textContent = slot.textContent;
-        timeBtn.type = 'button';
-        
-        if (slot.classList.contains('popular')) {
-          timeBtn.classList.add('popular');
-        }
-        
-        timeBtn.addEventListener('click', () => selectTime(timeBtn));
-        timeSlotsContainer.appendChild(timeBtn);
-      });
-      
-      // Reset selected time display
-      document.getElementById('selectedTimeDisplay').textContent = '-';
-      currentBooking.time = '';
-      checkDateTimeSelection();
-    }
-
-    // Select time
-    function selectTime(timeBtn) {
-      document.querySelectorAll('.time-option').forEach(btn => btn.classList.remove('selected'));
-      timeBtn.classList.add('selected');
-      
-      currentBooking.time = timeBtn.textContent;
-      document.getElementById('selectedTimeDisplay').textContent = timeBtn.textContent;
-      checkDateTimeSelection();
-    }
-
-    // Open booking modal
-    function openBooking(movieCard, timeSlot) {
+    // Open player modal for a movie
+    function openPlayer(movieCard) {
       const title = movieCard.querySelector('h3').textContent;
       const image = movieCard.querySelector('.movie-poster img').src;
-      const genre = movieCard.querySelector('.movie-genre').textContent;
-      const duration = movieCard.querySelector('.movie-duration').textContent;
+      const genre = movieCard.querySelector('.movie-genre')?.textContent || '';
+      const duration = movieCard.querySelector('.movie-duration')?.textContent || '';
+      const rating = movieCard.querySelector('.movie-rating')?.textContent || '';
 
-      currentBooking = {
-        movie: title,
-        movieImage: image,
-        genre: genre,
-        duration: duration,
-        date: '',
-        time: '',
-        seats: [],
-        totalPrice: 0
-      };
+      document.getElementById('playerMovieImage').src = image;
+      document.getElementById('playerMovieTitle').textContent = title;
+      document.getElementById('playerMovieGenre').textContent = genre;
+      document.getElementById('playerMovieDuration').textContent = duration;
+      document.getElementById('playerMovieRating').textContent = rating;
 
-      document.getElementById('bookingMovieImage').src = image;
-      document.getElementById('bookingMovieTitle').textContent = title;
-      document.getElementById('bookingMovieGenre').textContent = genre;
-      document.getElementById('bookingMovieDuration').textContent = duration;
-
-      // Generate date and time selection
-      generateDateSelection();
-      generateTimeSelection(movieCard);
-      
-      // Reset displays
-      document.getElementById('selectedDateDisplay').textContent = '-';
-      document.getElementById('selectedTimeDisplay').textContent = '-';
-      
-      // Pre-select the clicked time slot if any
-      if (timeSlot) {
-        const timeText = timeSlot.textContent;
-        const timeOptions = document.querySelectorAll('.time-option');
-        timeOptions.forEach(opt => {
-          if (opt.textContent === timeText) {
-            selectTime(opt);
-          }
-        });
-      }
-
-      showStep(1);
-      modal.classList.add('active');
+      playerModal.classList.add('active');
       document.body.style.overflow = 'hidden';
     }
 
-    // Show specific step
-    function showStep(step) {
-      document.querySelectorAll('.modal-step').forEach(s => s.classList.add('hidden'));
-      document.getElementById(`step${step}`).classList.remove('hidden');
-
-      if (step === 2) {
-        generateSeats();
-        updateSelectedSeats();
-      }
-
-      if (step === 3) {
-        document.getElementById('summaryMovie').textContent = currentBooking.movie;
-        document.getElementById('summaryDate').textContent = currentBooking.date;
-        document.getElementById('summaryTime').textContent = currentBooking.time;
-        document.getElementById('summarySeats').textContent = currentBooking.seats.join(', ');
-        document.getElementById('summaryTotal').textContent = currentBooking.totalPrice;
-      }
-    }
-
-    // Close modal
-    function closeModal() {
-      modal.classList.remove('active');
+    function closePlayerModal() {
+      playerModal.classList.remove('active');
       document.body.style.overflow = '';
-      showStep(1);
     }
 
-    // Event listeners for time slots and book buttons
-    document.querySelectorAll('.movie-card').forEach(card => {
-      card.querySelectorAll('.time-slot').forEach(slot => {
-        slot.addEventListener('click', (e) => {
-          e.stopPropagation();
-          openBooking(card, slot);
-        });
+    // Player modal event listeners
+    document.getElementById('closePlayerModal').addEventListener('click', closePlayerModal);
+    playerModal.addEventListener('click', (e) => {
+      if (e.target === playerModal) closePlayerModal();
+    });
+
+    // Click on movie poster to open player
+    document.querySelectorAll('.movie-card .movie-poster').forEach(poster => {
+      poster.style.cursor = 'pointer';
+      poster.addEventListener('click', () => {
+        openPlayer(poster.closest('.movie-card'));
       });
-
-      card.querySelector('.book-btn').addEventListener('click', () => {
-        const firstAvailableSlot = card.querySelector('.time-slot');
-        if (firstAvailableSlot) {
-          openBooking(card, firstAvailableSlot);
-        }
-      });
-    });
-
-    // Modal navigation
-    document.getElementById('closeModal').addEventListener('click', closeModal);
-    document.getElementById('closeConfirmation').addEventListener('click', closeModal);
-
-    document.getElementById('toStep2').addEventListener('click', () => showStep(2));
-    document.getElementById('toStep3').addEventListener('click', () => showStep(3));
-    document.getElementById('backToStep1').addEventListener('click', () => showStep(1));
-    document.getElementById('backToStep2').addEventListener('click', () => showStep(2));
-
-    // Close modal on overlay click
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
-
-    // Payment form
-    document.getElementById('paymentForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      // Generate booking code
-      const code = 'YC' + Date.now().toString().slice(-8);
-      
-      // Format selected date
-      const bookingDate = new Date(currentBooking.date);
-      const dateOptions = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
-      const formattedDate = bookingDate.toLocaleDateString('sv-SE', dateOptions);
-
-      document.getElementById('ticketMovie').textContent = currentBooking.movie;
-      document.getElementById('ticketDate').textContent = formattedDate;
-      document.getElementById('ticketTime').textContent = currentBooking.time;
-      document.getElementById('ticketSeats').textContent = currentBooking.seats.join(', ');
-      document.getElementById('ticketCode').textContent = code;
-
-      showStep(4);
-    });
-
-    // Format card number input
-    document.getElementById('cardNumber').addEventListener('input', (e) => {
-      let value = e.target.value.replace(/\s/g, '').replace(/\D/g, '');
-      let formatted = value.match(/.{1,4}/g)?.join(' ') || value;
-      e.target.value = formatted;
-    });
-
-    // Format expiry date input
-    document.getElementById('expiry').addEventListener('input', (e) => {
-      let value = e.target.value.replace(/\D/g, '');
-      if (value.length >= 2) {
-        value = value.slice(0, 2) + '/' + value.slice(2);
-      }
-      e.target.value = value;
     });
 
     // ==========================================
@@ -2623,7 +2240,7 @@
             <p class="rec-duration"><i class="fas fa-clock"></i> ${movie.duration}</p>
             <p class="rec-rating"><i class="fas fa-star"></i> ${movie.rating}/10</p>
             <button class="rec-book-btn" onclick="closeRecommendModal(); document.getElementById('${movie.id}').scrollIntoView({behavior: 'smooth'});">
-              <i class="fas fa-ticket-alt"></i> Boka biljett
+              <i class="fas fa-play"></i> Titta nu
             </button>
           </div>
         </div>
@@ -3056,94 +2673,78 @@
     const offerDetailModal = document.getElementById('offerDetailModal');
 
     const offerDetails = {
-      familj: {
-        title: 'Familjesöndag',
-        icon: 'fa-users',
+      basic: {
+        title: 'Basic',
+        icon: 'fa-play',
         content: `
-          <div class="offer-detail-price">149 kr/person</div>
-          <p>Ge hela familjen en fantastisk bioupplevelse varje söndag! Vårt familjepaket inkluderar allt ni behöver.</p>
+          <div class="offer-detail-price">89 kr/mån</div>
+          <p>Perfekt för att komma igång med Din Bio. Streama filmer i HD-kvalitet på en enhet i taget.</p>
           <h4>Vad ingår:</h4>
           <ul>
-            <li><i class="fas fa-check"></i> En biobiljett</li>
-            <li><i class="fas fa-check"></i> Stort popcorn (85g)</li>
-            <li><i class="fas fa-check"></i> Valfri läsk (0.5L)</li>
-            <li><i class="fas fa-check"></i> Barn under 5 år gratis</li>
+            <li><i class="fas fa-check"></i> Obegränsat antal filmer</li>
+            <li><i class="fas fa-check"></i> HD-kvalitet (720p)</li>
+            <li><i class="fas fa-check"></i> 1 enhet samtidigt</li>
+            <li><i class="fas fa-check"></i> Avbryt när som helst</li>
           </ul>
           <h4>Villkor:</h4>
           <ul>
-            <li><i class="fas fa-info-circle"></i> Gäller varje söndag</li>
-            <li><i class="fas fa-info-circle"></i> Minst 2 personer (varav minst 1 barn)</li>
-            <li><i class="fas fa-info-circle"></i> Gäller alla familjefilmer</li>
-            <li><i class="fas fa-info-circle"></i> Kan inte kombineras med andra erbjudanden</li>
+            <li><i class="fas fa-info-circle"></i> Ingen bindningstid</li>
+            <li><i class="fas fa-info-circle"></i> Betalning månadsvis</li>
+            <li><i class="fas fa-info-circle"></i> Uppgradera när du vill</li>
           </ul>
-          <button class="special-btn" style="width:100%;margin-top:16px;" onclick="closeOfferDetail(); document.getElementById('now-showing').scrollIntoView({behavior:'smooth'});">
-            <i class="fas fa-ticket-alt"></i> Boka Familjesöndag
+          <button class="special-btn" style="width:100%;margin-top:16px;" onclick="closeOfferDetail(); alert('Välkommen! Ditt Basic-abonnemang är aktiverat.');">
+            <i class="fas fa-play"></i> Starta Basic
           </button>
         `
       },
-      vip: {
-        title: 'VIP-upplevelse',
+      standard: {
+        title: 'Standard',
         icon: 'fa-star',
         content: `
-          <div class="offer-detail-price">299 kr/person</div>
-          <p>Upplev bio på det lyxigaste sättet! Vår VIP-upplevelse ger dig allt du behöver för en minnesvärd kväll.</p>
+          <div class="offer-detail-price">139 kr/mån</div>
+          <p>Vår mest populära plan! Full HD-kvalitet och möjlighet att streama på två enheter samtidigt.</p>
           <h4>Vad ingår:</h4>
           <ul>
-            <li><i class="fas fa-check"></i> VIP-biljett (rad G-H)</li>
-            <li><i class="fas fa-check"></i> Tillgång till VIP-loungen 30 min före visning</li>
-            <li><i class="fas fa-check"></i> Premium popcorn & valfri dryck</li>
-            <li><i class="fas fa-check"></i> Extra benutrymme och recliner-fåtöljer</li>
-            <li><i class="fas fa-check"></i> Gratis garderob</li>
-          </ul>
-          <h4>VIP-loungen:</h4>
-          <p>Njut av en avkopplande stund i vår lounge med gratis kaffe, te och tidningar innan filmen börjar.</p>
-          <button class="special-btn" style="width:100%;margin-top:16px;" onclick="closeOfferDetail(); document.getElementById('now-showing').scrollIntoView({behavior:'smooth'});">
-            <i class="fas fa-crown"></i> Boka VIP nu
-          </button>
-        `
-      },
-      student: {
-        title: 'Studentrabatt',
-        icon: 'fa-graduation-cap',
-        content: `
-          <div class="offer-detail-price">99 kr/biljett</div>
-          <p>Studenter får alltid det bästa priset hos oss! Visa ditt studentkort i kassan eller ange studentrabatt vid onlinebokning.</p>
-          <h4>Villkor:</h4>
-          <ul>
-            <li><i class="fas fa-info-circle"></i> Giltigt studentkort/CSN-intyg krävs</li>
-            <li><i class="fas fa-info-circle"></i> Gäller mån-fre före kl. 17:00</li>
-            <li><i class="fas fa-info-circle"></i> Alla filmer inkluderade (ej premiärvisningar)</li>
-            <li><i class="fas fa-info-circle"></i> Max 1 biljett per person</li>
-            <li><i class="fas fa-info-circle"></i> Kan inte kombineras med andra erbjudanden</li>
-          </ul>
-          <h4>Tips:</h4>
-          <p>Kom tidigt på vardagar för bästa platsutbud! Populära tider fylls snabbt.</p>
-          <button class="special-btn" style="width:100%;margin-top:16px;" onclick="closeOfferDetail(); document.getElementById('now-showing').scrollIntoView({behavior:'smooth'});">
-            <i class="fas fa-ticket-alt"></i> Boka med studentrabatt
-          </button>
-        `
-      },
-      date: {
-        title: 'Date Night',
-        icon: 'fa-heart',
-        content: `
-          <div class="offer-detail-price">349 kr/2 personer</div>
-          <p>Perfekt för en romantisk kväll! Vårt Date Night-paket innehåller allt ni behöver för en minnesvärd stund tillsammans.</p>
-          <h4>Vad ingår:</h4>
-          <ul>
-            <li><i class="fas fa-check"></i> 2 biobiljetter (bredvid varandra)</li>
-            <li><i class="fas fa-check"></i> 1 stort popcorn att dela</li>
-            <li><i class="fas fa-check"></i> 2 valfria drycker</li>
-            <li><i class="fas fa-check"></i> Godispåse (blandat)</li>
+            <li><i class="fas fa-check"></i> Obegränsat antal filmer</li>
+            <li><i class="fas fa-check"></i> Full HD-kvalitet (1080p)</li>
+            <li><i class="fas fa-check"></i> 2 enheter samtidigt</li>
+            <li><i class="fas fa-check"></i> Ladda ner filmer för offline-visning</li>
+            <li><i class="fas fa-check"></i> Avbryt när som helst</li>
           </ul>
           <h4>Villkor:</h4>
           <ul>
-            <li><i class="fas fa-info-circle"></i> Gäller varje fredag</li>
-            <li><i class="fas fa-info-circle"></i> Visningar efter kl. 18:00</li>
-            <li><i class="fas fa-info-circle"></i> Bokning krävs minst 24h i förväg</li>
+            <li><i class="fas fa-info-circle"></i> Ingen bindningstid</li>
+            <li><i class="fas fa-info-circle"></i> Betalning månadsvis</li>
+            <li><i class="fas fa-info-circle"></i> Upp- eller nedgradera när du vill</li>
           </ul>
-          <button class="special-btn" style="width:100%;margin-top:16px;" onclick="closeOfferDetail(); document.getElementById('now-showing').scrollIntoView({behavior:'smooth'});">
-            <i class="fas fa-heart"></i> Boka Date Night
+          <button class="special-btn" style="width:100%;margin-top:16px;" onclick="closeOfferDetail(); alert('Välkommen! Ditt Standard-abonnemang är aktiverat.');">
+            <i class="fas fa-star"></i> Starta Standard
+          </button>
+        `
+      },
+      premium: {
+        title: 'Premium',
+        icon: 'fa-gem',
+        content: `
+          <div class="offer-detail-price">189 kr/mån</div>
+          <p>Den ultimata streamingupplevelsen. 4K Ultra HD, Dolby Atmos-ljud och streaming på upp till 4 enheter.</p>
+          <h4>Vad ingår:</h4>
+          <ul>
+            <li><i class="fas fa-check"></i> Obegränsat antal filmer</li>
+            <li><i class="fas fa-check"></i> 4K Ultra HD + HDR</li>
+            <li><i class="fas fa-check"></i> Dolby Atmos-ljud</li>
+            <li><i class="fas fa-check"></i> 4 enheter samtidigt</li>
+            <li><i class="fas fa-check"></i> Ladda ner filmer för offline-visning</li>
+            <li><i class="fas fa-check"></i> Exklusivt innehåll och premiärer</li>
+          </ul>
+          <h4>Villkor:</h4>
+          <ul>
+            <li><i class="fas fa-info-circle"></i> Ingen bindningstid</li>
+            <li><i class="fas fa-info-circle"></i> Betalning månadsvis</li>
+            <li><i class="fas fa-info-circle"></i> Upp- eller nedgradera när du vill</li>
+          </ul>
+          <button class="special-btn" style="width:100%;margin-top:16px;" onclick="closeOfferDetail(); alert('Välkommen! Ditt Premium-abonnemang är aktiverat.');">
+            <i class="fas fa-gem"></i> Starta Premium
           </button>
         `
       }
