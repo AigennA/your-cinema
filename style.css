@@ -722,69 +722,61 @@ header {
   margin-right: 4px;
 }
 
-/* Showtimes */
-.showtimes {
-  margin: 16px 0;
-}
-
-.showtime-label {
-  font-size: 0.85rem;
-  color: var(--color-text-light);
-  margin-bottom: 8px;
-}
-
-.time-slots {
+/* Stream Actions (Watch Now + Watchlist) */
+.stream-actions {
   display: flex;
-  flex-wrap: wrap;
   gap: 8px;
+  margin-top: 12px;
 }
 
-.time-slot {
-  background: var(--color-bg);
-  border: 1px solid #ddd;
-  padding: 8px 14px;
-  border-radius: var(--radius-sm);
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: all var(--transition);
-}
-
-.time-slot:hover {
-  background: var(--color-primary);
-  color: var(--color-white);
-  border-color: var(--color-primary);
-}
-
-.time-slot.popular {
-  background: var(--color-primary-light);
-  color: var(--color-white);
-  border-color: var(--color-primary-light);
-}
-
-.time-slot.popular:hover {
-  background: var(--color-primary);
-}
-
-.book-btn {
-  width: 100%;
+.watch-btn {
+  flex: 1;
   background: var(--color-primary);
   color: var(--color-white);
   border: none;
-  padding: 12px;
-  font-size: 1rem;
+  padding: 10px 14px;
+  font-size: 0.9rem;
   font-weight: 600;
   border-radius: var(--radius-md);
-  margin-top: 12px;
+  cursor: pointer;
   transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
 }
 
-.book-btn:hover {
+.watch-btn:hover {
   background: var(--color-primary-dark);
   transform: translateY(-2px);
 }
 
-.book-btn i {
-  margin-right: 8px;
+.watchlist-btn {
+  background: transparent;
+  color: var(--color-text);
+  border: 2px solid #ddd;
+  padding: 10px 14px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.watchlist-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.watchlist-btn.added {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
 }
 
 /* ==========================================
@@ -1783,13 +1775,8 @@ footer {
     height: 180px;
   }
 
-  .time-slots {
-    gap: 6px;
-  }
-
-  .time-slot {
-    padding: 6px 10px;
-    font-size: 0.85rem;
+  .stream-actions {
+    flex-direction: column;
   }
 
   /* Coming Soon */
@@ -2043,7 +2030,104 @@ footer {
   margin-right: 10px;
 }
 
-/* Booking Movie Info */
+/* Player Modal */
+.player-modal {
+  max-width: 700px;
+}
+
+.player-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.player-screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.player-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.player-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.3);
+}
+
+.player-play-btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.player-play-btn:hover {
+  transform: scale(1.1);
+  background: var(--color-primary-dark);
+}
+
+.player-info {
+  padding: 24px 0 0;
+}
+
+.player-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.player-meta {
+  display: flex;
+  gap: 16px;
+  color: var(--color-text-light);
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+}
+
+.player-description {
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.player-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.player-actions .watch-btn {
+  padding: 12px 28px;
+  font-size: 1rem;
+}
+
+.player-actions .watchlist-btn {
+  padding: 12px 20px;
+  font-size: 1rem;
+}
+
+/* Legacy booking-movie-info kept for compatibility */
 .booking-movie-info {
   display: flex;
   gap: 20px;
@@ -2672,109 +2756,28 @@ footer {
     padding: 20px 14px;
   }
 
-  .booking-movie-info {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  /* Player Modal Mobile */
+  .player-play-btn {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
   }
 
-  .booking-movie-info img {
-    width: 100px;
-    height: 140px;
-  }
-
-  /* Date Selection Mobile */
-  .date-selection-section {
-    padding: 14px;
-    margin-bottom: 12px;
-  }
-
-  .date-selection-section h4 {
-    font-size: 0.9rem;
-    margin-bottom: 12px;
-  }
-
-  .date-option {
-    padding: 10px 12px;
-    min-width: 60px;
-  }
-
-  .date-day {
-    font-size: 0.65rem;
-  }
-
-  .date-num {
-    font-size: 1.1rem;
-  }
-
-  .date-month {
-    font-size: 0.6rem;
-  }
-
-  /* Time Selection Mobile */
-  .time-selection-section {
-    padding: 14px;
-    margin-bottom: 12px;
-  }
-
-  .time-selection-section h4 {
-    font-size: 0.9rem;
-    margin-bottom: 12px;
-  }
-
-  .time-selection-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .player-meta {
+    flex-wrap: wrap;
     gap: 8px;
   }
 
-  .time-option {
-    padding: 10px 6px;
-    font-size: 0.85rem;
-  }
-
-  /* Selected DateTime Display Mobile */
-  .selected-datetime-display {
+  .player-actions {
     flex-direction: column;
-    gap: 8px;
-    padding: 12px;
   }
 
-  .selected-datetime-display p {
-    font-size: 0.85rem;
-    justify-content: center;
-  }
-
-  .seat {
-    width: 22px;
-    height: 22px;
-    font-size: 0.6rem;
-  }
-
-  .row-label {
-    width: 16px;
-    font-size: 0.75rem;
-  }
-
-  .seat-legend {
-    gap: 12px;
-  }
-
-  .legend-item {
-    font-size: 0.75rem;
-  }
-
-  .seat-demo {
-    width: 16px;
-    height: 16px;
+  .stream-actions {
+    flex-direction: column;
   }
 
   .form-row {
     flex-direction: column;
-  }
-
-  .ticket {
-    width: 100%;
-    max-width: 280px;
   }
 }
 
