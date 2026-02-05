@@ -404,8 +404,8 @@ header {
 .hero {
   position: relative;
   width: 100%;
-  height: 55vh;
-  min-height: 400px;
+  height: 70vh;
+  min-height: 500px;
   overflow: hidden;
 }
 
@@ -525,9 +525,8 @@ header {
    ========================================== */
 .categories {
   background: var(--color-dark);
-  padding: 12px 24px;
+  padding: 16px 24px;
   overflow-x: auto;
-  margin-top: -2px;
 }
 
 .category-list {
@@ -1930,7 +1929,7 @@ footer {
   }
 
   .hero {
-    height: 60vh;
+    height: 80vh;
   }
 
   .hero-text {

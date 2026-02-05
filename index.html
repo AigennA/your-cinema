@@ -31,7 +31,6 @@
     <nav class="desktop-nav" aria-label="Huvudnavigering">
       <a href="#coming-soon">Kommer snart</a>
       <a href="#now-showing">Nu på bio</a>
-      <a href="#newsletter">Nyhetsbrev</a>
       <a href="#giftcards">Presentkort</a>
       <a href="#about">Om oss</a>
       <button class="recommend-btn" id="openRecommendBtn"><i class="fas fa-magic"></i> Vad ska jag se?</button>
@@ -1434,10 +1433,12 @@
     // ==========================================
     document.addEventListener('click', function(e) {
       const menuToggle = document.getElementById('menu-toggle');
-      if (menuToggle.checked &&
-          !e.target.closest('.mobile-nav') &&
-          !e.target.closest('.mobile-menu') &&
-          !e.target.closest('label[for="menu-toggle"]')) {
+      // Don't interfere when clicking the toggle label/button itself
+      if (e.target.closest('label[for="menu-toggle"]') || e.target.closest('.mobile-menu') || e.target.id === 'menu-toggle') {
+        return;
+      }
+      // If menu is open and click is outside the nav, close it
+      if (menuToggle.checked && !e.target.closest('.mobile-nav')) {
         menuToggle.checked = false;
       }
     });
