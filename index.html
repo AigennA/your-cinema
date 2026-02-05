@@ -845,35 +845,35 @@
         <form class="profile-form" id="profileForm">
           <div class="form-row">
             <div class="form-field">
-              <label>Förnamn</label>
-              <input type="text" value="Anna" id="profileFirstName">
+              <label for="profileFirstName">Förnamn</label>
+              <input type="text" value="Anna" id="profileFirstName" placeholder="Förnamn">
             </div>
             <div class="form-field">
-              <label>Efternamn</label>
-              <input type="text" value="Andersson" id="profileLastName">
+              <label for="profileLastName">Efternamn</label>
+              <input type="text" value="Andersson" id="profileLastName" placeholder="Efternamn">
             </div>
           </div>
           <div class="form-field">
-            <label>E-post</label>
-            <input type="email" value="anna.andersson@email.se" id="profileEmail">
+            <label for="profileEmail2">E-post</label>
+            <input type="email" value="anna.andersson@email.se" id="profileEmail2" placeholder="E-postadress">
           </div>
           <div class="form-field">
-            <label>Telefon</label>
-            <input type="tel" value="070-123 45 67" id="profilePhone">
+            <label for="profilePhone2">Telefon</label>
+            <input type="tel" value="070-123 45 67" id="profilePhone2" placeholder="Telefonnummer">
           </div>
           <h3 style="margin-top:24px;"><i class="fas fa-map-marker-alt"></i> Adress</h3>
           <div class="form-field">
-            <label>Gatuadress</label>
-            <input type="text" value="Filmgatan 45" id="profileAddress">
+            <label for="profileAddress2">Gatuadress</label>
+            <input type="text" value="Filmgatan 45" id="profileAddress2" placeholder="Gatuadress">
           </div>
           <div class="form-row">
             <div class="form-field">
-              <label>Postnummer</label>
-              <input type="text" value="111 22" id="profileZip">
+              <label for="profileZip2">Postnummer</label>
+              <input type="text" value="111 22" id="profileZip2" placeholder="Postnummer">
             </div>
             <div class="form-field">
-              <label>Stad</label>
-              <input type="text" value="Stockholm" id="profileCity">
+              <label for="profileCity2">Stad</label>
+              <input type="text" value="Stockholm" id="profileCity2" placeholder="Stad">
             </div>
           </div>
           <h3 style="margin-top:24px;"><i class="fas fa-envelope"></i> Kontaktinställningar</h3>
@@ -1215,16 +1215,16 @@
             <input type="tel" id="phone" required placeholder="070-123 45 67">
           </div>
           <div class="form-field">
-            <label>Kortnummer</label>
+            <label for="cardNumber">Kortnummer</label>
             <input type="text" id="cardNumber" required placeholder="1234 5678 9012 3456" maxlength="19">
           </div>
           <div class="form-row">
             <div class="form-field">
-              <label>Utgångsdatum</label>
+              <label for="expiry">Utgångsdatum</label>
               <input type="text" id="expiry" required placeholder="MM/ÅÅ" maxlength="5">
             </div>
             <div class="form-field">
-              <label>CVV</label>
+              <label for="cvv">CVV</label>
               <input type="text" id="cvv" required placeholder="123" maxlength="3">
             </div>
           </div>
@@ -2856,34 +2856,6 @@
       alert('Adress sparad!');
     });
 
-    // QR Code generation using canvas
-    function generateQRCode() {
-      const container = document.getElementById('profileQR');
-      if (container.querySelector('canvas')) return;
-
-      const memberId = 'DB-2024-0042';
-      const data = memberId;
-      const canvas = document.createElement('canvas');
-      const size = 160;
-      canvas.width = size;
-      canvas.height = size;
-      const ctx = canvas.getContext('2d');
-
-      // Simple QR-code-like pattern based on data hash
-      const cellSize = 8;
-      const gridSize = size / cellSize;
-
-      // Generate deterministic pattern from data
-      let hash = 0;
-      for (let i = 0; i < data.length; i++) {
-        hash = ((hash << 5) - hash) + data.charCodeAt(i);
-        hash = hash & hash;
-      }
-
-        document.getElementById('tab-' + this.dataset.tab).classList.add('active');
-      });
-    });
-
     // Generate QR code on canvas
     function generateQRCode() {
       const canvas = document.getElementById('profileQR');
@@ -2893,23 +2865,18 @@
       const cellSize = 4;
       const cells = Math.floor(size / cellSize);
 
-
       ctx.fillStyle = '#ffffff';
       ctx.fillRect(0, 0, size, size);
       ctx.fillStyle = '#111111';
 
-
-      // Draw finder patterns (top-left, top-right, bottom-left)
-
       // Generate deterministic QR-like pattern
-      const seed = 2024847;
+      const qrSeed = 2024847;
       function pseudoRandom(n) {
-        let x = Math.sin(seed + n) * 10000;
+        let x = Math.sin(qrSeed + n) * 10000;
         return x - Math.floor(x);
       }
 
       // Draw finder patterns (corners)
-
       function drawFinder(x, y) {
         ctx.fillRect(x, y, 7 * cellSize, cellSize);
         ctx.fillRect(x, y + 6 * cellSize, 7 * cellSize, cellSize);
@@ -2918,25 +2885,23 @@
         ctx.fillRect(x + 2 * cellSize, y + 2 * cellSize, 3 * cellSize, 3 * cellSize);
       }
 
+      const gridSize = size / cellSize;
       drawFinder(0, 0);
-
       drawFinder((gridSize - 7) * cellSize, 0);
       drawFinder(0, (gridSize - 7) * cellSize);
+      drawFinder(size - 7 * cellSize, 0);
+      drawFinder(0, size - 7 * cellSize);
 
-      // Fill data area with deterministic pattern
-      let seed = Math.abs(hash);
-      for (let y = 0; y < gridSize; y++) {
-        for (let x = 0; x < gridSize; x++) {
-          // Skip finder pattern areas
-          if ((x < 8 && y < 8) || (x >= gridSize - 8 && y < 8) || (x < 8 && y >= gridSize - 8)) continue;
-          seed = (seed * 1103515245 + 12345) & 0x7fffffff;
-          if (seed % 3 !== 0) {
-            ctx.fillRect(x * cellSize, y * cellSize, cellSize, cellSize);
+      // Random data modules
+      for (let i = 8; i < cells - 8; i++) {
+        for (let j = 8; j < cells - 8; j++) {
+          if (pseudoRandom(i * cells + j) > 0.5) {
+            ctx.fillRect(i * cellSize, j * cellSize, cellSize, cellSize);
           }
         }
       }
 
-      container.appendChild(canvas);
+      document.getElementById('profileQR').appendChild(canvas);
     }
 
     // ==========================================
@@ -2960,20 +2925,8 @@
       });
     });
 
-      drawFinder(size - 7 * cellSize, 0);
-      drawFinder(0, size - 7 * cellSize);
-
-      // Random data modules
-      for (let i = 8; i < cells - 8; i++) {
-        for (let j = 8; j < cells - 8; j++) {
-          if (pseudoRandom(i * cells + j) > 0.5) {
-            ctx.fillRect(i * cellSize, j * cellSize, cellSize, cellSize);
-          }
-        }
-      }
-    }
-
     // ==========================================
+
     // PÅMINN MIG (REMIND ME) FEATURE
     // ==========================================
     const reminders = new Set();
@@ -3009,7 +2962,6 @@
     // ==========================================
     // GIFT CARD PURCHASE SYSTEM
     // ==========================================
-    const giftcardModal = document.getElementById('giftcardModal');
     let selectedGCAmount = 500;
 
     function openGiftcardModal() {
