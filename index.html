@@ -38,7 +38,6 @@
       <a href="#giftcards">Presentkort</a>
       <a href="#about">Om oss</a>
       <button class="recommend-btn" id="openRecommendBtn"><i class="fas fa-magic"></i> Vad ska jag se?</button>
-      <button class="profile-nav-btn" id="openProfileBtn"><i class="fas fa-user-circle"></i> Min profil</button>
     </nav>
 
     <div class="search-box">
@@ -728,18 +727,48 @@
         </div>
       </div>
 
-      <div class="profile-tabs">
-        <button class="profile-tab active" data-tab="bookings"><i class="fas fa-bookmark"></i> Min lista</button>
-        <button class="profile-tab" data-tab="info"><i class="fas fa-id-card"></i> Min info</button>
-        <button class="profile-tab" data-tab="watched"><i class="fas fa-film"></i> Sedda filmer</button>
-        <button class="profile-tab" data-tab="giftcards"><i class="fas fa-gift"></i> Presentkort</button>
-        <button class="profile-tab" data-tab="family"><i class="fas fa-users"></i> Familj</button>
+      <!-- Auth state when not logged in -->
+      <div class="profile-auth-content" id="profileAuthContent">
+        <h3><i class="fas fa-sign-in-alt"></i> Logga in eller skapa konto</h3>
+        <p class="profile-auth-text">Logga in för att se din lista, presentkort och familjeplan.</p>
+        <form class="profile-auth-form" id="profileAuthForm">
+          <div class="form-field">
+            <label for="authEmail">E-post</label>
+            <input type="email" id="authEmail" placeholder="din@email.se" required>
+          </div>
+          <button type="button" class="profile-email-suggestion" id="useStoredEmailBtn"></button>
+          <div class="form-field">
+            <label for="authPassword">Lösenord</label>
+            <input type="password" id="authPassword" placeholder="Lösenord" required>
+          </div>
+          <label class="checkbox-label checkbox-label-inline">
+            <input type="checkbox" id="keepLoggedIn">
+            <span>Håll mig inloggad</span>
+          </label>
+          <button type="submit" class="profile-save-btn auth-login-btn"><i class="fas fa-sign-in-alt"></i> Logga in</button>
+          <button type="button" class="profile-secondary-btn" id="createAccountBtn"><i class="fas fa-user-plus"></i> Skapa konto</button>
+        </form>
+        <p class="profile-auth-hint">Detta är en demo – ingen riktig inloggning görs.</p>
       </div>
 
-      <!-- Watchlist Tab -->
-      <div class="profile-tab-content active" id="tab-bookings">
+      <!-- Main profile content when logged in -->
+      <div class="profile-main-content" id="profileMainContent">
+        <div class="profile-logged-actions">
+          <button type="button" class="profile-secondary-btn" id="profileLogoutBtn"><i class="fas fa-sign-out-alt"></i> Logga ut</button>
+        </div>
+
+        <div class="profile-tabs">
+          <button class="profile-tab active" data-tab="bookings"><i class="fas fa-bookmark"></i> Min lista</button>
+          <button class="profile-tab" data-tab="info"><i class="fas fa-id-card"></i> Min info</button>
+          <button class="profile-tab" data-tab="watched"><i class="fas fa-film"></i> Sedda filmer</button>
+          <button class="profile-tab" data-tab="giftcards"><i class="fas fa-gift"></i> Presentkort</button>
+          <button class="profile-tab" data-tab="family"><i class="fas fa-users"></i> Familj</button>
+        </div>
+
+        <!-- Watchlist Tab -->
+        <div class="profile-tab-content active" id="tabBookings">
         <h3><i class="fas fa-bookmark"></i> Min lista</h3>
-        <p style="color: var(--color-text-light); margin-bottom: 16px;">Filmer du har sparat att se senare</p>
+        <p class="tab-description">Filmer du har sparat att se senare</p>
         <div class="profile-booking-card">
           <div class="profile-booking-poster">
             <img src="images/tenet.jpg" alt="Tenet">
@@ -748,7 +777,7 @@
             <h4>Tenet</h4>
             <p><i class="fas fa-film"></i> Action, Sci-Fi</p>
             <p><i class="fas fa-clock"></i> 2h 30min</p>
-            <button class="watch-btn" style="margin-top:8px; padding:6px 16px; font-size:0.85rem;" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
+            <button type="button" class="watch-btn booking-watch-btn" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
           </div>
         </div>
         <div class="profile-booking-card">
@@ -759,7 +788,7 @@
             <h4>Once Upon a Time in Hollywood</h4>
             <p><i class="fas fa-film"></i> Drama, Komedi</p>
             <p><i class="fas fa-clock"></i> 2h 41min</p>
-            <button class="watch-btn" style="margin-top:8px; padding:6px 16px; font-size:0.85rem;" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
+            <button type="button" class="watch-btn booking-watch-btn" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
           </div>
         </div>
         <div class="profile-booking-card">
@@ -770,13 +799,13 @@
             <h4>Judy</h4>
             <p><i class="fas fa-film"></i> Biografi, Drama</p>
             <p><i class="fas fa-clock"></i> 1h 58min</p>
-            <button class="watch-btn" style="margin-top:8px; padding:6px 16px; font-size:0.85rem;" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
+            <button type="button" class="watch-btn booking-watch-btn" onclick="alert('Filmen spelas nu!')"><i class="fas fa-play"></i> Titta nu</button>
           </div>
         </div>
-      </div>
+        </div>
 
-      <!-- Info Tab -->
-      <div class="profile-tab-content" id="tab-info">
+        <!-- Info Tab -->
+        <div class="profile-tab-content" id="tabInfo">
         <h3><i class="fas fa-user"></i> Personuppgifter</h3>
         <form class="profile-form" id="profileForm">
           <div class="form-row">
@@ -797,7 +826,7 @@
             <label for="profilePhone2">Telefon</label>
             <input type="tel" value="070-123 45 67" id="profilePhone2" placeholder="Telefonnummer">
           </div>
-          <h3 style="margin-top:24px;"><i class="fas fa-map-marker-alt"></i> Adress</h3>
+          <h3 class="form-section-title"><i class="fas fa-map-marker-alt"></i> Adress</h3>
           <div class="form-field">
             <label for="profileAddress2">Gatuadress</label>
             <input type="text" value="Filmgatan 45" id="profileAddress2" placeholder="Gatuadress">
@@ -812,25 +841,25 @@
               <input type="text" value="Stockholm" id="profileCity2" placeholder="Stad">
             </div>
           </div>
-          <h3 style="margin-top:24px;"><i class="fas fa-envelope"></i> Kontaktinställningar</h3>
-          <label class="checkbox-label" style="justify-content:flex-start; color:var(--color-text);">
+          <h3 class="form-section-title"><i class="fas fa-envelope"></i> Kontaktinställningar</h3>
+          <label class="checkbox-label checkbox-label-inline">
             <input type="checkbox" checked>
             <span>Nyhetsbrev via e-post</span>
           </label>
-          <label class="checkbox-label" style="justify-content:flex-start; color:var(--color-text);">
+          <label class="checkbox-label checkbox-label-inline">
             <input type="checkbox" checked>
             <span>SMS-påminnelser om nya filmer</span>
           </label>
-          <label class="checkbox-label" style="justify-content:flex-start; color:var(--color-text);">
+          <label class="checkbox-label checkbox-label-inline">
             <input type="checkbox">
             <span>Erbjudanden via SMS</span>
           </label>
           <button type="button" class="profile-save-btn" onclick="alert('Profil sparad!')"><i class="fas fa-save"></i> Spara ändringar</button>
         </form>
-      </div>
+        </div>
 
-      <!-- Watched Movies Tab -->
-      <div class="profile-tab-content" id="tab-watched">
+        <!-- Watched Movies Tab -->
+        <div class="profile-tab-content" id="tabWatched">
         <h3><i class="fas fa-eye"></i> Filmer jag sett</h3>
         <div class="watched-movies-grid">
           <div class="watched-movie-card">
@@ -879,10 +908,10 @@
           </div>
         </div>
         <p class="watched-total"><i class="fas fa-film"></i> Totalt: <strong>4 filmer</strong> sedda</p>
-      </div>
+        </div>
 
-      <!-- Gift Cards Tab -->
-      <div class="profile-tab-content" id="tab-giftcards">
+        <!-- Gift Cards Tab -->
+        <div class="profile-tab-content" id="tabGiftcards">
         <h3><i class="fas fa-gift"></i> Mina presentkort</h3>
         <div class="profile-giftcard">
           <div class="profile-giftcard-visual">
@@ -892,7 +921,7 @@
           <div class="profile-giftcard-details">
             <p><strong>Saldo:</strong> 350 kr av 500 kr</p>
             <div class="giftcard-balance-bar">
-              <div class="giftcard-balance-fill" style="width:70%"></div>
+              <div class="giftcard-balance-fill" data-width="70"></div>
             </div>
             <p><i class="fas fa-calendar"></i> Giltigt till: 15 jan 2027</p>
           </div>
@@ -905,7 +934,7 @@
           <div class="profile-giftcard-details">
             <p><strong>Saldo:</strong> 200 kr av 200 kr</p>
             <div class="giftcard-balance-bar">
-              <div class="giftcard-balance-fill" style="width:100%"></div>
+              <div class="giftcard-balance-fill" data-width="100"></div>
             </div>
             <p><i class="fas fa-calendar"></i> Giltigt till: 20 mar 2027</p>
           </div>
@@ -913,10 +942,10 @@
         <button class="profile-buy-giftcard-btn" onclick="closeProfileModal(); document.getElementById('giftcards').scrollIntoView({behavior:'smooth'});">
           <i class="fas fa-plus"></i> Köp nytt presentkort
         </button>
-      </div>
+        </div>
 
-      <!-- Family Tab -->
-      <div class="profile-tab-content" id="tab-family">
+        <!-- Family Tab -->
+        <div class="profile-tab-content" id="tabFamily">
         <h3><i class="fas fa-users"></i> Familjemedlemmar</h3>
         <p class="family-info-text">Lägg till familjemedlemmar och dela ditt abonnemang med <strong>upp till 4 profiler</strong>!</p>
         <div class="family-member-card">
@@ -952,6 +981,7 @@
             <p class="discount-saved"><strong>3 profiler</strong> aktiva av 4 möjliga</p>
           </div>
         </div>
+        </div>
       </div>
     </div>
   </div>
@@ -959,7 +989,7 @@
   <!-- GIFT CARD PURCHASE MODAL -->
   <div class="modal-overlay" id="giftcardModal">
     <div class="modal">
-      <button class="modal-close" id="closeGiftcardModal" type="button" aria-label="Stäng"><i class="fas fa-times"></i></button>
+      <button class="modal-close" id="closeGiftcardModal1" type="button" aria-label="Stäng"><i class="fas fa-times"></i></button>
       <div class="modal-step" id="giftcardStep1">
         <div class="modal-header">
           <h2><i class="fas fa-gift"></i> Köp presentkort</h2>
@@ -979,7 +1009,7 @@
               <p class="giftcard-label">PRESENTKORT</p>
             </div>
           </div>
-          <div class="form-field" style="margin-top:16px;">
+          <div class="form-field form-field-spacer">
             <label>Personligt meddelande (valfritt)</label>
             <input type="text" placeholder="Grattis på födelsedagen!" id="gcMessage">
           </div>
@@ -991,14 +1021,14 @@
             <label>Ditt namn</label>
             <input type="text" placeholder="Ditt namn" id="gcSenderName" required>
           </div>
-          <button class="modal-next-btn" id="gcToPay" style="margin-top:16px;"><i class="fas fa-credit-card"></i> Gå till betalning</button>
+          <button class="modal-next-btn" id="gcToPay" type="button"><i class="fas fa-credit-card"></i> Gå till betalning</button>
         </div>
       </div>
       <div class="modal-step hidden" id="giftcardStep2">
         <div class="modal-header">
           <h2><i class="fas fa-credit-card"></i> Betalning</h2>
         </div>
-        <div class="order-summary" style="margin-bottom:20px;">
+        <div class="order-summary order-summary-spaced">
           <h4>Ordersammanfattning</h4>
           <p>Presentkort: <strong id="gcSummaryAmount">500 kr</strong></p>
           <p>Till: <span id="gcSummaryRecipient">-</span></p>
@@ -1018,7 +1048,7 @@
             <input type="text" placeholder="123" maxlength="3" id="gcCvv">
           </div>
         </div>
-        <div class="modal-buttons" style="margin-top:20px;">
+        <div class="modal-buttons modal-buttons-spaced">
           <button type="button" class="modal-back-btn" id="gcBackToStep1"><i class="fas fa-arrow-left"></i> Tillbaka</button>
           <button type="button" class="modal-pay-btn" id="gcPayBtn"><i class="fas fa-lock"></i> Betala nu</button>
         </div>
@@ -1052,7 +1082,7 @@
         <div class="offer-detail-body" id="offerDetailBody">
           <!-- Content will be inserted dynamically -->
         </div>
-        <button class="modal-close-btn" style="margin-top:20px;" onclick="closeOfferDetail()">Stäng</button>
+        <button class="modal-close-btn modal-close-btn-spaced" onclick="closeOfferDetail()">Stäng</button>
       </div>
     </div>
   </div>
@@ -1438,222 +1468,13 @@
     </div>
   </div>
 
-  <!-- PROFILE MODAL -->
-  <div class="modal-overlay" id="profileModal">
-    <div class="modal profile-modal">
-      <button class="modal-close" id="closeProfileModal" type="button" aria-label="Stäng"><i class="fas fa-times"></i></button>
-
-      <div class="profile-header-section">
-        <div class="profile-avatar">
-          <i class="fas fa-user-circle"></i>
-        </div>
-        <h2>Min profil</h2>
-        <p class="profile-member-since">Medlem sedan 2024</p>
-      </div>
-
-      <div class="profile-tabs">
-        <button class="profile-tab active" data-tab="info"><i class="fas fa-user"></i> Info</button>
-        <button class="profile-tab" data-tab="bookings"><i class="fas fa-ticket-alt"></i> Bokningar</button>
-        <button class="profile-tab" data-tab="watched"><i class="fas fa-film"></i> Sedda</button>
-        <button class="profile-tab" data-tab="cards"><i class="fas fa-gift"></i> Kort</button>
-      </div>
-
-      <!-- Tab: Info -->
-      <div class="profile-tab-content active" id="tabInfo">
-        <div class="profile-info-grid">
-          <div class="profile-info-card">
-            <h4><i class="fas fa-user"></i> Personuppgifter</h4>
-            <div class="profile-field">
-              <label>Namn</label>
-              <input type="text" id="profileName" value="Anna Andersson" placeholder="Ditt namn">
-            </div>
-            <div class="profile-field">
-              <label>E-post</label>
-              <input type="email" id="profileEmail" value="anna@exempel.se" placeholder="Din e-post">
-            </div>
-            <div class="profile-field">
-              <label>Telefon</label>
-              <input type="tel" id="profilePhone" value="070-123 45 67" placeholder="Ditt telefonnummer">
-            </div>
-            <button class="profile-save-btn" id="saveProfileInfo"><i class="fas fa-save"></i> Spara</button>
-          </div>
-
-          <div class="profile-info-card">
-            <h4><i class="fas fa-map-marker-alt"></i> Adress</h4>
-            <div class="profile-field">
-              <label>Gatuadress</label>
-              <input type="text" id="profileAddress" value="Filmgatan 45" placeholder="Gatuadress">
-            </div>
-            <div class="profile-field">
-              <label>Postnummer & Ort</label>
-              <input type="text" id="profileCity" value="111 22 Stockholm" placeholder="Postnummer & Ort">
-            </div>
-            <button class="profile-save-btn" id="saveProfileAddress"><i class="fas fa-save"></i> Spara</button>
-          </div>
-
-          <div class="profile-info-card profile-qr-card">
-            <h4><i class="fas fa-qrcode"></i> Min QR-kod</h4>
-            <p>Visa denna QR-kod i kassan för snabbare incheckning</p>
-            <div class="profile-qr" id="profileQR"></div>
-            <p class="profile-member-id" id="profileMemberId">Medlemsnr: DB-2024-0042</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tab: Bookings -->
-      <div class="profile-tab-content" id="tabBookings">
-        <div class="profile-bookings-list">
-          <div class="profile-booking-card">
-            <div class="profile-booking-poster">
-              <img src="images/once-upon-a-time.png" alt="Once Upon a Time in Hollywood">
-            </div>
-            <div class="profile-booking-info">
-              <h4>Once Upon a Time in Hollywood</h4>
-              <p><i class="fas fa-calendar"></i> 2024-03-15</p>
-              <p><i class="fas fa-clock"></i> 20:00</p>
-              <p><i class="fas fa-chair"></i> Rad D, Plats 5-6</p>
-              <span class="booking-status completed">Genomförd</span>
-            </div>
-          </div>
-          <div class="profile-booking-card">
-            <div class="profile-booking-poster">
-              <img src="images/tenet.jpg" alt="Tenet">
-            </div>
-            <div class="profile-booking-info">
-              <h4>Tenet</h4>
-              <p><i class="fas fa-calendar"></i> 2024-04-02</p>
-              <p><i class="fas fa-clock"></i> 18:00</p>
-              <p><i class="fas fa-chair"></i> Rad F, Plats 8-9</p>
-              <span class="booking-status upcoming">Kommande</span>
-            </div>
-          </div>
-          <div class="profile-booking-card">
-            <div class="profile-booking-poster">
-              <img src="https://image.tmdb.org/t/p/w500/d5NXSklXo0qyIYkgV94XAgMIckC.jpg" alt="Galaxy Frontier">
-            </div>
-            <div class="profile-booking-info">
-              <h4>Galaxy Frontier</h4>
-              <p><i class="fas fa-calendar"></i> 2024-04-10</p>
-              <p><i class="fas fa-clock"></i> 17:45</p>
-              <p><i class="fas fa-chair"></i> Rad G (VIP), Plats 6-7</p>
-              <span class="booking-status upcoming">Kommande</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tab: Watched Movies -->
-      <div class="profile-tab-content" id="tabWatched">
-        <div class="profile-watched-grid">
-          <div class="profile-watched-card">
-            <img src="images/once-upon-a-time.png" alt="Once Upon a Time in Hollywood">
-            <div class="watched-info">
-              <h4>Once Upon a Time in Hollywood</h4>
-              <p class="watched-date"><i class="fas fa-calendar"></i> 2024-03-15</p>
-              <div class="watched-rating">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                <span>4.5/5</span>
-              </div>
-            </div>
-          </div>
-          <div class="profile-watched-card">
-            <img src="images/judy.png" alt="Judy">
-            <div class="watched-info">
-              <h4>Judy</h4>
-              <p class="watched-date"><i class="fas fa-calendar"></i> 2024-02-20</p>
-              <div class="watched-rating">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                <span>4/5</span>
-              </div>
-            </div>
-          </div>
-          <div class="profile-watched-card">
-            <img src="images/ladybird.png" alt="Lady Bird">
-            <div class="watched-info">
-              <h4>Lady Bird</h4>
-              <p class="watched-date"><i class="fas fa-calendar"></i> 2024-01-10</p>
-              <div class="watched-rating">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                <span>5/5</span>
-              </div>
-            </div>
-          </div>
-          <div class="profile-watched-card">
-            <img src="images/pexels-photo-903454.jpeg" alt="The Grand Budapest Hotel">
-            <div class="watched-info">
-              <h4>The Grand Budapest Hotel</h4>
-              <p class="watched-date"><i class="fas fa-calendar"></i> 2023-12-05</p>
-              <div class="watched-rating">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                <span>4.5/5</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="watched-stats">
-          <div class="watched-stat">
-            <span class="watched-stat-num">12</span>
-            <span class="watched-stat-label">Filmer sedda</span>
-          </div>
-          <div class="watched-stat">
-            <span class="watched-stat-num">4.3</span>
-            <span class="watched-stat-label">Snittbetyg</span>
-          </div>
-          <div class="watched-stat">
-            <span class="watched-stat-num">Drama</span>
-            <span class="watched-stat-label">Favoritgenre</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tab: Cards & Discounts -->
-      <div class="profile-tab-content" id="tabCards">
-        <div class="profile-cards-list">
-          <div class="profile-card-item">
-            <div class="profile-card-visual presentkort-visual">
-              <img src="images/logobio.png" alt="Din Bio">
-              <p class="card-amount">300 kr</p>
-              <p class="card-type">PRESENTKORT</p>
-            </div>
-            <div class="profile-card-details">
-              <h4>Presentkort</h4>
-              <p>Saldo: <strong>300 kr</strong></p>
-              <p>Giltigt till: 2026-03-15</p>
-              <p class="card-code">Kod: GC-2024-8742</p>
-            </div>
-          </div>
-
-          <div class="profile-card-item">
-            <div class="profile-card-visual family-visual">
-              <i class="fas fa-users"></i>
-              <p class="card-type">FAMILJERABATT</p>
-            </div>
-            <div class="profile-card-details">
-              <h4>Familjerabatt</h4>
-              <p>Typ: <strong>Familj (4 personer)</strong></p>
-              <p>Rabatt: <strong>20% på alla biljetter</strong></p>
-              <p>Status: <span class="card-active">Aktiv</span></p>
-            </div>
-          </div>
-
-          <div class="profile-card-item">
-            <div class="profile-card-visual member-visual">
-              <i class="fas fa-crown"></i>
-              <p class="card-type">MEDLEMSKORT</p>
-            </div>
-            <div class="profile-card-details">
-              <h4>Bio-medlemskap</h4>
-              <p>Nivå: <strong>Guld</strong></p>
-              <p>Poäng: <strong>1 250 p</strong></p>
-              <p>Nästa nivå: 1 500 p (Platinum)</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script>
+    // Set giftcard balance fill widths from data attributes
+    document.querySelectorAll('.giftcard-balance-fill').forEach(fill => {
+      const width = fill.dataset.width || '0';
+      fill.style.width = width + '%';
+    });
+
     // Close mobile menu when clicking a link
     document.querySelectorAll('.mobile-nav a').forEach(link => {
       link.addEventListener('click', () => {
@@ -2426,12 +2247,129 @@
 
     // ==========================================
 
+    // SIMPLE LOGIN / LOGOUT (DEMO) INSIDE PROFILE MODAL
+    // ==========================================
+    let isLoggedIn = false;
+
+    const profileAuthContent = document.getElementById('profileAuthContent');
+    const profileMainContent = document.getElementById('profileMainContent');
+    const profileAuthForm = document.getElementById('profileAuthForm');
+    const createAccountBtn = document.getElementById('createAccountBtn');
+    const profileLogoutBtn = document.getElementById('profileLogoutBtn');
+    const authEmailInput = document.getElementById('authEmail');
+    const useStoredEmailBtn = document.getElementById('useStoredEmailBtn');
+    const keepLoggedInCheckbox = document.getElementById('keepLoggedIn');
+
+    const storedEmail = localStorage.getItem('dinbioUserEmail') || '';
+    const storedKeepLoggedIn = localStorage.getItem('dinbioKeepLoggedIn') === '1';
+
+    if (storedKeepLoggedIn) {
+      isLoggedIn = true;
+    }
+
+    if (useStoredEmailBtn) {
+      if (storedEmail) {
+        useStoredEmailBtn.style.display = 'inline-flex';
+        useStoredEmailBtn.textContent = `Använd sparad e-post (${storedEmail})`;
+      } else {
+        useStoredEmailBtn.style.display = 'none';
+      }
+    }
+
+    function updateProfileAuthUI() {
+      if (!profileAuthContent || !profileMainContent) return;
+
+      if (isLoggedIn) {
+        profileAuthContent.style.display = 'none';
+        profileMainContent.style.display = '';
+      } else {
+        profileAuthContent.style.display = '';
+        profileMainContent.style.display = 'none';
+      }
+    }
+
+    if (profileAuthForm) {
+      profileAuthForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = authEmailInput ? authEmailInput.value : '';
+        if (email) {
+          localStorage.setItem('dinbioUserEmail', email);
+          if (useStoredEmailBtn) {
+            useStoredEmailBtn.style.display = 'inline-flex';
+            useStoredEmailBtn.textContent = `Använd sparad e-post (${email})`;
+          }
+        }
+        isLoggedIn = true;
+        if (keepLoggedInCheckbox && keepLoggedInCheckbox.checked) {
+          localStorage.setItem('dinbioKeepLoggedIn', '1');
+        } else {
+          localStorage.removeItem('dinbioKeepLoggedIn');
+        }
+        updateProfileAuthUI();
+        alert('Du är nu inloggad (demo).');
+      });
+    }
+
+    if (createAccountBtn) {
+      createAccountBtn.addEventListener('click', () => {
+        const email = authEmailInput ? authEmailInput.value : '';
+        if (email) {
+          localStorage.setItem('dinbioUserEmail', email);
+          if (useStoredEmailBtn) {
+            useStoredEmailBtn.style.display = 'inline-flex';
+            useStoredEmailBtn.textContent = `Använd sparad e-post (${email})`;
+          }
+        }
+        isLoggedIn = true;
+        if (keepLoggedInCheckbox && keepLoggedInCheckbox.checked) {
+          localStorage.setItem('dinbioKeepLoggedIn', '1');
+        } else {
+          localStorage.removeItem('dinbioKeepLoggedIn');
+        }
+        updateProfileAuthUI();
+        alert('Konto skapat och du är inloggad (demo).');
+      });
+    }
+
+    if (profileLogoutBtn) {
+      profileLogoutBtn.addEventListener('click', () => {
+        isLoggedIn = false;
+        localStorage.removeItem('dinbioKeepLoggedIn');
+        updateProfileAuthUI();
+      });
+    }
+
+    if (useStoredEmailBtn && storedEmail) {
+      useStoredEmailBtn.addEventListener('click', () => {
+        if (authEmailInput) {
+          authEmailInput.value = storedEmail;
+          authEmailInput.focus();
+        }
+      });
+    }
+
+    updateProfileAuthUI();
 
     // PROFILE MODAL
     // ==========================================
     const profileModal = document.getElementById('profileModal');
 
     function openProfileModal() {
+      // reset tabs to default ("Min lista") every time modal opens when logged in
+      if (isLoggedIn) {
+        const allTabs = document.querySelectorAll('.profile-tab');
+        const allContents = document.querySelectorAll('.profile-tab-content');
+        allTabs.forEach(t => t.classList.remove('active'));
+        allContents.forEach(c => c.classList.remove('active'));
+
+        const defaultTab = document.querySelector('.profile-tab[data-tab="bookings"]');
+        const defaultContent = document.getElementById('tabBookings');
+        if (defaultTab && defaultContent) {
+          defaultTab.classList.add('active');
+          defaultContent.classList.add('active');
+        }
+      }
+
       profileModal.classList.add('active');
       document.body.style.overflow = 'hidden';
       generateQRCode();
@@ -2461,18 +2399,12 @@
         this.classList.add('active');
 
         const tabId = 'tab' + this.dataset.tab.charAt(0).toUpperCase() + this.dataset.tab.slice(1);
-        document.getElementById(tabId).classList.add('active');
+        const content = document.getElementById(tabId);
+        if (content) {
+          content.classList.add('active');
+        }
       });
     });
-
-    // Save profile handlers
-    document.getElementById('saveProfileInfo').addEventListener('click', () => {
-      alert('Profil sparad!');
-    });
-    document.getElementById('saveProfileAddress').addEventListener('click', () => {
-      alert('Adress sparad!');
-    });
-
     // Generate QR code on canvas
     function generateQRCode() {
       const canvas = document.getElementById('profileQR');
@@ -2600,7 +2532,7 @@
     // Gift card buy button in main section
     document.querySelector('.giftcard-buy').addEventListener('click', openGiftcardModal);
 
-    document.getElementById('closeGiftcardModal').addEventListener('click', closeGiftcardModal);
+    document.getElementById('closeGiftcardModal1').addEventListener('click', closeGiftcardModal);
     document.getElementById('closeGiftcardConfirm').addEventListener('click', closeGiftcardModal);
     giftcardModal.addEventListener('click', (e) => {
       if (e.target === giftcardModal) closeGiftcardModal();
